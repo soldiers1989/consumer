@@ -54,7 +54,7 @@
                 android:textSize="12sp"
                 android:textColor="#666"
                 android:text="搜索记录"/>
-        <com.easyhome.serve.mvp.ui.widget.QGridView
+        <com.easyhome.jrconsumer.mvp.ui.widget.QGridView
                 android:id="@+id/item_header_city_gridview"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                 android:verticalSpacing="18dp"
                 android:layout_marginBottom="16dp"
                 android:horizontalSpacing="11dp">
-        </com.easyhome.serve.mvp.ui.widget.QGridView>
+        </com.easyhome.jrconsumer.mvp.ui.widget.QGridView>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
