@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.animation.AnimationUtils
 
 import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
@@ -47,17 +48,6 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
 
     override fun initData(savedInstanceState: Bundle?) {
 
-        forgetPasswordTV.singleClick {
-            startActivity<RetrievePasswordActivity>()
-        }
-        goRegisterTV.singleClick {
-        }
-
-
-        /* mPresenter!!.test("aaa","7"){
-
-             print("000----------")
-         }*/
 
         accountTV.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
@@ -112,10 +102,37 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
             passwordED.text.clear()
         }
         loginB.singleClick {
-              startActivity<MainActivity>()
-           /* mPresenter!!.login(accountTV.text.toString().trim(), passwordED.text.toString()) {
-                startActivity<Main2Activity>()
-            }*/
+            startActivity<MainActivity>()
+
+        }
+
+
+        goRegisterTV.singleClick {
+            val hide = AnimationUtils.loadAnimation(this, R.anim.gradually_hide)
+            passwordCL.startAnimation(hide);
+            forgetpsw.startAnimation(hide)
+            forgetpsw.visibility = View.GONE
+            passwordCL.visibility = View.GONE
+
+            val show = AnimationUtils.loadAnimation(this, R.anim.gradually_show)
+            verificationCL.startAnimation(show)
+            verificationCL.visibility = View.VISIBLE
+
+
+        }
+        goRegisterTV2.singleClick {
+            val hide = AnimationUtils.loadAnimation(this, R.anim.gradually_hide)
+            verificationCL.startAnimation(hide)
+            verificationCL.visibility = View.GONE
+
+            val show = AnimationUtils.loadAnimation(this, R.anim.gradually_show)
+            forgetpsw.startAnimation(show)
+            passwordCL.startAnimation(show)
+            forgetpsw.visibility = View.VISIBLE
+            passwordCL.visibility = View.VISIBLE
+
+
+
         }
 
     }
