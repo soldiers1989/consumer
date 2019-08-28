@@ -48,8 +48,7 @@ class RetrievePasswordActivity : JRBaseActivity<RetrievePasswordPresenter>(), Re
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        nextB.singleClick { startActivity<ConfirmActivity>() }
-        ivPageBack.setImageResource(R.mipmap.back)
+        tvPageTitle.text = "忘记密码"
         ivPageBack.singleClick { finish() }
         nextB.singleClick {
             startActivity<ConfirmActivity>()
@@ -62,16 +61,7 @@ class RetrievePasswordActivity : JRBaseActivity<RetrievePasswordPresenter>(), Re
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (p0.toString().length > 0) {
-                    accountClean.visibility = View.VISIBLE
 
-                } else {
-                    accountClean.visibility = View.GONE
-                }
-                if (p0.toString().length == 11) {
-                    smsB.isChecked = true
-                    smsB.isEnabled = true
-                }
             }
 
         })
@@ -83,34 +73,16 @@ class RetrievePasswordActivity : JRBaseActivity<RetrievePasswordPresenter>(), Re
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (p0.toString().length > 0) {
-                    passwordClean.visibility = View.VISIBLE
 
-                } else {
-                    passwordClean.visibility = View.GONE
-                }
-                if (p0.toString().length == 4 && accountTV.text.toString().trim().length == 11) {
-                    nextB.isChecked = true
-                    nextB.isEnabled = true
-                }else{
-                    nextB.isChecked = false
-                    nextB.isEnabled = false
-                }
             }
 
         })
 
-        accountClean.singleClick {
-            accountTV.text.clear()
-        }
-        passwordClean.singleClick {
-            passwordED.text.clear()
-        }
+
         smsB.singleClick {
             smsB.backgroundResource = R.drawable.bg_amount_layout
             smsB.textColor = R.color.color999
-            smsB.text= "已发送(${60}s)"
-
+            smsB.text = "已发送(${60}s)"
             timer()
         }
     }
@@ -141,7 +113,7 @@ class RetrievePasswordActivity : JRBaseActivity<RetrievePasswordPresenter>(), Re
                 } else {
                     smsB.backgroundResource = R.drawable.login_rb_bac
                     smsB.textColor = R.color.white
-                    smsB.text="获取手机验证码"
+                    smsB.text = "获取验证码"
                 }
             }
         }

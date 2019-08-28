@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.layout_title.*
 
 
 /**
- * 确认修改密码
+ * 设置新密码
  */
 class ConfirmActivity : JRBaseActivity<ConfirmPresenter>(), ConfirmContract.View {
     override fun getMyself(): BaseActivity<*> = this
@@ -44,9 +44,8 @@ class ConfirmActivity : JRBaseActivity<ConfirmPresenter>(), ConfirmContract.View
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        ivPageBack.setImageResource(R.mipmap.back)
         ivPageBack.singleClick { finish() }
-
+        tvPageTitle.text = "设置新密码"
         accountTV.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }
@@ -56,11 +55,7 @@ class ConfirmActivity : JRBaseActivity<ConfirmPresenter>(), ConfirmContract.View
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 println("输入的是${p0.toString()}")
-                if (p0.toString().length > 0) {
-                    accountClean.visibility = View.VISIBLE
-                } else {
-                    accountClean.visibility = View.GONE
-                }
+
             }
 
         })
@@ -73,19 +68,7 @@ class ConfirmActivity : JRBaseActivity<ConfirmPresenter>(), ConfirmContract.View
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 println("输入的是${p0.toString()}")
-                if (p0.toString().length > 0) {
-                    passwordClean.visibility = View.VISIBLE
-                } else {
-                    passwordClean.visibility = View.GONE
-                }
 
-                if (p0.toString().length > 0 && accountTV.text.toString().trim().length > 0) {
-                    confirmB.isChecked = true
-                    confirmB.isEnabled = true
-                } else {
-                    confirmB.isChecked = false
-                    confirmB.isEnabled = false
-                }
             }
 
         })

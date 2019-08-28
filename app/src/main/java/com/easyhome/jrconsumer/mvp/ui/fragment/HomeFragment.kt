@@ -30,6 +30,7 @@ import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.search.CityPickerActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.DesignCaseAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.MedicineAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.OptionAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.ProjectDynamicTabAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -63,9 +64,11 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
 
     override fun initData(savedInstanceState: Bundle?) {
 
-        dataRV.adapter = DesignCaseAdapter(arrayListOf("","","",""))
-
-
+        dataRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
+        cityRV.adapter = OptionAdapter(arrayListOf("北京", "北京", "北京", "北京", "北京", "北京"))
+        houseTypeRV.adapter = OptionAdapter(arrayListOf("一室一厅", "一室一厅", "一室一厅", "一室一厅", "一室一厅", "一室一厅"))
+        areaRV.adapter = OptionAdapter(arrayListOf("小于60m2", "60-80m2", "0-80m2", "0-80m2", "0-80m2", "0-80m2"))
+        styleRV.adapter = OptionAdapter(arrayListOf("中式", "美式", "地中海", "阿拉伯", "北美", "混合"))
 
     }
 

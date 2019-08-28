@@ -105,7 +105,9 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
             startActivity<MainActivity>()
 
         }
-
+        forgetpsw.singleClick {
+            startActivity<RetrievePasswordActivity>()
+        }
 
         goRegisterTV.singleClick {
             val hide = AnimationUtils.loadAnimation(this, R.anim.gradually_hide)
@@ -130,7 +132,6 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
             passwordCL.startAnimation(show)
             forgetpsw.visibility = View.VISIBLE
             passwordCL.visibility = View.VISIBLE
-
 
 
         }
