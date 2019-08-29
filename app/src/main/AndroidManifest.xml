@@ -63,7 +63,6 @@
                 android:value="667"/>
 
         <activity android:name=".mvp.ui.activity.WelcomeActivity">
-
         </activity>
         <activity
                 android:name=".mvp.ui.activity.MainActivity"
@@ -101,10 +100,8 @@
                 android:name="com.easyhome.jrconsumer.app.GlobalConfiguration"
                 android:value="ConfigModule"/>
 
-
         <activity android:name=".mvp.ui.activity.search.CityPickerActivity">
         </activity>
-
         <activity android:name=".mvp.ui.activity.user.UserDataActivity">
         </activity>
         <activity android:name=".mvp.ui.activity.user.DeliveryAddressActivity">
@@ -114,6 +111,8 @@
         <activity android:name=".mvp.ui.activity.recommend.ClassicCaseActivity">
         </activity>
         <activity android:name=".mvp.ui.activity.recommend.DesignerListActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.recommend.ConstructionTeamActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

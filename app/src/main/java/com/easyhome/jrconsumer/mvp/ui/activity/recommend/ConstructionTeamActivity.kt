@@ -7,49 +7,49 @@ import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
 import com.jess.arms.utils.ArmsUtils
 
-import com.easyhome.jrconsumer.di.component.DaggerDesignerListComponent
-import com.easyhome.jrconsumer.di.module.DesignerListModule
-import com.easyhome.jrconsumer.mvp.contract.recommend.DesignerListContract
-import com.easyhome.jrconsumer.mvp.presenter.recommend.DesignerListPresenter
+import com.easyhome.jrconsumer.di.component.DaggerConstructionTeamComponent
+import com.easyhome.jrconsumer.di.module.ConstructionTeamModule
+import com.easyhome.jrconsumer.mvp.contract.recommend.ConstructionTeamContract
+import com.easyhome.jrconsumer.mvp.presenter.recommend.ConstructionTeamPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
-import com.easyhome.jrconsumer.mvp.ui.adapter.DesignCaseAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.ConstructionTeamAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.DesignerListAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.OptionAdapter
-import kotlinx.android.synthetic.main.activity_designer_list.*
+import kotlinx.android.synthetic.main.activity_construction_team.*
 import kotlinx.android.synthetic.main.layout_title.*
 
 
 /**
- * 设计师
+ * 施工队
  */
-class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerListContract.View {
+class ConstructionTeamActivity : JRBaseActivity<ConstructionTeamPresenter>(), ConstructionTeamContract.View {
     override fun getMyself(): BaseActivity<*> = this
 
     override fun setupActivityComponent(appComponent: AppComponent) {
-        DaggerDesignerListComponent //如找不到该类,请编译一下项目
+        DaggerConstructionTeamComponent //如找不到该类,请编译一下项目
             .builder()
             .appComponent(appComponent)
-            .designerListModule(DesignerListModule(this))
+            .constructionTeamModule(ConstructionTeamModule(this))
             .build()
             .inject(this)
     }
 
 
     override fun initView(savedInstanceState: Bundle?): Int {
-        return R.layout.activity_designer_list //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+        return R.layout.activity_construction_team //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
     }
 
 
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "设计师"
         ivPageBack.singleClick { killMyself() }
-        dataRV.adapter = DesignerListAdapter(arrayListOf("", "", "", ""))
+        dataRV.adapter = ConstructionTeamAdapter(arrayListOf("", "", "", ""))
+
         cityRV.adapter = OptionAdapter(arrayListOf("北京", "上海", "天津", "重庆", "保定", "象牙山"))
-        houseTypeRV.adapter = OptionAdapter(arrayListOf("中式", "美式", "地中海", "阿拉伯", "北美", "混合"))
-        areaRV.adapter = OptionAdapter(arrayListOf("300-500", "500-800", "800-1000", "1000-2000"))
+        levelRV.adapter = OptionAdapter(arrayListOf("资深", "高级", "中级", "初级"))
     }
 
 
