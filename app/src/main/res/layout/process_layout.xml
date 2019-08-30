@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp">
+    <ImageView
+            android:id="@+id/head"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:background="@color/red"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="8dp"/>
+
+
+    <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="周远达"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColor="@color/color333"
+            android:layout_marginLeft="9dp"
+            app:layout_constraintLeft_toRightOf="@id/head"
+            app:layout_constraintTop_toTopOf="@id/head"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="综合评分：4.5"
+              android:textSize="12sp"
+              android:gravity="center"
+              android:textColor="@color/color666"
+              android:layout_marginLeft="5dp"
+              app:layout_constraintLeft_toRightOf="@id/name"
+              app:layout_constraintBaseline_toBaselineOf="@id/name"/>
+    <TextView
+            android:id="@+id/skilled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="项目经理：周远达项目经理：周远达项目经理：周远达项目经理：周远达项目经理：周远达项目经理：周远达"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="@color/color666"
+            android:layout_marginTop="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name"/>
+
+</android.support.constraint.ConstraintLayout>

@@ -117,13 +117,18 @@
         <activity android:name=".mvp.ui.activity.project.SchedulingPlanActivity">
         </activity>
         <activity android:name=".mvp.ui.activity.user.AlterPhoneNumberActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".mvp.ui.activity.user.ConfirmPhoneNumberActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.project.DecorateProcessActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.CooperativeBrandActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.CalendarActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

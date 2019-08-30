@@ -9,7 +9,7 @@
             android:id="@+id/vvImmersionView"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:background="@color/color529"
+            android:background="@color/color366"
             app:layout_constraintTop_toTopOf="parent"/>
 
     <include

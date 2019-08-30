@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="62dp"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white">
+
+    <TextView
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:text="地板"
+              android:gravity="center"
+              android:textColor="@color/black"
+              android:textSize="13sp"/>
+    <View
+          android:id="@+id/vLine"
+            android:layout_width="1dp"
+          android:layout_height="match_parent"
+          android:background="@color/colorF1F"
+          app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
