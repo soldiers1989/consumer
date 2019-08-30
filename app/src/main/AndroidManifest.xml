@@ -113,6 +113,8 @@
         <activity android:name=".mvp.ui.activity.recommend.DesignerListActivity">
         </activity>
         <activity android:name=".mvp.ui.activity.recommend.ConstructionTeamActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.project.SchedulingPlanActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
