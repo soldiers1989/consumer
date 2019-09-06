@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.layout_title.*
 
 
 /**
- * 施工队
+ * 施工队列表
  */
 class ConstructionTeamActivity : JRBaseActivity<ConstructionTeamPresenter>(), ConstructionTeamContract.View {
     override fun getMyself(): BaseActivity<*> = this
@@ -44,7 +44,7 @@ class ConstructionTeamActivity : JRBaseActivity<ConstructionTeamPresenter>(), Co
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        tvPageTitle.text = "设计师"
+        tvPageTitle.text = "施工队列表"
         ivPageBack.singleClick { killMyself() }
         dataRV.adapter = ConstructionTeamAdapter(arrayListOf("", "", "", ""))
 

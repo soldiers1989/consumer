@@ -18,20 +18,12 @@ import com.easyhome.jrconsumer.mvp.presenter.fragment.MallPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
+import com.easyhome.jrconsumer.mvp.ui.adapter.NewHomeAdapter
+import kotlinx.android.synthetic.main.fragment_mall.*
 
 
 /**
- * 如果没presenter
- * 你可以这样写
- *
- * @FragmentScope(請注意命名空間) class NullObjectPresenterByFragment
- * @Inject constructor() : IPresenter {
- * override fun onStart() {
- * }
- *
- * override fun onDestroy() {
- * }
- * }
+ * 新家
  */
 class MallFragment : JRBaseFragment<MallPresenter>(), MallContract.View {
     override fun getMyself(): BaseActivity<*> = this.activity as MainActivity
@@ -58,7 +50,7 @@ class MallFragment : JRBaseFragment<MallPresenter>(), MallContract.View {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-
+        listRV.adapter = NewHomeAdapter(arrayListOf("", ""))
     }
 
     /**

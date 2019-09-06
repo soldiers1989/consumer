@@ -7,17 +7,35 @@
         android:layout_height="match_parent">
 
     <ImageView
-            android:id="@+id/logoIV"
+            android:id="@+id/logoBacIV"
             android:layout_width="match_parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:background="@color/color529"
-            android:layout_height="278dp"/>
+            android:background="@mipmap/jr_logo_top_bac"
+            android:layout_height="wrap_content"/>
+    <ImageView
+            android:id="@+id/logoBacIV_2"
+            android:layout_width="match_parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:visibility="gone"
+            android:background="@mipmap/jr_logo_top_bac_2"
+            android:layout_height="wrap_content"/>
+    <ImageView
+            android:id="@+id/logoIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@mipmap/jr_logo_w_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="92dp"
+    />
 
     <FrameLayout
             android:id="@+id/loginFL"
             android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/logoIV"
+            app:layout_constraintTop_toBottomOf="@id/logoBacIV"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="40dp"

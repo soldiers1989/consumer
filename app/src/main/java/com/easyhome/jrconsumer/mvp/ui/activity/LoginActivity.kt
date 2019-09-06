@@ -113,25 +113,33 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
             val hide = AnimationUtils.loadAnimation(this, R.anim.gradually_hide)
             passwordCL.startAnimation(hide);
             forgetpsw.startAnimation(hide)
+            logoBacIV.startAnimation(hide)
             forgetpsw.visibility = View.GONE
             passwordCL.visibility = View.GONE
+            logoBacIV.visibility = View.INVISIBLE
+
 
             val show = AnimationUtils.loadAnimation(this, R.anim.gradually_show)
             verificationCL.startAnimation(show)
+            logoBacIV_2.startAnimation(show)
             verificationCL.visibility = View.VISIBLE
-
+            logoBacIV_2.visibility = View.VISIBLE
 
         }
         goRegisterTV2.singleClick {
             val hide = AnimationUtils.loadAnimation(this, R.anim.gradually_hide)
             verificationCL.startAnimation(hide)
+            logoBacIV_2.startAnimation(hide)
             verificationCL.visibility = View.GONE
+            logoBacIV_2.visibility = View.GONE
 
             val show = AnimationUtils.loadAnimation(this, R.anim.gradually_show)
             forgetpsw.startAnimation(show)
             passwordCL.startAnimation(show)
+            logoBacIV.startAnimation(show)
             forgetpsw.visibility = View.VISIBLE
             passwordCL.visibility = View.VISIBLE
+            logoBacIV.visibility = View.VISIBLE
 
 
         }

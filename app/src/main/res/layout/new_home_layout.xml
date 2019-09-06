@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="278dp"
+               android:background="@mipmap/text_bac_1"
+    />
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="278dp"
+               android:background="@mipmap/vague_bac"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:textColor="@color/white"
+              android:textSize="17sp"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_marginTop="110dp"
+              android:text="北纬40度2号楼1003\n三室一厅  |  100m²  |  新房\n待量房"
+
+    />
+</android.support.constraint.ConstraintLayout>

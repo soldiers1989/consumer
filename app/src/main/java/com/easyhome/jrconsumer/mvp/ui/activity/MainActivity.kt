@@ -69,11 +69,11 @@ class MainActivity : JRBaseActivity<Main2Presenter>(), Main2Contract.View {
 
         mIconUnSelectIds = intArrayOf(
             R.mipmap.tab_message_default,
-            R.mipmap.tab_home_default,
+            R.mipmap.jr_tab_home_f,
             R.mipmap.tab_my_default
         )
         mIconSelectIds = intArrayOf(
-            R.mipmap.tab_message_selected,
+            R.mipmap.jr_tab_main_icon_t,
             R.mipmap.tab_home_selected,
             R.mipmap.tab_my_selected
         )

@@ -26,13 +26,16 @@ import com.easyhome.jrconsumer.api.RequestCodeInfo
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.app.extension.loadImage
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.recommend.ClassicCaseActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.recommend.ConstructionTeamActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.recommend.DesignerListActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.search.CityPickerActivity
-import com.easyhome.jrconsumer.mvp.ui.adapter.DesignCaseAdapter
-import com.easyhome.jrconsumer.mvp.ui.adapter.MedicineAdapter
-import com.easyhome.jrconsumer.mvp.ui.adapter.OptionAdapter
-import com.easyhome.jrconsumer.mvp.ui.adapter.ProjectDynamicTabAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.anko.support.v4.startActivity
 
 
 /**
@@ -63,12 +66,42 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        val sAdapter = HomeServeAdapter(
+            arrayListOf(
+                MPair(R.mipmap.serve_icon_1, "精品案例"),
+                MPair(R.mipmap.serve_icon_2, "产品介绍"),
+                MPair(R.mipmap.serve_icon_3, "合作品牌"),
+                MPair(R.mipmap.serve_icon_4, "门店信息"),
+                MPair(R.mipmap.serve_icon_5, "设计师"),
+                MPair(R.mipmap.serve_icon_6, "施工队"),
+                MPair(R.mipmap.serve_icon_7, "直播间"),
+                MPair(R.mipmap.serve_icon_8, "装修计算器")
+            )
+        )
+        sAdapter.setOnItemClickListener { adapter, view, position ->
 
-        dataRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
-        cityRV.adapter = OptionAdapter(arrayListOf("北京", "北京", "北京", "北京", "北京", "北京"))
-        houseTypeRV.adapter = OptionAdapter(arrayListOf("一室一厅", "一室一厅", "一室一厅", "一室一厅", "一室一厅", "一室一厅"))
-        areaRV.adapter = OptionAdapter(arrayListOf("小于60m2", "60-80m2", "0-80m2", "0-80m2", "0-80m2", "0-80m2"))
-        styleRV.adapter = OptionAdapter(arrayListOf("中式", "美式", "地中海", "阿拉伯", "北美", "混合"))
+            when (position) {
+                0 -> startActivity<ClassicCaseActivity>()
+                4 -> startActivity<DesignerListActivity>()
+                5 -> startActivity<ConstructionTeamActivity>()
+                6 -> startActivity<LiveActivity>()
+            }
+
+        }
+        serveRV.adapter = sAdapter
+        processRV.adapter = HomeServe2Adapter(
+            arrayListOf(
+                MPair(R.mipmap.process_icon_1, "在线预约"),
+                MPair(R.mipmap.process_icon_2, "上门量房"),
+                MPair(R.mipmap.process_icon_3, "预交底"),
+                MPair(R.mipmap.process_icon_4, "施  工"),
+                MPair(R.mipmap.process_icon_5, "验  收"),
+                MPair(R.mipmap.process_icon_6, "更多详情")
+            )
+        )
+
+        caseRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
+        liveRV.adapter = LiveAdapter(arrayListOf("", "", "", ""))
 
     }
 

@@ -55,12 +55,14 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
     override fun initData(savedInstanceState: Bundle?) {
         var adaptr = MySelectAdapter(
             arrayListOf(
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "预约"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "保修"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "售后"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "客服"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "消息"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "设置")
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "保修政策"),
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "投诉/保修"),
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "联系客服"),
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "关务我们"),
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "我的评分"),
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "设置"),
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "分享好友"),
+                MySelectAdapter.Info(R.mipmap.my_icon_6, "项目服务人员信息")
             )
         )
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/login_rb_bac"
+        android:layout_margin="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:background="@mipmap/text_bac_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+    <ImageView
+            android:id="@+id/video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/video_icon"
+            app:layout_constraintTop_toTopOf="@id/cover"
+            app:layout_constraintBottom_toBottomOf="@id/cover"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+            android:id="@+id/liveName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="北纬35°第一期"
+            android:textColor="@color/color555"
+            android:textSize="12sp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintLeft_toLeftOf="@id/cover"
+            app:layout_constraintTop_toBottomOf="@id/cover"
+            android:layout_marginTop="7dp"/>
+    <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="王先生   350㎡\n开工日期：2019-07-22\n施工状态：已竣工"
+            android:textColor="@color/color555"
+            android:textSize="12sp"
+            android:gravity="left"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintLeft_toLeftOf="@id/cover"
+            app:layout_constraintTop_toBottomOf="@id/liveName"
+            android:layout_marginTop="7dp"/>
+
+</android.support.constraint.ConstraintLayout>
