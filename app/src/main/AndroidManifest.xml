@@ -133,6 +133,22 @@
         </activity>
         <activity android:name=".mvp.ui.activity.live.LiveActivity">
         </activity>
+        <activity android:name=".mvp.ui.activity.RepairsRuleActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.RepairDetailsActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.ComplaintOrRepairsActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.user.EditNameActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.user.SettingActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.user.AboutAppActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.PredetermineActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.live.LiveDetailsActivity">
+        </activity>
     </application>
 
 </manifest>

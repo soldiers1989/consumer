@@ -27,6 +27,7 @@ import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.app.extension.loadImage
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
+import com.easyhome.jrconsumer.mvp.ui.activity.CooperativeBrandActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.recommend.ClassicCaseActivity
@@ -82,6 +83,7 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
 
             when (position) {
                 0 -> startActivity<ClassicCaseActivity>()
+                2 -> startActivity<CooperativeBrandActivity>()
                 4 -> startActivity<DesignerListActivity>()
                 5 -> startActivity<ConstructionTeamActivity>()
                 6 -> startActivity<LiveActivity>()

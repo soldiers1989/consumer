@@ -68,14 +68,14 @@ class MainActivity : JRBaseActivity<Main2Presenter>(), Main2Contract.View {
         //   DialogUtils.showUpDataDialog(this, "2.0版本", "http://candao.qizhekeji.com/app-release.apk")
 
         mIconUnSelectIds = intArrayOf(
-            R.mipmap.tab_message_default,
+            R.mipmap.jr_tab_main_icon_f,
             R.mipmap.jr_tab_home_f,
-            R.mipmap.tab_my_default
+            R.mipmap.jr_my_icon_f
         )
         mIconSelectIds = intArrayOf(
             R.mipmap.jr_tab_main_icon_t,
-            R.mipmap.tab_home_selected,
-            R.mipmap.tab_my_selected
+            R.mipmap.jr_tab_home_t,
+            R.mipmap.jr_my_icon_t
         )
         mTabTitles = arrayOf("首页", "新家", "我的")
 

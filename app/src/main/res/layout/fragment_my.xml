@@ -44,15 +44,28 @@
             android:id="@+id/nicknameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:textColor="@color/white"
-            android:text="用户"
+            android:text="黄轩"
             app:layout_constraintTop_toTopOf="@id/headIV"
-            app:layout_constraintBottom_toBottomOf="@id/headIV"
             app:layout_constraintLeft_toRightOf="@id/headIV"
-            android:layout_marginLeft="17dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"/>
+    <TextView
+            android:id="@+id/phoneTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:text="13209889199"
+            app:layout_constraintBottom_toBottomOf="@id/headIV"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintLeft_toRightOf="@id/headIV"
+            android:layout_marginLeft="15dp"/>
 
-    <ImageView android:layout_width="wrap_content"
+    <ImageView
+            android:id="@+id/userData"
+            android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                app:layout_constraintTop_toTopOf="@id/headIV"
                app:layout_constraintBottom_toBottomOf="@id/headIV"

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+            android:id="@+id/titleLL"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:orientation="horizontal"
+            android:background="#FFEEEEEE">
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="项目"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="保修期(月)"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="保修截止日期"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="状态"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/contentLL"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:orientation="horizontal"
+    >
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="防水"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="12"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="2019-07-19"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="已过保"
+                  android:gravity="center"
+                  android:textSize="14sp"
+                  android:textColor="@color/black"
+                  android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</LinearLayout>

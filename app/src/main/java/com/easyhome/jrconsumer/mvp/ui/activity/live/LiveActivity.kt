@@ -18,6 +18,7 @@ import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.ui.adapter.LiveAdapter
 import kotlinx.android.synthetic.main.activity_live.*
 import kotlinx.android.synthetic.main.layout_title.*
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -45,7 +46,13 @@ class LiveActivity : JRBaseActivity<LivePresenter>(), LiveContract.View {
 
         tvPageTitle.text = "直播间"
         ivPageBack.singleClick { killMyself() }
-        dataRV.adapter = LiveAdapter(arrayListOf("", "", "", ""))
+        val adapter = LiveAdapter(arrayListOf("", "", "", ""))
+        adapter.setOnItemClickListener { adapter, view, position ->
+            startActivity<LiveDetailsActivity>()
+        }
+        dataRV.adapter = adapter
+
+
     }
 
 

@@ -12,6 +12,7 @@ class DesignerListAdapter(data: List<String>) :
 
     override fun convert(helper: BaseViewHolder, item: String) {
 
+        helper.addOnClickListener(R.id.cancel)
         helper.getView<RecyclerView>(R.id.photoRV).adapter = PhotoAdapter(arrayListOf("", "", ""))
     }
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/white">
+
+    <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="项目编号：pm201908223323"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+    />
+    <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="状态：已竣工"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/number"
+    />
+    <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="三室一厅    230m²   新房"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/state"
+    />
+    <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="北京市 朝阳区 慧忠里第一社区 3号楼 304"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/type"
+    />
+
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               android:src="@mipmap/big_more_icon"
+    />
+
+</android.support.constraint.ConstraintLayout>

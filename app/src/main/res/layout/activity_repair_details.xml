@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:drawableLeft="@drawable/left_v_line"
+              android:layout_marginTop="17dp"
+              android:layout_marginLeft="12dp"
+              android:drawablePadding="10dp"
+              android:text="项目概况"
+              android:textColor="@color/black"
+              android:textSize="16sp"
+              android:layout_marginBottom="10dp"/>
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#979797"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="12dp"
+              android:layout_marginLeft="23dp"
+              android:text="项目编号：pm201908223323"
+              android:textColor="@color/black"
+              android:textSize="14sp"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:layout_marginLeft="23dp"
+              android:text="状态：已竣工"
+              android:textColor="@color/black"
+              android:textSize="13sp"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:layout_marginLeft="23dp"
+              android:gravity="left"
+              android:text="三室一厅    230m²   新房\n北京市 朝阳区 慧忠里第一社区 3号楼 304\n竣工日期：2019-07-28\n结算日期：2019-07-31"
+              android:textColor="@color/black"
+              android:textSize="12sp"
+    />
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:drawableLeft="@drawable/left_v_line"
+              android:layout_marginTop="45dp"
+              android:layout_marginLeft="12dp"
+              android:drawablePadding="10dp"
+              android:text="报修详情"
+              android:textColor="@color/black"
+              android:textSize="16sp"
+              android:layout_marginBottom="10dp"/>
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#979797"/>
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/itemRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            android:layout_marginTop="16dp"/>
+</LinearLayout>

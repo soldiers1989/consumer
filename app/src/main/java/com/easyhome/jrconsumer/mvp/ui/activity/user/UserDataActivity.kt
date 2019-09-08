@@ -27,7 +27,7 @@ import org.jetbrains.anko.startActivity
 
 
 /**
- * 用户资料
+ * 个人资料
  */
 class UserDataActivity : JRBaseActivity<UserDataPresenter>(), UserDataContract.View {
     override fun getMyself(): BaseActivity<*> = this
@@ -48,12 +48,14 @@ class UserDataActivity : JRBaseActivity<UserDataPresenter>(), UserDataContract.V
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        tvPageTitle.text = "用户资料"
+        tvPageTitle.text = "个人资料"
         userHeadIV.singleClick {
             selectPicture(this)
         }
+
         moreIV5.singleClick {
-            startActivity<DeliveryAddressActivity>()
+            //startActivity<DeliveryAddressActivity>()
+            startActivity<EditNameActivity>()
         }
     }
 

@@ -18,7 +18,10 @@ import com.easyhome.jrconsumer.mvp.presenter.fragment.MyPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.ui.activity.ComplaintOrRepairsActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.RepairsRuleActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.user.SettingActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.UserDataActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.MySelectAdapter
 import kotlinx.android.synthetic.main.fragment_my.*
@@ -53,28 +56,43 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        var adaptr = MySelectAdapter(
+        val sAdapter = MySelectAdapter(
             arrayListOf(
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "保修政策"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "投诉/保修"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "联系客服"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "关务我们"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "我的评分"),
+                MySelectAdapter.Info(R.mipmap.my_icon_1, "保修政策"),
+                MySelectAdapter.Info(R.mipmap.my_icon_2, "投诉/保修"),
+                MySelectAdapter.Info(R.mipmap.my_icon_3, "联系客服"),
+                MySelectAdapter.Info(R.mipmap.my_icon_4, "关务我们"),
+                MySelectAdapter.Info(R.mipmap.my_icon_5, "我的评分"),
                 MySelectAdapter.Info(R.mipmap.my_icon_6, "设置"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "分享好友"),
-                MySelectAdapter.Info(R.mipmap.my_icon_6, "项目服务人员信息")
+                MySelectAdapter.Info(R.mipmap.my_icon_7, "分享好友"),
+                MySelectAdapter.Info(R.mipmap.my_icon_8, "项目服务人员信息")
             )
         )
+        sAdapter.setOnItemClickListener { adapter, view, position ->
 
-        adaptr.addFooterView(LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null))
+            when(position){
+
+                0->{
+                    startActivity<RepairsRuleActivity>()
+                }
+                1->{
+                    startActivity<ComplaintOrRepairsActivity>()
+                }
+                5->{
+                    startActivity<SettingActivity>()
+                }
+            }
+
+        }
+        var adaptr =sAdapter
+
+            adaptr.addFooterView(LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null))
         userSelectRV.adapter = adaptr
 
-        nicknameTV.singleClick {
+        userData.singleClick {
             startActivity<UserDataActivity>()
         }
-        headIV.singleClick {
-            startActivity<UserDataActivity>()
-        }
+
     }
 
     /**
