@@ -157,6 +157,12 @@
         </activity>
         <activity android:name=".mvp.ui.activity.ScoreActivity">
         </activity>
+        <activity android:name=".mvp.ui.activity.user.CoupleBackActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.user.MakeComplaintActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.user.ShareActivity">
+        </activity>
     </application>
 
 </manifest>

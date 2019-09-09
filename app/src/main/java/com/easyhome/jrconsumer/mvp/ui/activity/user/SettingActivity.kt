@@ -47,7 +47,17 @@ class SettingActivity : JRBaseActivity<SettingPresenter>(), SettingContract.View
         ivPageBack.singleClick { killMyself() }
         val adapter = ItemAdapter(arrayListOf("关于APP", "意见反馈"))
         adapter.setOnItemClickListener { adapter, view, position ->
-            startActivity<AboutAppActivity>()
+            when(position){
+                0->{
+                    startActivity<AboutAppActivity>()
+                }
+                1->{
+                    startActivity<CoupleBackActivity>()
+
+                }
+
+            }
+
         }
         itemRV.adapter = adapter
 

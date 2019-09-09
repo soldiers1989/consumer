@@ -21,6 +21,7 @@ import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.ui.activity.ComplaintOrRepairsActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.RepairsRuleActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.user.MakeComplaintActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.SettingActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.UserDataActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.MySelectAdapter
@@ -70,23 +71,27 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
         )
         sAdapter.setOnItemClickListener { adapter, view, position ->
 
-            when(position){
+            when (position) {
 
-                0->{
+                0 -> {
                     startActivity<RepairsRuleActivity>()
                 }
-                1->{
-                    startActivity<ComplaintOrRepairsActivity>()
+                1 -> {
+                    //  startActivity<ComplaintOrRepairsActivity>()
+                    startActivity<MakeComplaintActivity>()
                 }
-                5->{
+                5 -> {
+                    startActivity<SettingActivity>()
+                }
+                6 -> {
                     startActivity<SettingActivity>()
                 }
             }
 
         }
-        var adaptr =sAdapter
+        var adaptr = sAdapter
 
-            adaptr.addFooterView(LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null))
+        adaptr.addFooterView(LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null))
         userSelectRV.adapter = adaptr
 
         userData.singleClick {
