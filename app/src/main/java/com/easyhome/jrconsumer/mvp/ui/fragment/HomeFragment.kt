@@ -30,6 +30,7 @@ import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.CooperativeBrandActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.message.MessageCenterActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.recommend.ClassicCaseActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.recommend.ConstructionTeamActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.recommend.DesignerListActivity
@@ -104,7 +105,7 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
 
         caseRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
         liveRV.adapter = LiveAdapter(arrayListOf("", "", "", ""))
-
+        message.singleClick { startActivity<MessageCenterActivity>() }
     }
 
     /**

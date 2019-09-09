@@ -180,7 +180,7 @@
                         android:id="@+id/villageTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="小群名称："
+                        android:text="小区名称："
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginLeft="34dp"
@@ -356,7 +356,7 @@
                         android:textSize="14sp"/>
 
             </android.support.constraint.ConstraintLayout>
-            <android.support.constraint.ConstraintLayout
+          <!--  <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -382,7 +382,7 @@
                           android:layout_marginRight="32dp"
                           android:layout_marginLeft="7dp"/>
 
-            </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>-->
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

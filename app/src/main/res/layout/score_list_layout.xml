@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:layout_constraintLeft_toLeftOf="parent"
+              android:layout_marginLeft="34dp"
+              android:text="客户顾问：刘芸"
+              android:textSize="12sp"
+              android:textColor="@color/black"/>
+    <TextView android:layout_width="80dp"
+              android:layout_height="wrap_content"
+              app:layout_constraintRight_toRightOf="parent"
+              android:layout_marginRight="20dp"
+              android:text="非常满意"
+              android:textSize="10sp"
+              android:textColor="@color/black"/>
+    <com.cb.ratingbar.CBRatingBar
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:starSize="17dp"
+            app:starCount="5"
+            app:starSpace="10dp"
+            app:starStrokeWidth="1dp"
+            app:starCanTouch="true"
+            app:starMaxProgress="120"
+            app:starProgress="60"
+            app:starShowStroke="true"
+            app:starUseGradient="true"
+            app:starStartColor="#ffc600"
+            app:starEndColor="#ffc600"
+            app:starCoverColor="#ffc600"
+            app:starFillColor="#999"
+            app:starPointCount="5"
+            app:starStrokeColor="#0f0f0f"/>
+
+
+</android.support.constraint.ConstraintLayout>

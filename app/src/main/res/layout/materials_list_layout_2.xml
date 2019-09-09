@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@drawable/extensively_bac">
+
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/left_v_line"
+            android:drawablePadding="10dp"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"
+            android:text="订单标号 S2019222333"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintTop_toTopOf="@id/title"
+              app:layout_constraintBottom_toBottomOf="@id/title"
+              android:drawablePadding="10dp"
+              android:textSize="10sp"
+              android:textColor="@color/color366"
+              android:text="已下单"/>
+
+    <View
+            android:id="@+id/hLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorD8D"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:layout_marginTop="6dp"/>
+
+    <ImageView
+            android:id="@+id/logo"
+            android:layout_width="96dp"
+               android:layout_height="62dp"
+               android:background="@color/color366"
+               app:layout_constraintTop_toBottomOf="@id/hLine"
+               app:layout_constraintLeft_toLeftOf="parent"
+               android:layout_marginTop="10dp"
+    />
+    <TextView
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/logo"
+            app:layout_constraintLeft_toRightOf="@id/logo"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/color333"
+            android:text="九牧 | 北京九牧大区代理经销商 \n套餐 | 1200元 | 居然丽泽店"/>
+    <TextView
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/logo"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="5dp"
+            android:textSize="10sp"
+            android:textColor="@color/color999"
+            android:text="2019-07-11 11:21:35"/>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

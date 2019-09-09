@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:text="评分节点"
+            android:layout_marginLeft="12dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
+    <View
+            android:id="@+id/hLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorD8D"
+            app:layout_constraintTop_toBottomOf="@id/title"
+    />
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/scoreRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/hLine"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager">
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/scoreRV">
+
+
+        <TextView
+                android:id="@+id/remarkTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="备注："
+                android:gravity="right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="26dp"
+                android:textColor="@color/color333"
+                android:textSize="14sp"/>
+
+        <EditText android:layout_width="0dp"
+                  android:layout_height="59dp"
+                  android:hint="请留下您想对我们说的话！"
+                  android:textSize="12sp"
+                  android:gravity="left"
+                  android:padding="10dp"
+                  android:textColorHint="#cdcdcd"
+                  android:background="@drawable/bg_amount_layout"
+                  app:layout_constraintRight_toRightOf="parent"
+                  app:layout_constraintLeft_toRightOf="@id/remarkTV"
+                  app:layout_constraintTop_toTopOf="@id/remarkTV"
+                  android:layout_marginRight="32dp"
+                  android:layout_marginLeft="7dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="61dp"
+              app:layout_constraintBottom_toBottomOf="parent"
+              android:background="@color/color366"
+              android:text="提交"
+              android:gravity="center"
+              android:textColor="@color/white"
+              android:textSize="17sp"/>
+
+</android.support.constraint.ConstraintLayout>

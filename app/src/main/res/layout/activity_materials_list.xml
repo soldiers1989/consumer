@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:id="@+id/searchTV"
+                android:layout_width="match_parent"
+                android:hint="搜索设计案例、家装材料"
+                android:textCursorDrawable="@null"
+                android:gravity="center_vertical"
+                android:drawableLeft="@mipmap/search_icon"
+                android:background="@drawable/search_bac"
+                android:drawableRight="@mipmap/clean_icon"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:layout_height="27dp"/>
+
+        <RadioGroup android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="25dp">
+            <RadioButton
+                    android:id="@+id/tabRB1"
+                    android:layout_width="104dp"
+                    android:layout_height="33dp"
+                    android:button="@null"
+                    android:text="代购"
+                    android:gravity="center"
+                    android:textColor="@drawable/sex_text_select"
+                    android:textSize="14sp"
+                    android:background="@drawable/sex_select_4"/>
+
+            <RadioButton
+                    android:id="@+id/tabRB2"
+                    android:layout_width="104dp"
+                    android:layout_height="33dp"
+                    android:button="@null"
+                    android:text="外购"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:textColor="@drawable/sex_text_select"
+                    android:textSize="14sp"
+                    android:background="@drawable/sex_select_5"/>
+        </RadioGroup>
+
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/dataRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager">
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <RadioGroup android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:paddingTop="62dp"
+                android:visibility="gone"
+                android:background="@drawable/transparency_8000"
+    >
+        <RadioButton
+                android:id="@+id/tabRB3"
+                android:layout_width="104dp"
+                android:layout_height="33dp"
+                android:button="@null"
+                android:text="代购"
+                android:gravity="center"
+                android:textColor="@drawable/sex_text_select"
+                android:textSize="14sp"
+                android:background="@drawable/sex_select_4"/>
+
+        <RadioButton
+                android:id="@+id/tabRB4"
+                android:layout_width="104dp"
+                android:layout_height="33dp"
+                android:button="@null"
+                android:text="外购"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:textColor="@drawable/sex_text_select"
+                android:textSize="14sp"
+                android:background="@drawable/sex_select_5"/>
+    </RadioGroup>
+
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="61dp"
+                 android:layout_gravity="bottom">
+
+        <TextView
+                android:id="@+id/add"
+                android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/color366"
+                  android:text="添加额外购买的商品"
+                  android:textColor="@color/white"
+                  android:textSize="17sp"
+                  android:gravity="center"/>
+        <TextView
+                android:id="@+id/totle"
+                android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/white"
+                  android:text="订单合计：3600 元"
+                  android:textColor="@color/black"
+                  android:textSize="15sp"
+                  android:gravity="center_vertical|right"/>
+
+    </FrameLayout>
+</FrameLayout>

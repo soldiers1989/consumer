@@ -18,6 +18,8 @@
             android:drawableRight="@mipmap/clean_icon"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
             android:textSize="14sp"
             android:layout_marginTop="10dp"
             android:drawablePadding="10dp"

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/extensively_bac">
+
+
+    <ImageView
+            android:id="@+id/logo"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:background="@color/color366"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+    />
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/logo"
+            app:layout_constraintTop_toTopOf="@id/logo"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/color333"
+            android:text="门窗"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:layout_constraintLeft_toLeftOf="@id/title"
+              app:layout_constraintBottom_toTopOf="@id/dataTV"
+              android:drawablePadding="10dp"
+              android:textSize="11sp"
+              android:textColor="@color/color333"
+              android:text="九牧门窗 | 门窗用品\n200*108*60 | XH1009  |  九牧"/>
+    <TextView
+            android:id="@+id/dataTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/title"
+            app:layout_constraintBottom_toBottomOf="@id/logo"
+            android:drawablePadding="10dp"
+            android:textSize="11sp"
+            android:textColor="@color/color333"
+            android:text="收货日期"/>
+
+
+    <RadioButton android:id="@+id/info"
+                 android:layout_width="65dp"
+                 android:layout_height="0dp"
+                 android:text="删除"
+                 android:gravity="center"
+                 android:background="@drawable/sex_select_false_5"
+                 android:checked="true"
+                 android:textSize="12sp"
+                 android:button="@null"
+                 android:textColor="@color/color333"
+                 android:paddingLeft="8dp"
+                 android:paddingRight="8dp"
+                 app:layout_constraintRight_toRightOf="parent"
+                 app:layout_constraintTop_toTopOf="parent"
+                 app:layout_constraintBottom_toBottomOf="parent"
+    />
+
+</android.support.constraint.ConstraintLayout>

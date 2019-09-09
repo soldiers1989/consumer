@@ -149,6 +149,14 @@
         </activity>
         <activity android:name=".mvp.ui.activity.live.LiveDetailsActivity">
         </activity>
+        <activity android:name=".mvp.ui.activity.message.MessageCenterActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.project.MaterialsListActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.project.AddBuyCommodityActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.ScoreActivity">
+        </activity>
     </application>
 
 </manifest>
