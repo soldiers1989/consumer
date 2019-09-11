@@ -29,7 +29,9 @@ import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.CooperativeBrandActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.PredetermineActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveDetailsActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.message.MessageCenterActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.recommend.ClassicCaseActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.recommend.ConstructionTeamActivity
@@ -37,6 +39,7 @@ import com.easyhome.jrconsumer.mvp.ui.activity.recommend.DesignerListActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.search.CityPickerActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.startActivity
 
 
@@ -68,6 +71,7 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        showa.singleClick { startActivity<PredetermineActivity>() }
         val sAdapter = HomeServeAdapter(
             arrayListOf(
                 MPair(R.mipmap.serve_icon_1, "精品案例"),
@@ -96,15 +100,17 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
             arrayListOf(
                 MPair(R.mipmap.process_icon_1, "在线预约"),
                 MPair(R.mipmap.process_icon_2, "上门量房"),
-                MPair(R.mipmap.process_icon_3, "预交底"),
-                MPair(R.mipmap.process_icon_4, "施  工"),
-                MPair(R.mipmap.process_icon_5, "验  收"),
-                MPair(R.mipmap.process_icon_6, "更多详情")
+                MPair(R.mipmap.process_icon_3, " 预交底 "),
+                MPair(R.mipmap.process_icon_4, "更多详情")
             )
         )
 
         caseRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
-        liveRV.adapter = LiveAdapter(arrayListOf("", "", "", ""))
+        val lAdapter = LiveAdapter(arrayListOf("", "", "", ""))
+        lAdapter.setOnItemClickListener { adapter, view, position ->
+            startActivity<LiveDetailsActivity>()
+        }
+        liveRV.adapter = lAdapter
         message.singleClick { startActivity<MessageCenterActivity>() }
     }
 

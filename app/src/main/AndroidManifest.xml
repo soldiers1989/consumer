@@ -163,6 +163,8 @@
         </activity>
         <activity android:name=".mvp.ui.activity.user.ShareActivity">
         </activity>
+        <activity android:name=".mvp.ui.activity.ProjectInfoActivity">
+        </activity>
     </application>
 
 </manifest>

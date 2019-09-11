@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.layout_title.*
 class LiveDetailsActivity : JRBaseActivity<LiveDetailsPresenter>(), LiveDetailsContract.View {
     override fun getMyself(): BaseActivity<*> = this
 
-
+    override fun isUseParentLayout(): Boolean = false
     override fun setupActivityComponent(appComponent: AppComponent) {
         DaggerLiveDetailsComponent //如找不到该类,请编译一下项目
             .builder()
@@ -46,20 +46,21 @@ class LiveDetailsActivity : JRBaseActivity<LiveDetailsPresenter>(), LiveDetailsC
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        tvPageTitle.text = "直播详情"
-        ivPageBack.singleClick { killMyself() }
+        /* tvPageTitle.text = "直播详情"
+         ivPageBack.singleClick { killMyself() }*/
         progressRV.adapter = ProjectProgressAdapter(
             arrayListOf(
-                Pair(R.mipmap.ks_1, "量房"),
-                Pair(R.mipmap.ks_1, "预交底"),
-                Pair(R.mipmap.ks_1, "待开工"),
-                Pair(R.mipmap.ks_1, "施工中\n基础"),
-                Pair(R.mipmap.ks_1, "结算")
+                Pair(0, "开工交底"),
+                Pair(0, "隐蔽验收"),
+                Pair(1, "中期验收"),
+                Pair(2, "基础验收"),
+                Pair(2, "竣工验收"),
+                Pair(2, "结算")
             )
         )
 
         processRV1.adapter = Photo2Adapter(arrayListOf("", "", ""))
-        processRV2.adapter = DynamicAdapter(arrayListOf("", "", ""))
+        processRV2.adapter = DynamicAdapter(arrayListOf(""))
     }
 
 

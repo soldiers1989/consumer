@@ -18,8 +18,10 @@ import com.easyhome.jrconsumer.mvp.presenter.fragment.MallPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.ProjectInfoActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.NewHomeAdapter
 import kotlinx.android.synthetic.main.fragment_mall.*
+import org.jetbrains.anko.support.v4.startActivity
 
 
 /**
@@ -50,7 +52,13 @@ class MallFragment : JRBaseFragment<MallPresenter>(), MallContract.View {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        listRV.adapter = NewHomeAdapter(arrayListOf("", ""))
+        val adapter = NewHomeAdapter(arrayListOf("", ""))
+        adapter.setOnItemClickListener { adapter, view, position ->
+            startActivity<ProjectInfoActivity>()
+        }
+        listRV.adapter = adapter
+
+
     }
 
     /**

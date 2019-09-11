@@ -28,7 +28,7 @@
               android:drawablePadding="10dp"
               android:textSize="10sp"
               android:textColor="@color/color999"
-              android:text="促销优惠"/>
+              android:text="2019-07-11 11:21:35"/>
 
     <View
             android:id="@+id/hLine"

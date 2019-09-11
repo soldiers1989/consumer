@@ -42,6 +42,10 @@
                           app:layout_constraintLeft_toRightOf="@id/phoneTV"
                           app:layout_constraintTop_toTopOf="@id/phoneTV"
                           app:layout_constraintBottom_toBottomOf="@id/phoneTV"
+                          android:textSize="14sp"
+                          android:textColor="@color/color333"
+                          android:gravity="left"
+                          android:paddingLeft="5dp"
                           android:layout_marginRight="32dp"
                           android:layout_marginLeft="7dp"/>
 
@@ -70,6 +74,10 @@
                           app:layout_constraintLeft_toRightOf="@id/nameTV"
                           app:layout_constraintTop_toTopOf="@id/nameTV"
                           app:layout_constraintBottom_toBottomOf="@id/nameTV"
+                          android:textSize="14sp"
+                          android:textColor="@color/color333"
+                          android:gravity="left"
+                          android:paddingLeft="5dp"
                           android:layout_marginRight="32dp"
                           android:layout_marginLeft="7dp"/>
 
@@ -167,6 +175,10 @@
                           app:layout_constraintRight_toRightOf="parent"
                           app:layout_constraintLeft_toRightOf="@id/addressTV"
                           app:layout_constraintTop_toBottomOf="@id/county"
+                          android:textSize="14sp"
+                          android:textColor="@color/color333"
+                          android:gravity="left"
+                          android:paddingLeft="5dp"
                           android:layout_marginTop="10dp"
                           android:layout_marginRight="32dp"
                           android:layout_marginLeft="7dp"/>
@@ -194,6 +206,10 @@
                           app:layout_constraintRight_toRightOf="parent"
                           app:layout_constraintLeft_toRightOf="@id/villageTV"
                           app:layout_constraintTop_toTopOf="@id/villageTV"
+                          android:textSize="14sp"
+                          android:textColor="@color/color333"
+                          android:gravity="left"
+                          android:padding="5dp"
                           android:layout_marginRight="32dp"
                           android:layout_marginLeft="7dp"/>
 
@@ -222,6 +238,10 @@
                           app:layout_constraintLeft_toRightOf="@id/areaTV"
                           app:layout_constraintTop_toTopOf="@id/areaTV"
                           app:layout_constraintBottom_toBottomOf="@id/areaTV"
+                          android:textSize="14sp"
+                          android:textColor="@color/color333"
+                          android:gravity="left"
+                          android:paddingLeft="5dp"
                           android:layout_marginRight="32dp"
                           android:layout_marginLeft="7dp"/>
 
@@ -321,6 +341,10 @@
                         app:layout_constraintLeft_toRightOf="@id/budgetTV"
                         app:layout_constraintTop_toTopOf="@id/budgetTV"
                         app:layout_constraintBottom_toBottomOf="@id/budgetTV"
+                        android:textSize="14sp"
+                        android:textColor="@color/color333"
+                        android:gravity="left"
+                        android:paddingLeft="5dp"
                         android:layout_marginRight="32dp"
                         android:layout_marginLeft="7dp"/>
                 <TextView
@@ -342,6 +366,10 @@
                         app:layout_constraintLeft_toRightOf="@id/interval"
                         app:layout_constraintTop_toTopOf="@id/budgetTV"
                         app:layout_constraintBottom_toBottomOf="@id/budgetTV"
+                        android:textSize="14sp"
+                        android:textColor="@color/color333"
+                        android:gravity="left"
+                        android:paddingLeft="5dp"
                         android:layout_marginLeft="10dp"/>
 
                 <TextView

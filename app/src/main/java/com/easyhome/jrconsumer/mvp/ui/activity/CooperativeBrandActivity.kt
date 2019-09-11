@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.presenter.CooperativeBrandPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.BrandAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.TabAdapter
 import kotlinx.android.synthetic.main.activity_cooperative_brand.*
@@ -46,7 +47,8 @@ class CooperativeBrandActivity : JRBaseActivity<CooperativeBrandPresenter>(), Co
 
         tvPageTitle.text = "合作品牌"
         ivPageBack.singleClick { killMyself() }
-        tabRV.adapter = TabAdapter(arrayListOf("地板", "卫浴", "地板", "卫浴"))
+        tabRV.adapter =
+                TabAdapter(arrayListOf(MPair("地板", false), MPair("卫浴", true), MPair("瓷砖", false), MPair("沙发", false),MPair("灯具", false),MPair("家具", false)))
         brandRV.adapter = BrandAdapter(arrayListOf("", "", "", ""))
     }
 

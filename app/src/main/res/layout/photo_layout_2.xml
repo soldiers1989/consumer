@@ -7,8 +7,8 @@
 
 
     <ImageView android:layout_width="150dp"
-               android:layout_height="58dp"
-               android:background="@color/color529"
+               android:layout_height="100dp"
+               android:background="@mipmap/test_bac_3"
                app:layout_constraintTop_toTopOf="parent"
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintLeft_toLeftOf="parent"

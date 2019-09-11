@@ -15,7 +15,9 @@ import com.easyhome.jrconsumer.mvp.presenter.message.MessageCenterPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.MessageCenterAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.MessageTabAdapter
 import kotlinx.android.synthetic.main.activity_message_center.*
 import kotlinx.android.synthetic.main.layout_title.*
 
@@ -44,7 +46,23 @@ class MessageCenterActivity : JRBaseActivity<MessageCenterPresenter>(), MessageC
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "消息中心"
         ivPageBack.singleClick { killMyself() }
-        dataRV.adapter = MessageCenterAdapter(arrayListOf("", "", ""))
+        val msgAdapter = MessageCenterAdapter(arrayListOf("", ""))
+        dataRV.adapter = msgAdapter
+
+        val tab = arrayListOf(MPair(true, "全部"), MPair(false, "未读"), MPair(false, "已读"))
+        val adapter = MessageTabAdapter(tab)
+        adapter.setOnItemClickListener { adapter, view, position ->
+            tab.forEachIndexed { index, mPair ->
+                mPair.first = index == position
+            }
+            adapter.notifyDataSetChanged()
+            when (position) {
+                0 -> msgAdapter.setNewData(arrayListOf("", ""))
+                1 -> msgAdapter.setNewData(arrayListOf(""))
+                2 -> msgAdapter.setNewData(arrayListOf(""))
+            }
+        }
+        tabRV.adapter = adapter
     }
 
 

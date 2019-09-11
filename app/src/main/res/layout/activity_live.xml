@@ -29,11 +29,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:spanCount="2"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/searchTV"/>
 
     <android.support.constraint.ConstraintLayout
+            android:id="@+id/filtrateCL"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="#5000"

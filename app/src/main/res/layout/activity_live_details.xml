@@ -46,30 +46,30 @@
         <android.support.constraint.ConstraintLayout
                 android:id="@+id/moduleCL1"
                 android:layout_width="match_parent"
-                android:layout_height="123dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/banner"
+                android:paddingBottom="10dp"
                 android:layout_marginTop="10dp">
             <TextView
                     android:id="@+id/process"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="施工进度  Construction schedule"
+                    android:text="施工进度"
                     android:textColor="@color/color1f1"
-                    app:layout_constraintTop_toBottomOf="@id/showa"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="13dp"
+                    android:layout_marginTop="6dp"
                     android:textSize="15sp"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="更多案例"
+                    android:text="Construction schedule"
                     android:textColor="@color/color366"
-                    app:layout_constraintTop_toTopOf="@id/process"
-                    app:layout_constraintBottom_toBottomOf="@id/process"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginRight="12dp"
+                    app:layout_constraintLeft_toRightOf="@id/process"
+                    app:layout_constraintBaseline_toBaselineOf="@id/process"
+                    android:layout_marginLeft="12dp"
                     android:layout_marginTop="13dp"
                     android:textSize="12sp"/>
 
@@ -102,13 +102,23 @@
                     android:id="@+id/process1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="施工进度  Construction schedule"
+                    android:text="装修效果图"
                     android:textColor="@color/color1f1"
-                    app:layout_constraintTop_toBottomOf="@id/showa"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="13dp"
+                    android:layout_marginTop="6dp"
                     android:textSize="15sp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Construction schedule"
+                    android:textColor="@color/color366"
+                    app:layout_constraintBaseline_toBaselineOf="@id/process1"
+                    app:layout_constraintLeft_toRightOf="@id/process1"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="13dp"
+                    android:textSize="12sp"/>
 
 
             <View
@@ -124,7 +134,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/hLine1">
 
             </android.support.v7.widget.RecyclerView>
@@ -141,23 +151,32 @@
                     android:id="@+id/process2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="施工进度  Construction schedule"
+                    android:text="施工进度"
                     android:textColor="@color/color1f1"
-                    app:layout_constraintTop_toBottomOf="@id/showa"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginTop="13dp"
+                    android:layout_marginTop="6dp"
                     android:textSize="15sp"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="更多案例"
+                    android:text="Construction dynamic"
+                    android:textColor="@color/color366"
+                    app:layout_constraintBaseline_toBaselineOf="@id/process2"
+                    app:layout_constraintLeft_toRightOf="@id/process2"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="13dp"
+                    android:textSize="12sp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="施工详情"
                     android:textColor="@color/color366"
                     app:layout_constraintTop_toTopOf="@id/process2"
                     app:layout_constraintBottom_toBottomOf="@id/process2"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_marginRight="12dp"
-                    android:layout_marginTop="13dp"
                     android:textSize="12sp"/>
 
             <View

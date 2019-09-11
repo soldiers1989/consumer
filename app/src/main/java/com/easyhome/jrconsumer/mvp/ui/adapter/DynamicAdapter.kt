@@ -11,8 +11,8 @@ class DynamicAdapter(data: List<String>) :
         (R.layout.dynamic_layout, data) {
 
     override fun convert(helper: BaseViewHolder, item: String) {
-        helper.getView<RecyclerView>(R.id.photoRV).adapter = PhotoAdapter(arrayListOf("", "", ""))
-        helper.getView<RecyclerView>(R.id.leavewordRV).adapter = PInfoAdapter(arrayListOf("", "", ""))
+        helper.getView<RecyclerView>(R.id.photoRV).adapter = Photo3Adapter(arrayListOf("", "", ""))
+        helper.getView<RecyclerView>(R.id.leavewordRV).adapter = PInfoAdapter(arrayListOf(""))
     }
 
 

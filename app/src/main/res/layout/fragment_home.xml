@@ -52,93 +52,118 @@
                    app:layout_constraintTop_toTopOf="@id/city"
                    app:layout_constraintBottom_toBottomOf="@id/city"
                    app:layout_constraintRight_toLeftOf="@id/message"
-                   android:src="@mipmap/phone_icon"
-                   android:paddingRight="15dp"
-
-        />
-
-
-        <android.support.v7.widget.CardView
-                android:id="@+id/notification"
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                app:cardBackgroundColor="@color/white"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="3dp"
-                app:layout_constraintTop_toBottomOf="@id/topIV">
-
-            <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                <ImageView
-                        android:id="@+id/icon"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginLeft="10dp"
-                        android:src="@mipmap/notification_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          app:layout_constraintRight_toRightOf="parent"
-                          app:layout_constraintTop_toTopOf="parent"
-                          app:layout_constraintBottom_toBottomOf="parent"
-                          app:layout_constraintLeft_toLeftOf="parent"
-                          android:textSize="11sp"
-                          android:text="量房确认通知 您的专属设计师张硕发起预约量房时间，请您"
-                          android:textColor="#1F1F1F"
-                />
-                <ImageView
-                        android:id="@+id/moreIV"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_marginLeft="10dp"
-                        android:paddingRight="5dp"
-                        android:src="@mipmap/jr_double_right_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-            </android.support.constraint.ConstraintLayout>
-        </android.support.v7.widget.CardView>
-
-
+                   android:src="@mipmap/service_icon"
+                   android:paddingRight="15dp"/>
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/serveRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/extensively_bac"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
                 app:layoutManager="android.support.v7.widget.GridLayoutManager"
                 app:spanCount="4"
-                app:layout_constraintTop_toBottomOf="@id/notification"/>
+                app:layout_constraintTop_toTopOf="@id/topIV"
+                android:layout_marginTop="190dp"
+        />
+
+        <!-- <android.support.v7.widget.CardView
+                 android:id="@+id/notification"
+                 android:layout_width="match_parent"
+                 android:layout_height="33dp"
+                 app:cardBackgroundColor="@color/white"
+                 android:layout_marginStart="16dp"
+                 android:layout_marginEnd="16dp"
+                 android:layout_marginTop="10dp"
+                 app:cardCornerRadius="5dp"
+                 app:cardElevation="3dp"
+                 app:layout_constraintTop_toBottomOf="@id/serveRV"
+                >-->
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/notification"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/extensively_bac"
+                app:layout_constraintTop_toBottomOf="@id/serveRV"
+                android:layout_marginTop="10dp"
+        >
+            <ImageView
+                    android:id="@+id/icon"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/notification_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:layout_constraintRight_toRightOf="parent"
+                      app:layout_constraintTop_toTopOf="parent"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      android:textSize="11sp"
+                      android:text="量房确认通知 您的专属设计师张硕发起预约量房时间，请您"
+                      android:textColor="#1F1F1F"
+            />
+            <ImageView
+                    android:id="@+id/moreIV"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:src="@mipmap/jr_double_right_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </android.support.constraint.ConstraintLayout>
+        <!--  </android.support.v7.widget.CardView>-->
+
 
         <ImageView
                 android:id="@+id/showa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/test_show"
-                app:layout_constraintTop_toBottomOf="@id/serveRV"/>
+                android:background="@mipmap/test_show"
+                android:scaleType="center"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/notification"/>
 
         <TextView
                 android:id="@+id/process"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="装修流程 Process"
+                android:text="装修流程"
                 android:textColor="@color/color1f1"
                 app:layout_constraintTop_toBottomOf="@id/showa"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="13dp"
                 android:textSize="15sp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Process"
+                android:textColor="@color/color366"
+                app:layout_constraintLeft_toRightOf="@id/process"
+                app:layout_constraintBaseline_toBaselineOf="@id/process"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="13dp"
+                android:textSize="12sp"/>
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/processRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                app:spanCount="6"
+                app:spanCount="4"
                 app:layout_constraintTop_toBottomOf="@id/process"
                 android:background="#24eeeeee"
                 android:padding="10dp"
@@ -150,13 +175,23 @@
                 android:id="@+id/hotCase"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="热门案例 Hot case"
+                android:text="热门案例"
                 android:layout_marginLeft="12dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:textColor="@color/color1f1"
                 app:layout_constraintTop_toBottomOf="@id/processRV"
                 android:layout_marginTop="13dp"
                 android:textSize="15sp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hot case"
+                android:textColor="@color/color366"
+                app:layout_constraintLeft_toRightOf="@id/hotCase"
+                app:layout_constraintBaseline_toBaselineOf="@id/hotCase"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="13dp"
+                android:textSize="12sp"/>
         <TextView
                 android:id="@+id/moreCase"
                 android:layout_width="wrap_content"
@@ -182,13 +217,23 @@
                 android:id="@+id/live"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="热门案例 Hot case"
+                android:text="直播间 Live room"
                 android:textColor="@color/color1f1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/caseRV"
                 android:layout_marginTop="13dp"
                 android:layout_marginLeft="12dp"
                 android:textSize="15sp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live room"
+                android:textColor="@color/color366"
+                app:layout_constraintLeft_toRightOf="@id/live"
+                app:layout_constraintBaseline_toBaselineOf="@id/live"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="13dp"
+                android:textSize="12sp"/>
         <TextView
                 android:id="@+id/moreLive"
                 android:layout_width="wrap_content"

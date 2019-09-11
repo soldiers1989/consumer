@@ -79,6 +79,7 @@
                     android:id="@+id/accountClean"
                     android:src="@mipmap/clean"
                     android:layout_width="15dp"
+                    android:visibility="gone"
                     app:layout_constraintRight_toRightOf="@id/fg1"
                     app:layout_constraintTop_toTopOf="@id/accountIcon"
                     app:layout_constraintBottom_toBottomOf="@id/accountIcon"
@@ -131,7 +132,7 @@
 
             <ImageView
                     android:id="@+id/passwordClean"
-                    android:src="@mipmap/clean"
+                    android:src="@mipmap/psw_show"
                     android:layout_width="15dp"
                     app:layout_constraintRight_toRightOf="@id/fg2"
                     android:layout_marginRight="12dp"
@@ -316,6 +317,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户协议"
+            android:checked="true"
             app:layout_constraintTop_toBottomOf="@id/loginB"
             app:layout_constraintLeft_toLeftOf="@+id/loginB"
             android:layout_marginTop="8dp"

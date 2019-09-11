@@ -10,6 +10,8 @@ class LiveAdapter(data: List<String>) :
         (R.layout.live_layout, data) {
 
     override fun convert(helper: BaseViewHolder, item: String) {
+
+        helper.setVisible(R.id.video, helper.layoutPosition == 0)
     }
 
 

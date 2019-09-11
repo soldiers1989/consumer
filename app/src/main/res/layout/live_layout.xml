@@ -2,8 +2,9 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@drawable/login_rb_bac"
+        android:background="@drawable/labels_bac_d"
         android:layout_margin="6dp"
+        android:paddingBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="王先生   350㎡\n开工日期：2019-07-22\n施工状态：已竣工"
             android:textColor="@color/color555"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:gravity="left"
             android:layout_marginLeft="5dp"
             app:layout_constraintLeft_toLeftOf="@id/cover"

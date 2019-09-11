@@ -12,6 +12,8 @@ class BrandAdapter(data: List<String>) :
 
     override fun convert(helper: BaseViewHolder, item: String) {
 
+        helper.getView<RecyclerView>(R.id.phoneRV).adapter = PhoneAdapter(arrayListOf("", "", ""))
+
     }
 
 
