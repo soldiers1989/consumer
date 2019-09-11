@@ -42,7 +42,7 @@
             android:id="@+id/logo"
             android:layout_width="96dp"
                android:layout_height="62dp"
-               android:background="@color/color366"
+               android:background="@mipmap/test_bac_3"
                app:layout_constraintTop_toBottomOf="@id/hLine"
                app:layout_constraintLeft_toLeftOf="parent"
                android:layout_marginTop="10dp"
@@ -55,6 +55,7 @@
             app:layout_constraintLeft_toRightOf="@id/logo"
             android:layout_marginTop="5dp"
             android:textSize="12sp"
+            android:layout_marginLeft="12dp"
             android:textColor="@color/color333"
             android:text="九牧 | 北京九牧大区代理经销商 \n套餐 | 1200元 | 居然丽泽店"/>
     <TextView

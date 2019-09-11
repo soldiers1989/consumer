@@ -226,6 +226,7 @@
                         app:layout_constraintLeft_toLeftOf="@id/describeTV"
                         app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginLeft="12dp"
+                        android:layout_marginTop="21dp"
                         app:spanCount="3"
                         app:layoutManager="android.support.v7.widget.GridLayoutManager">
 

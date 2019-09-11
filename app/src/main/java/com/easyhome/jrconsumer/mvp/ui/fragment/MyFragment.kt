@@ -91,7 +91,7 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
         }
         var adaptr = sAdapter
 
-        adaptr.addFooterView(LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null))
+      //  adaptr.addFooterView(LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null))
         userSelectRV.adapter = adaptr
 
         userData.singleClick {

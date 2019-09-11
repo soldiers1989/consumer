@@ -16,9 +16,12 @@ import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
+import com.easyhome.jrconsumer.mvp.ui.activity.project.MaterialsListActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.project.SchedulingPlanActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.*
 import kotlinx.android.synthetic.main.activity_project_info.*
 import kotlinx.android.synthetic.main.layout_title.*
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -58,7 +61,7 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
             )
         )
 
-        prsRV.adapter = ProjectProgress2Adapter(
+        val pAdapter = ProjectProgress2Adapter(
             arrayListOf(
                 Pair(R.mipmap.p_icon_1, "施工动态"),
                 Pair(R.mipmap.p_icon_2, "施工进度"),
@@ -66,6 +69,23 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
                 Pair(R.mipmap.p_icon_4, "投诉报修")
             )
         )
+        pAdapter.setOnItemClickListener { adapter, view, position ->
+
+            when (position) {
+                0 -> {
+                }
+                1 -> {
+                    startActivity<SchedulingPlanActivity>()
+                }
+                2 -> {
+                    startActivity<MaterialsListActivity>()
+                }
+                3 -> {
+                    startActivity<ComplaintOrRepairsActivity>()
+                }
+            }
+        }
+        prsRV.adapter = pAdapter
 
         serveRV.adapter = ProjectServeAdapter(arrayListOf("客户顾问：", "装修管家：", "材料员：", "项目经理：", "设计师：", "工长："))
         workerRV.adapter =
@@ -79,6 +99,8 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
                 "施工合同金额：", "合同开工日期：", "合同竣工日期：", "结算日期："
             )
         )
+        score.singleClick { startActivity<ScoreActivity>() }
+
     }
 
 

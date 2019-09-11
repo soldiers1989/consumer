@@ -16,10 +16,13 @@ import com.easyhome.jrconsumer.mvp.presenter.project.MaterialsListPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.MaterialsList2Adapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.MaterialsListAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.MessageTabAdapter
 import kotlinx.android.synthetic.main.activity_materials_list.*
 import kotlinx.android.synthetic.main.layout_title.*
+import org.jetbrains.anko.imageResource
 import org.jetbrains.anko.startActivity
 
 
@@ -47,26 +50,64 @@ class MaterialsListActivity : JRBaseActivity<MaterialsListPresenter>(), Material
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "材料订单列表"
         ivPageBack.singleClick { killMyself() }
-        tabRB1.isChecked = true
+        ivPageBack.singleClick { killMyself() }
+        ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
+        ivPageRight.visibility = View.VISIBLE
+        ivPageRight.singleClick {
+            if(filtrateCL.visibility== View.VISIBLE){
+                filtrateCL.visibility= View.GONE
+                ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
+            }else{
+                filtrateCL.visibility= View.VISIBLE
+                ivPageRight.setImageResource(R.mipmap.filtrate_title_icon_2)
+            }
+        }
+       /* tabRB1.isChecked = true
 
-        val adapter1 = MaterialsListAdapter(arrayListOf("", "", ""))
         tabRB1.singleClick {
             dataRV.adapter = adapter1
             add.visibility= View.VISIBLE
             totle.visibility= View.GONE
 
-        }
+        }*/
+        val adapter1 = MaterialsListAdapter(arrayListOf("", "", ""))
         val adapter2 = MaterialsList2Adapter(arrayListOf("", "", ""))
-        tabRB2.singleClick {
+       /* tabRB2.singleClick {
             dataRV.adapter = adapter2
             add.visibility= View.GONE
             totle.visibility= View.VISIBLE
 
+        }*/
+        adapter2.setOnItemClickListener { adapter, view, position ->
+            startActivity<MaterialsOrderActivity>()
         }
-        dataRV.adapter = adapter1
+        dataRV.adapter = adapter2
         add.singleClick {
             startActivity<AddBuyCommodityActivity>()
         }
+
+        val tab = arrayListOf(MPair(true, "内购"), MPair(false, "外购"))
+        val adapter = MessageTabAdapter(tab)
+        adapter.setOnItemClickListener { adapter, view, position ->
+            tab.forEachIndexed { index, mPair ->
+                mPair.first = index == position
+            }
+            adapter.notifyDataSetChanged()
+            when (position) {
+                0 -> {
+                    dataRV.adapter = adapter2
+                    add.visibility= View.GONE
+                    totle.visibility= View.VISIBLE
+                }
+                1 -> {
+                    dataRV.adapter = adapter1
+                    add.visibility= View.VISIBLE
+                    totle.visibility= View.GONE
+                }
+
+            }
+        }
+        tabRV.adapter = adapter
     }
 
 

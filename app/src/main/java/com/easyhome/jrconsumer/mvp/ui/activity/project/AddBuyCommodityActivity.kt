@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.presenter.project.AddBuyCommodityPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.ui.adapter.Photo4Adapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.PhotoAdapter
 import kotlinx.android.synthetic.main.activity_add_buy_commodity.*
 import kotlinx.android.synthetic.main.layout_title.*
@@ -42,9 +43,9 @@ class AddBuyCommodityActivity : JRBaseActivity<AddBuyCommodityPresenter>(), AddB
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        tvPageTitle.text = "材料订单列表"
+        tvPageTitle.text = "添加外购商品"
         ivPageBack.singleClick { killMyself() }
-        photoRV.adapter = PhotoAdapter(arrayListOf("", "", ""))
+        photoRV.adapter = Photo4Adapter(arrayListOf("", "", ""))
     }
 
 

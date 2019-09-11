@@ -2,6 +2,7 @@ package com.easyhome.jrconsumer.mvp.ui.activity.project
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 
 import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
@@ -15,9 +16,11 @@ import com.easyhome.jrconsumer.mvp.presenter.project.SchedulingPlanPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.ui.activity.CalendarActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.SchedulingPlanAdapter
 import kotlinx.android.synthetic.main.activity_scheduling_plan.*
 import kotlinx.android.synthetic.main.layout_title.*
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -25,6 +28,7 @@ import kotlinx.android.synthetic.main.layout_title.*
  */
 class SchedulingPlanActivity : JRBaseActivity<SchedulingPlanPresenter>(), SchedulingPlanContract.View {
     override fun getMyself(): BaseActivity<*> = this
+    override fun isUseParentLayout(): Boolean = false
 
     override fun setupActivityComponent(appComponent: AppComponent) {
         DaggerSchedulingPlanComponent //如找不到该类,请编译一下项目
@@ -43,8 +47,22 @@ class SchedulingPlanActivity : JRBaseActivity<SchedulingPlanPresenter>(), Schedu
 
     override fun initData(savedInstanceState: Bundle?) {
 
-        tvPageTitle.text = "施工计划排期"
-        ivPageBack.singleClick { killMyself() }
+        /*   tvPageTitle.text = "施工计划排期"
+           ivPageBack.singleClick { killMyself() }
+           ivPageRight.setImageResource(R.mipmap.calendar_icon)
+           ivPageRight.visibility= View.VISIBLE
+           ivPageRight.singleClick { startActivity<CalendarActivity>() }*/
+        score.setOnClickListener {
+            println("------------------")
+            layout1.visibility = View.GONE
+            layout2.visibility = View.VISIBLE
+        }
+        schedule.setOnClickListener {
+            layout1.visibility = View.VISIBLE
+            layout2.visibility = View.GONE
+        }
+        backIV1.singleClick { killMyself() }
+        backIV.singleClick { killMyself() }
         planRV.adapter = SchedulingPlanAdapter(arrayListOf("", "", "", ""))
     }
 

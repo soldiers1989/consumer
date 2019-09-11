@@ -17,7 +17,7 @@ class DataAdapter(data: List<String>) :
 
         helper.setText(R.id.itemTitle,item)
 
-        helper.getView<RecyclerView>(R.id.imageRV).adapter = PhotoAdapter(arrayListOf("", "", "", ""))
+        helper.getView<RecyclerView>(R.id.imageRV).adapter = Photo5Adapter(arrayListOf("", ""))
 
         helper.getView<ImageView>(R.id.dOrU).setOnClickListener {
 

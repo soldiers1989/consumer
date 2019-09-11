@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+            android:id="@+id/shInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="送货信息"
+            android:textColor="@color/color777"
+            android:textSize="12sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <View
+            android:id="@+id/vLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorD8D"
+            app:layout_constraintTop_toBottomOf="@id/shInfo"
+            android:layout_marginTop="5dp"/>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            app:layout_constraintTop_toBottomOf="@id/vLine"
+            android:background="@drawable/extensively_bac">
+
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:src="@mipmap/car_icon"/>
+
+        <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="送货人：张三"
+                app:layout_constraintLeft_toRightOf="@id/icon"
+                android:layout_marginLeft="20dp"
+                android:textSize="10sp"
+        />
+        <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="送货时间：预计2019年7月30日 送达 "
+                app:layout_constraintLeft_toRightOf="@id/icon"
+                app:layout_constraintBottom_toBottomOf="@id/icon"
+                android:layout_marginLeft="20dp"
+                android:textSize="10sp"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

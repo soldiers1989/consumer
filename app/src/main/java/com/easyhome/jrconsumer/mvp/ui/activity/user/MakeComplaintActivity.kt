@@ -15,6 +15,8 @@ import com.easyhome.jrconsumer.mvp.presenter.user.MakeComplaintPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.ui.adapter.Photo4Adapter
+import kotlinx.android.synthetic.main.activity_make_complaint.*
 import kotlinx.android.synthetic.main.layout_title.*
 
 
@@ -42,6 +44,7 @@ class MakeComplaintActivity : JRBaseActivity<MakeComplaintPresenter>(), MakeComp
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "发起投诉/报修"
         ivPageBack.singleClick { killMyself() }
+        photoRV.adapter=Photo4Adapter(arrayListOf("",""))
     }
 
 
