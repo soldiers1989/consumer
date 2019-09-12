@@ -29,6 +29,7 @@ import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.CooperativeBrandActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.MessageInfoActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.PredetermineActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveDetailsActivity
@@ -112,6 +113,16 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
         }
         liveRV.adapter = lAdapter
         message.singleClick { startActivity<MessageCenterActivity>() }
+
+        moreCase.singleClick {
+            startActivity<ClassicCaseActivity>()
+        }
+        moreLive.singleClick {
+            startActivity<LiveActivity>()
+        }
+        notification.singleClick {
+            startActivity<MessageInfoActivity>()
+        }
     }
 
     /**

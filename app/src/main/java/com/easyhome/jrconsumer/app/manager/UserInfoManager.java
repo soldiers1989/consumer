@@ -16,6 +16,7 @@ public class UserInfoManager {
     private static final String KEY_USER_INFO = "KEY_USER_INFO_CONSUMER";
 
     private static volatile UserInfoManager instance;
+    private boolean isLogin = false;
 
     private UserInfoManager() {
     }
@@ -101,6 +102,24 @@ public class UserInfoManager {
      */
     public boolean checkLogin() {
         return getUserInfo() != null && getUserToken() != null;
+    }
+
+    /**
+     * 检验用户是否登录
+     *
+     * @return
+     */
+    public boolean isLogin() {
+        return isLogin;
+    }
+
+    /**
+     * 检验用户是否登录
+     *
+     * @return
+     */
+    public boolean setLogin(boolean b) {
+        return isLogin = b;
     }
 
     /**

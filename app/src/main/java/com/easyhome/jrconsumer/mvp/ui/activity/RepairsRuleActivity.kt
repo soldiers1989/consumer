@@ -44,7 +44,7 @@ class RepairsRuleActivity : JRBaseActivity<RepairsRulePresenter>(), RepairsRuleC
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        tvPageTitle.text = "报修政策"
+        tvPageTitle.text = "保修政策"
         ivPageBack.singleClick { killMyself() }
         val adapter = RuleAdapter(arrayListOf("", "", ""))
         adapter.setOnItemClickListener { adapter, view, position ->

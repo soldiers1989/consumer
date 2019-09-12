@@ -42,7 +42,7 @@ class WelcomeActivity : BaseActivity<WelcomePresenter>(), WelcomeContract.View {
     override fun initData(savedInstanceState: Bundle?) {
 
         skipB.singleClick {
-            startActivity<LoginActivity>()
+            startActivity<MainActivity>()
         }
     }
 

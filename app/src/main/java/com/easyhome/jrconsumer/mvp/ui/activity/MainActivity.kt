@@ -22,9 +22,12 @@ import com.easyhome.jrconsumer.mvp.presenter.Main2Presenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.JRApp
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.manager.UserInfoManager
 import com.easyhome.jrconsumer.mvp.model.entity.TabEntity
 import com.easyhome.jrconsumer.mvp.ui.adapter.HomeFragmentAdapter
 import kotlinx.android.synthetic.main.activity_main2.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.startActivity
 import java.util.ArrayList
 
 
@@ -126,11 +129,12 @@ class MainActivity : JRBaseActivity<Main2Presenter>(), Main2Contract.View {
         })
     }
 
-    private fun setCurrentTab(position: Int) {
+     fun setCurrentTab(position: Int) {
         currentPosition = position
-        if (position == 3) {
-            if (MyRefresh) {
-                mFragmentNavigator.showFragment(position, true)
+        if (position == 2) {
+            if (!UserInfoManager.getInstance().isLogin) {
+                startActivity<LoginActivity>()
+                mFragmentNavigator.showFragment(position)
             } else {
                 mFragmentNavigator.showFragment(position)
             }

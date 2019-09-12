@@ -18,6 +18,7 @@ import com.easyhome.jrconsumer.mvp.presenter.LoginPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.app.manager.UserInfoManager
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 
@@ -102,8 +103,8 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
             passwordED.text.clear()
         }
         loginB.singleClick {
-            startActivity<MainActivity>()
-
+            UserInfoManager.getInstance().setLogin(true)
+            killMyself()
         }
         forgetpsw.singleClick {
             startActivity<RetrievePasswordActivity>()

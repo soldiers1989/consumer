@@ -75,7 +75,7 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
                 0 -> {
                 }
                 1 -> {
-                    startActivity<SchedulingPlanActivity>()
+                   // startActivity<SchedulingPlanActivity>()
                 }
                 2 -> {
                     startActivity<MaterialsListActivity>()

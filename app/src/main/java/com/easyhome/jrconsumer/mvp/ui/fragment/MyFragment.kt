@@ -18,7 +18,9 @@ import com.easyhome.jrconsumer.mvp.presenter.fragment.MyPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.app.manager.UserInfoManager
 import com.easyhome.jrconsumer.mvp.ui.activity.ComplaintOrRepairsActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.LoginActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.RepairsRuleActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.MakeComplaintActivity
@@ -26,6 +28,7 @@ import com.easyhome.jrconsumer.mvp.ui.activity.user.SettingActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.UserDataActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.MySelectAdapter
 import kotlinx.android.synthetic.main.fragment_my.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.startActivity
 
 
@@ -57,6 +60,8 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+
+
         val sAdapter = MySelectAdapter(
             arrayListOf(
                 MySelectAdapter.Info(R.mipmap.my_icon_1, "保修政策"),
@@ -78,20 +83,25 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
                 }
                 1 -> {
                     //  startActivity<ComplaintOrRepairsActivity>()
-                    startActivity<MakeComplaintActivity>()
+                    // startActivity<MakeComplaintActivity>()
+                    startActivity<ComplaintOrRepairsActivity>()
                 }
                 5 -> {
                     startActivity<SettingActivity>()
                 }
                 6 -> {
-                    startActivity<SettingActivity>()
                 }
             }
 
         }
         var adaptr = sAdapter
 
-      //  adaptr.addFooterView(LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null))
+        val fView = LayoutInflater.from(activity).inflate(R.layout.rv_foot_layout, null)
+        fView.singleClick {
+            UserInfoManager.getInstance().setLogin(false)
+            (activity as MainActivity).setCurrentTab(0)
+        }
+        adaptr.addFooterView(fView)
         userSelectRV.adapter = adaptr
 
         userData.singleClick {
@@ -99,6 +109,7 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
         }
 
     }
+
 
     /**
      * 通过此方法可以使 Fragment 能够与外界做一些交互和通信, 比如说外部的 Activity 想让自己持有的某个 Fragment 对象执行一些方法,

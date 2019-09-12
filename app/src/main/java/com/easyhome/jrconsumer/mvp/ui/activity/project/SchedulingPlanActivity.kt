@@ -53,7 +53,6 @@ class SchedulingPlanActivity : JRBaseActivity<SchedulingPlanPresenter>(), Schedu
            ivPageRight.visibility= View.VISIBLE
            ivPageRight.singleClick { startActivity<CalendarActivity>() }*/
         score.setOnClickListener {
-            println("------------------")
             layout1.visibility = View.GONE
             layout2.visibility = View.VISIBLE
         }

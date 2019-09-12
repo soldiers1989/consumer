@@ -2,6 +2,7 @@ package com.easyhome.jrconsumer.mvp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 
 import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
@@ -15,6 +16,7 @@ import com.easyhome.jrconsumer.mvp.presenter.ComplaintOrRepairsPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.ui.activity.user.MakeComplaintActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.Rule2Adapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.RuleAdapter
 import kotlinx.android.synthetic.main.activity_complaint_or_repairs.*
@@ -44,11 +46,17 @@ class ComplaintOrRepairsActivity : JRBaseActivity<ComplaintOrRepairsPresenter>()
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        tvPageTitle.text = "报修政策"
+        tvPageTitle.text = "投诉/报修"
         ivPageBack.singleClick { killMyself() }
+        tvPageRight.text = "发起"
+        tvPageRight.visibility= View.VISIBLE
+        tvPageRight.singleClick {
+            startActivity<MakeComplaintActivity>()
+        }
         val adapter = Rule2Adapter(arrayListOf("", "", ""))
         adapter.setOnItemClickListener { adapter, view, position ->
-            startActivity<RepairDetailsActivity>()
+            //startActivity<RepairDetailsActivity>()
+            startActivity<ComplainActivity>()
         }
         ruleRV.adapter = adapter
     }

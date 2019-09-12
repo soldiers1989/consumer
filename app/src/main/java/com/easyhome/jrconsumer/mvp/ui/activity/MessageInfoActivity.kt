@@ -1,4 +1,4 @@
-package com.easyhome.jrconsumer.mvp.ui.activity.user
+package com.easyhome.jrconsumer.mvp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,10 @@ import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
 import com.jess.arms.utils.ArmsUtils
 
-import com.easyhome.jrconsumer.di.component.DaggerEditNameComponent
-import com.easyhome.jrconsumer.di.module.EditNameModule
-import com.easyhome.jrconsumer.mvp.contract.user.EditNameContract
-import com.easyhome.jrconsumer.mvp.presenter.user.EditNamePresenter
+import com.easyhome.jrconsumer.di.component.DaggerMessageInfoComponent
+import com.easyhome.jrconsumer.di.module.MessageInfoModule
+import com.easyhome.jrconsumer.mvp.contract.MessageInfoContract
+import com.easyhome.jrconsumer.mvp.presenter.MessageInfoPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
@@ -19,28 +19,28 @@ import kotlinx.android.synthetic.main.layout_title.*
 
 
 /**
- * 编辑姓名
+ * 消息中心
  */
-class EditNameActivity : JRBaseActivity<EditNamePresenter>(), EditNameContract.View {
+class MessageInfoActivity : JRBaseActivity<MessageInfoPresenter>(), MessageInfoContract.View {
     override fun getMyself(): BaseActivity<*> = this
 
     override fun setupActivityComponent(appComponent: AppComponent) {
-        DaggerEditNameComponent //如找不到该类,请编译一下项目
+        DaggerMessageInfoComponent //如找不到该类,请编译一下项目
             .builder()
             .appComponent(appComponent)
-            .editNameModule(EditNameModule(this))
+            .messageInfoModule(MessageInfoModule(this))
             .build()
             .inject(this)
     }
 
 
     override fun initView(savedInstanceState: Bundle?): Int {
-        return R.layout.activity_edit_name //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+        return R.layout.activity_message_info //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
     }
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        tvPageTitle.text = "保修政策"
+        tvPageTitle.text = "消息中心"
         ivPageBack.singleClick { killMyself() }
     }
 

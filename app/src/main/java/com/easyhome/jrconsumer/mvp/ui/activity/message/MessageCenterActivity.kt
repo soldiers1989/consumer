@@ -16,10 +16,12 @@ import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
+import com.easyhome.jrconsumer.mvp.ui.activity.MessageInfoActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.MessageCenterAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.MessageTabAdapter
 import kotlinx.android.synthetic.main.activity_message_center.*
 import kotlinx.android.synthetic.main.layout_title.*
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -47,6 +49,10 @@ class MessageCenterActivity : JRBaseActivity<MessageCenterPresenter>(), MessageC
         tvPageTitle.text = "消息中心"
         ivPageBack.singleClick { killMyself() }
         val msgAdapter = MessageCenterAdapter(arrayListOf("", ""))
+        msgAdapter.setOnItemClickListener { adapter, view, position ->
+            startActivity<MessageInfoActivity>()
+        }
+
         dataRV.adapter = msgAdapter
 
         val tab = arrayListOf(MPair(true, "全部"), MPair(false, "未读"), MPair(false, "已读"))

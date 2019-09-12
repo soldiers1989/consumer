@@ -195,7 +195,7 @@
 
             <TextView android:layout_width="match_parent"
                       android:layout_height="43dp"
-                      android:text="报修政策"
+                      android:text="保修政策"
                       android:background="@color/white"
                       android:textSize="15sp"
                       android:gravity="center_vertical"

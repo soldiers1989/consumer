@@ -55,8 +55,12 @@ class UserDataActivity : JRBaseActivity<UserDataPresenter>(), UserDataContract.V
 
         moreIV5.singleClick {
             //startActivity<DeliveryAddressActivity>()
-            startActivity<EditNameActivity>()
+            //startActivity<EditNameActivity>()
         }
+        item3CL.singleClick {
+          startActivity<AlterPhoneNumberActivity>()
+        }
+
     }
 
     /**

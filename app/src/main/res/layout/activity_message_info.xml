@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:id="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="促销通知"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="12dp"
+    />
+    <TextView android:layout_width="80dp"
+              android:layout_height="21dp"
+              android:text="项目详情 >>"
+              android:textColor="@color/white"
+              android:gravity="center"
+              android:textSize="11sp"
+              android:background="@drawable/login_rb_bg_checked"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_marginTop="15dp"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintBaseline_toBaselineOf="@id/title"
+              android:layout_marginRight="12dp"
+              android:layout_marginLeft="12dp"
+    />
+
+
+    <View
+            android:id="@+id/vLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorD8D"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"/>
+
+    <TextView
+            android:id="@+id/conten"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！居然装饰特惠装修节开幕了！优惠多多，惊喜多多。欢迎您来抢购！"
+            android:textColor="@color/color333"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/vLine"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="12dp"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorD8D"
+            app:layout_constraintTop_toBottomOf="@id/conten"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"/>
+</android.support.constraint.ConstraintLayout>
