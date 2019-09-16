@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.presenter.ScorePresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.ScoreListAdapter
 import kotlinx.android.synthetic.main.activity_score.*
 import kotlinx.android.synthetic.main.layout_title.*
@@ -44,7 +45,15 @@ class ScoreActivity : JRBaseActivity<ScorePresenter>(), ScoreContract.View {
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "评分"
         ivPageBack.singleClick { killMyself() }
-        scoreRV.adapter = ScoreListAdapter(arrayListOf("", "", ""))
+        scoreRV.adapter = ScoreListAdapter(
+            arrayListOf(
+                MPair("客户顾问：刘芸", 50F),
+                MPair("设计师：张硕", 50F),
+                MPair("装修管家：刘芸", 70F),
+                MPair("项目经理：刘芸", 50F),
+                MPair("工长：刘芸", 60F)
+            )
+        )
     }
 
 

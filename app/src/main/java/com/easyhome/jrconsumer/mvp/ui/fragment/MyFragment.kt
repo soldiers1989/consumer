@@ -23,6 +23,7 @@ import com.easyhome.jrconsumer.mvp.ui.activity.ComplaintOrRepairsActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.LoginActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.RepairsRuleActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.user.GradeListActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.MakeComplaintActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.SettingActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.user.UserDataActivity
@@ -85,6 +86,9 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
                     //  startActivity<ComplaintOrRepairsActivity>()
                     // startActivity<MakeComplaintActivity>()
                     startActivity<ComplaintOrRepairsActivity>()
+                }
+                4 -> {
+                    startActivity<GradeListActivity>()
                 }
                 5 -> {
                     startActivity<SettingActivity>()

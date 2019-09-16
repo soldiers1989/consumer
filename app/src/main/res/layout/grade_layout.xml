@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <View android:layout_width="1dp"
+          android:layout_height="0dp"
+          android:background="@drawable/bottom_line"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintLeft_toLeftOf="@id/stateIV"
+          app:layout_constraintRight_toRightOf="@id/stateIV"/>
+    <ImageView
+            android:id="@+id/stateIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/date_icon"
+            android:layout_marginLeft="15dp"/>
+
+    <TextView
+            android:id="@+id/stateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="基础验收"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="6dp"
+            app:layout_constraintLeft_toRightOf="@id/stateIV"
+            app:layout_constraintTop_toTopOf="@id/stateIV"
+            app:layout_constraintBottom_toBottomOf="@id/stateIV"
+    />
+    <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019-08-21"
+            android:textSize="10sp"
+            android:textColor="@color/color777"
+            app:layout_constraintBaseline_toBaselineOf="@id/stateTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="15dp"
+    />
+    <View
+            android:id="@+id/vLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@drawable/bottom_line"
+            app:layout_constraintTop_toBottomOf="@id/stateTitle"
+            android:layout_marginTop="6dp"
+            app:layout_constraintLeft_toLeftOf="@id/stateTitle"
+            app:layout_constraintRight_toRightOf="@id/time"
+    />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/grade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/vLine"
+            android:layout_marginTop="6dp"
+            app:layout_constraintLeft_toLeftOf="@id/stateTitle"
+            app:layout_constraintRight_toRightOf="@id/time">
+    </android.support.v7.widget.RecyclerView>
+
+    <View
+            android:id="@+id/vLine1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@drawable/bottom_line"
+            app:layout_constraintTop_toBottomOf="@id/grade"
+            android:layout_marginTop="6dp"
+            app:layout_constraintLeft_toLeftOf="@id/stateTitle"
+            app:layout_constraintRight_toRightOf="@id/time"
+    />
+    <TextView
+            android:id="@+id/comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="评价：服务周到非常好！！！"
+            android:textSize="10sp"
+            android:textColor="@color/color777"
+            app:layout_constraintTop_toBottomOf="@id/vLine1"
+            app:layout_constraintLeft_toLeftOf="@id/stateTitle"
+            app:layout_constraintRight_toRightOf="@+id/time"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"/>
+
+</android.support.constraint.ConstraintLayout>
