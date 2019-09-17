@@ -179,6 +179,8 @@
         </activity>
         <activity android:name=".mvp.ui.activity.user.AlterGenderActivity">
         </activity>
+        <activity android:name=".mvp.ui.activity.project.ProjectDynamicActivity">
+        </activity>
     </application>
 
 </manifest>

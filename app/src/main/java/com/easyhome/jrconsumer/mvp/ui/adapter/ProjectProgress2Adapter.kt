@@ -17,17 +17,6 @@ class ProjectProgress2Adapter(data: List<Pair<Int, String>>) :
         if (helper.layoutPosition == data.size - 1) {
             helper.setVisible(R.id.fg, false)
         }
-        when (helper.layoutPosition) {
-            0 -> {
-                helper.setBackgroundColor(R.id.itemCL, Color.parseColor("#3669F8"))
-                helper.setTextColor(R.id.proTitle, Color.parseColor("#FFFFFF"))
-            }
-            else-> {
-                helper.setBackgroundColor(R.id.itemCL, Color.parseColor("#FFFFFF"))
-                helper.setTextColor(R.id.proTitle, Color.parseColor("#555555"))
-            }
-        }
-
     }
 
 

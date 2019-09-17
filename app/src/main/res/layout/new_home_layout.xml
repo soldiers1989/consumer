@@ -19,6 +19,7 @@
               android:gravity="center"
               android:textColor="@color/white"
               android:textSize="17sp"
+              android:lineSpacingExtra="10dp"
               app:layout_constraintTop_toTopOf="parent"
               android:layout_marginTop="110dp"
               android:text="北纬40度2号楼1003\n三室一厅  |  100m²  |  新房\n待量房"

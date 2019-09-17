@@ -17,6 +17,7 @@ import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.project.MaterialsListActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.project.ProjectDynamicActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.project.SchedulingPlanActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.*
 import kotlinx.android.synthetic.main.activity_project_info.*
@@ -73,9 +74,10 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
 
             when (position) {
                 0 -> {
+                    startActivity<ProjectDynamicActivity>()
                 }
                 1 -> {
-                   // startActivity<SchedulingPlanActivity>()
+                    startActivity<SchedulingPlanActivity>()
                 }
                 2 -> {
                     startActivity<MaterialsListActivity>()

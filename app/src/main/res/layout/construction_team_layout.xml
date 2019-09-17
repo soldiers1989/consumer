@@ -9,10 +9,10 @@
             android:layout_width="match_parent"
             android:layout_height="212dp"
             android:background="@color/white"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            >
         <ImageView
                 android:id="@+id/head"
                 android:layout_width="49dp"
