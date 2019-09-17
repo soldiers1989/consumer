@@ -12,6 +12,7 @@ class MySelectAdapter(data: List<MySelectAdapter.Info>) :
     override fun convert(helper: BaseViewHolder, item: Info) {
         helper.getView<ImageView>(R.id.iconIV).setImageResource(item.icon)
         helper.setText(R.id.itemTV, item.title)
+        helper.setVisible(R.id.hintRed, helper.layoutPosition == 1)
     }
 
     data class Info(

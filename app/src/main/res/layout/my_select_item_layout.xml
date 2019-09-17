@@ -24,13 +24,24 @@
             android:layout_marginLeft="20dp"
             android:textSize="14sp"
             android:textColor="#333"/>
-    <ImageView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:src="@mipmap/more_icon"
+    <ImageView
+            android:id="@+id/moreIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/more_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="13dp"/>
+    <ImageView
+            android:id="@+id/hintRed"
+            android:layout_width="10dp"
+               android:layout_height="10dp"
+               android:src="@drawable/dot_red"
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintTop_toTopOf="parent"
-               app:layout_constraintRight_toRightOf="parent"
-               android:layout_marginRight="13dp"/>
+               app:layout_constraintRight_toLeftOf="@id/moreIV"
+               android:layout_marginRight="20dp"/>
     <View android:layout_width="0dp"
           android:layout_height="1dp"
           android:background="@color/colorD8D"

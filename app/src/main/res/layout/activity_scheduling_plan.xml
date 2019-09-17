@@ -55,13 +55,15 @@
                   android:paddingLeft="21dp"
                   android:paddingRight="12dp"
                   android:drawablePadding="9dp"
+                  android:textColor="@color/color333"
+                  android:textSize="13sp"
         />
 
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/planRV"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager">
         </android.support.v7.widget.RecyclerView>
@@ -69,9 +71,10 @@
     </LinearLayout>
 
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
             android:id="@+id/layout2"
             android:visibility="gone"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -231,5 +234,5 @@
                     app:layoutManager="android.support.v7.widget.LinearLayoutManager">
             </android.support.v7.widget.RecyclerView>
         </com.haibin.calendarview.CalendarLayout>
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 </FrameLayout>

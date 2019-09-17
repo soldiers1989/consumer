@@ -18,9 +18,11 @@ import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.ui.activity.CalendarActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.SchedulingPlanAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.WaitThingAdapter
 import kotlinx.android.synthetic.main.activity_scheduling_plan.*
 import kotlinx.android.synthetic.main.layout_title.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.startActivity
 
 
 /**
@@ -63,6 +65,16 @@ class SchedulingPlanActivity : JRBaseActivity<SchedulingPlanPresenter>(), Schedu
         backIV1.singleClick { killMyself() }
         backIV.singleClick { killMyself() }
         planRV.adapter = SchedulingPlanAdapter(arrayListOf("", "", "", ""))
+        val wAdapter = WaitThingAdapter(arrayListOf("", "", "", "", "", "", "", "", "", "", ""))
+        wAdapter.setOnItemChildClickListener { adapter, view, position ->
+
+            when (view.id) {
+                R.id.locationTV -> {
+                   // startActivity<MapActivity>()
+                }
+            }
+        }
+        waitThing.adapter = wAdapter
     }
 
 

@@ -94,7 +94,7 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
                     startActivity<ShareActivity>()
                 }
                 7 -> {
-
+                    startActivity<RelatedPersonnelActivity>()
                 }
             }
 
