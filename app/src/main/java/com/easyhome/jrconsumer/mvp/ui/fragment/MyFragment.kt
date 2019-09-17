@@ -23,10 +23,7 @@ import com.easyhome.jrconsumer.mvp.ui.activity.ComplaintOrRepairsActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.LoginActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.RepairsRuleActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.user.GradeListActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.user.MakeComplaintActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.user.SettingActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.user.UserDataActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.user.*
 import com.easyhome.jrconsumer.mvp.ui.adapter.MySelectAdapter
 import kotlinx.android.synthetic.main.fragment_my.*
 import org.jetbrains.anko.startActivity
@@ -94,6 +91,10 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
                     startActivity<SettingActivity>()
                 }
                 6 -> {
+                    startActivity<ShareActivity>()
+                }
+                7 -> {
+
                 }
             }
 

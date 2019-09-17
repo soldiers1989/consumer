@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+            android:id="@+id/man"
+            android:text="男"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="11dp"
+            android:layout_height="53dp"/>
+    <ImageView
+            android:id="@+id/manSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/man"
+            app:layout_constraintBottom_toBottomOf="@id/man"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:src="@mipmap/gender_select_icon"
+    />
+    <View
+            android:id="@+id/vLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bottom_line"
+            app:layout_constraintTop_toBottomOf="@id/man"
+    />
+
+
+    <TextView
+            android:id="@+id/woman"
+            android:text="女"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/vLine"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="11dp"
+            android:layout_height="53dp"/>
+    <ImageView
+            android:id="@+id/womanSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/woman"
+            app:layout_constraintBottom_toBottomOf="@id/woman"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+    />
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="@drawable/bottom_line"
+          app:layout_constraintTop_toBottomOf="@id/woman"
+    />
+</android.support.constraint.ConstraintLayout>

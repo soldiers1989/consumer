@@ -175,6 +175,10 @@
         </activity>
         <activity android:name=".mvp.ui.activity.user.GradeListActivity">
         </activity>
+        <activity android:name=".mvp.ui.activity.user.AlterPasswordActivity">
+        </activity>
+        <activity android:name=".mvp.ui.activity.user.AlterGenderActivity">
+        </activity>
     </application>
 
 </manifest>

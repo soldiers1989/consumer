@@ -14,6 +14,11 @@ import com.easyhome.jrconsumer.mvp.presenter.user.SharePresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.ui.adapter.APPIconAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.FriendsAdapter
+import kotlinx.android.synthetic.main.activity_share.*
+import kotlinx.android.synthetic.main.layout_title.*
 
 
 /**
@@ -38,7 +43,17 @@ class ShareActivity : JRBaseActivity<SharePresenter>(), ShareContract.View {
 
 
     override fun initData(savedInstanceState: Bundle?) {
-
+        tvPageTitle.text = "分享好友"
+        ivPageBack.singleClick { killMyself() }
+        appRV.adapter = APPIconAdapter(
+            arrayListOf(
+                R.mipmap.jr_wx_icon,
+                R.mipmap.wx_friends_icon,
+                R.mipmap.jr_qq_icon,
+                R.mipmap.qq_zone_icon
+            )
+        )
+        friends.adapter = FriendsAdapter(arrayListOf("","",""))
     }
 
 
