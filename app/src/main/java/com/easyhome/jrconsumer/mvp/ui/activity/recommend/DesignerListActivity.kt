@@ -16,6 +16,7 @@ import com.easyhome.jrconsumer.mvp.presenter.recommend.DesignerListPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.ui.activity.H5Activity
 import com.easyhome.jrconsumer.mvp.ui.activity.PredetermineActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.*
 import kotlinx.android.synthetic.main.activity_designer_list.*
@@ -60,6 +61,15 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
             }
         }
         val adapter = DesignerListAdapter(arrayListOf("", "", "", ""))
+
+        adapter.setOnItemClickListener { adapter, view, position ->
+
+            startActivity<H5Activity>(
+                "pageUrl" to " http://111.231.114.131/guochongyang/%E6%B6%88%E8%B4%B9%E8%80%85-moblie/m_%20designer.html",
+                "title" to "设计师"
+            )
+        }
+
         adapter.setOnItemChildClickListener { adapter, view, position ->
 
             when(view.id){

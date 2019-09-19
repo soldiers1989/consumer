@@ -17,12 +17,10 @@ import com.easyhome.jrconsumer.mvp.presenter.fragment.MyPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
+import com.easyhome.jrconsumer.app.extension.openH5ForUrl
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.app.manager.UserInfoManager
-import com.easyhome.jrconsumer.mvp.ui.activity.ComplaintOrRepairsActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.LoginActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.RepairsRuleActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.*
 import com.easyhome.jrconsumer.mvp.ui.activity.user.*
 import com.easyhome.jrconsumer.mvp.ui.adapter.MySelectAdapter
 import kotlinx.android.synthetic.main.fragment_my.*
@@ -83,6 +81,14 @@ class MyFragment : JRBaseFragment<MyPresenter>(), MyContract.View {
                     //  startActivity<ComplaintOrRepairsActivity>()
                     // startActivity<MakeComplaintActivity>()
                     startActivity<ComplaintOrRepairsActivity>()
+                }
+                2 -> {
+
+                }
+                3 -> {
+                    startActivity<H5Activity>(
+                        "pageUrl" to "http://111.231.114.131/guochongyang/%E6%B6%88%E8%B4%B9%E8%80%85-moblie/m_%20about.html",
+                        "title" to "关于我们")
                 }
                 4 -> {
                     startActivity<GradeListActivity>()

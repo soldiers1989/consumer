@@ -27,10 +27,7 @@ import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.app.extension.loadImage
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
-import com.easyhome.jrconsumer.mvp.ui.activity.CooperativeBrandActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.MessageInfoActivity
-import com.easyhome.jrconsumer.mvp.ui.activity.PredetermineActivity
+import com.easyhome.jrconsumer.mvp.ui.activity.*
 import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.live.LiveDetailsActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.message.MessageCenterActivity
@@ -106,7 +103,15 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
             )
         )
 
-        caseRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
+        val dAdapter=DesignCaseAdapter(arrayListOf("", "", "", ""))
+        dAdapter.setOnItemClickListener { adapter, view, position ->
+
+            startActivity<H5Activity>(
+                "pageUrl" to "http://111.231.114.131/guochongyang/%E6%B6%88%E8%B4%B9%E8%80%85-moblie/m_%20case%20details.html",
+                "title" to "精品案例")
+
+        }
+        caseRV.adapter = dAdapter
         val lAdapter = LiveAdapter(arrayListOf("", "", "", ""))
         lAdapter.setOnItemClickListener { adapter, view, position ->
             startActivity<LiveDetailsActivity>()
@@ -123,6 +128,8 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
         notification.singleClick {
             startActivity<MessageInfoActivity>()
         }
+
+
     }
 
     /**

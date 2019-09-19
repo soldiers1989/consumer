@@ -14,6 +14,7 @@ import com.easyhome.jrconsumer.mvp.presenter.user.SettingPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.extension.openH5ForUrl
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.ui.adapter.ItemAdapter
 import kotlinx.android.synthetic.main.activity_setting.*
@@ -49,7 +50,9 @@ class SettingActivity : JRBaseActivity<SettingPresenter>(), SettingContract.View
         adapter.setOnItemClickListener { adapter, view, position ->
             when(position){
                 0->{
-                    startActivity<AboutAppActivity>()
+                   // startActivity<AboutAppActivity>()
+openH5ForUrl("http://111.231.114.131/guochongyang/%E6%B6%88%E8%B4%B9%E8%80%85-moblie/m_%20about.html",
+    "关于我们")
                 }
                 1->{
                     startActivity<CoupleBackActivity>()

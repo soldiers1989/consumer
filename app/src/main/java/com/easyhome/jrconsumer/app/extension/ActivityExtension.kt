@@ -1,5 +1,6 @@
 package com.easyhome.jrconsumer.app.extension
 
+import android.content.Intent
 import android.os.Environment
 import android.os.Environment.DIRECTORY_DOWNLOADS
 import com.jess.arms.base.BaseActivity
@@ -13,6 +14,7 @@ import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.DownloadException
 import com.easyhome.jrconsumer.app.ResponseErrorSubscriber
 import com.easyhome.jrconsumer.app.utils.RxUtils
+import com.easyhome.jrconsumer.mvp.ui.activity.H5Activity
 import com.easyhome.jrconsumer.mvp.ui.service.DownloadService
 import com.tbruyelle.rxpermissions2.RxPermissions
 import okhttp3.ResponseBody
@@ -22,6 +24,8 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
+import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.startActivity
 
 /**
  * Created by 宗传
@@ -33,16 +37,16 @@ import java.io.OutputStream
 /**
  * 根据Url打开一个WebView
  */
-/*fun BaseActivity<*>.openH5ForUrl(pageUrl: String, title: String = "") {
+fun BaseActivity<*>.openH5ForUrl(pageUrl: String, title: String = "") {
     this.startActivity<H5Activity>("pageUrl" to pageUrl, "title" to title)
-}*/
+}
 
 /**
  * 根据Url打开一个WebView
  */
-/*fun BaseFragment<*>.openH5ForUrl(pageUrl: String, title: String = "") {
+fun BaseFragment<*>.openH5ForUrl(pageUrl: String, title: String = "") {
     this.startActivity<H5Activity>("pageUrl" to pageUrl, "title" to title)
-}*/
+}
 
 /**
  * 根据Url打开一个PdfView
