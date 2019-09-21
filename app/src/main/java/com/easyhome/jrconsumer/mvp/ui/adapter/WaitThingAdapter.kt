@@ -1,12 +1,14 @@
 package com.easyhome.jrconsumer.mvp.ui.adapter
 
 import android.support.v7.widget.CardView
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.easyhome.jrconsumer.R
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 
 class WaitThingAdapter(data: List<String>) :
     BaseQuickAdapter<String, BaseViewHolder>
@@ -36,6 +38,8 @@ class WaitThingAdapter(data: List<String>) :
             else -> helper.setText(R.id.timeTV, "")
         }
 
+
+        helper.getView<RecyclerView>(R.id.workerRV).adapter= WorkerAdapter(arrayListOf(MPair("水电工：", "张三、李四、王五"), MPair("木工：", "小张"), MPair("油漆工：", "张思")))
     }
 
 

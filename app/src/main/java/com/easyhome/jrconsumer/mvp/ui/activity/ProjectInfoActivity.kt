@@ -2,6 +2,7 @@ package com.easyhome.jrconsumer.mvp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 
 import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
@@ -52,13 +53,13 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
         backIV.singleClick { killMyself() }
         progressRV.adapter = ProjectProgressAdapter(
             arrayListOf(
-                Pair(0, "开工交底"),
-                Pair(0, "隐蔽验收"),
-                Pair(1, "中期验收"),
-                Pair(2, "基础验收"),
-                Pair(2, "竣工验收"),
-                Pair(2, "竣工验收"),
-                Pair(2, "结算")
+                MPair(0, "开工交底"),
+                MPair(0, "隐蔽验收"),
+                MPair(1, "中期验收"),
+                MPair(2, "基础验收"),
+                MPair(2, "竣工验收"),
+                MPair(2, "竣工验收"),
+                MPair(2, "结算")
             )
         )
 
@@ -102,6 +103,8 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
             )
         )
         score.singleClick { startActivity<ScoreActivity>() }
+
+        dynamicTV.text=Html.fromHtml("施工状态：<font color='#FF0000'>已延期</font>")
 
     }
 

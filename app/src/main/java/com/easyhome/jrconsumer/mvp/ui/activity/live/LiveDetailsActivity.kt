@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.presenter.live.LiveDetailsPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.DynamicAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.Photo2Adapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.PhotoAdapter
@@ -50,12 +51,12 @@ class LiveDetailsActivity : JRBaseActivity<LiveDetailsPresenter>(), LiveDetailsC
          ivPageBack.singleClick { killMyself() }*/
         progressRV.adapter = ProjectProgressAdapter(
             arrayListOf(
-                Pair(0, "开工交底"),
-                Pair(0, "隐蔽验收"),
-                Pair(1, "中期验收"),
-                Pair(2, "基础验收"),
-                Pair(2, "竣工验收"),
-                Pair(2, "结算")
+                MPair(0, "开工交底"),
+                MPair(0, "隐蔽验收"),
+                MPair(1, "中期验收"),
+                MPair(2, "基础验收"),
+                MPair(2, "竣工验收"),
+                MPair(2, "结算")
             )
         )
 
