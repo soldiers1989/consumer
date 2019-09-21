@@ -16,9 +16,12 @@ import com.easyhome.jrconsumer.mvp.presenter.live.LivePresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.LiveAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.Option2Adapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.OptionAdapter
+import com.easyhome.jrconsumer.mvp.ui.adapter.Tab2Adapter
+import com.easyhome.jrconsumer.util.FiltrateUtil
 import kotlinx.android.synthetic.main.activity_live.*
 import kotlinx.android.synthetic.main.layout_title.*
 import org.jetbrains.anko.startActivity
@@ -55,22 +58,33 @@ class LiveActivity : JRBaseActivity<LivePresenter>(), LiveContract.View {
         }
         dataRV.adapter = adapter
 
-        tvPageTitle.text = "精品案例"
-        ivPageBack.singleClick { killMyself() }
-        ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
-        ivPageRight.visibility = View.VISIBLE
-        ivPageRight.singleClick {
-            if (filtrateCL.visibility == View.VISIBLE) {
-                filtrateCL.visibility = View.GONE
-                ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
+        val tabAdapter = Tab2Adapter(
+            arrayListOf(
+                MPair("城市", true),
+                MPair("装修风格", false)
+            )
+        )
+        tabAdapter.setOnItemClickListener { adapter, view, position ->
+            val data = adapter.data as List<MPair<String, Boolean>>
+            if (data[position].second) {
+                filtrate.visibility = View.GONE
+                data[position].second = false
             } else {
-                filtrateCL.visibility = View.VISIBLE
-                ivPageRight.setImageResource(R.mipmap.filtrate_title_icon_2)
+                data[position].second = true
+                filtrate.removeAllViews()
+                filtrate.visibility = View.VISIBLE
+                when (position) {
+                    0 -> {
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@LiveActivity, FiltrateUtil.CITY, filtrate))
+                    }
+                    1->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@LiveActivity, FiltrateUtil.STYLE, filtrate))
+                    }
+                }
             }
         }
+        tabRV.adapter = tabAdapter
 
-        cityRV.adapter = OptionAdapter(arrayListOf("北京", "上海", "天津", "重庆", "保定", "象牙山"))
-        houseTypeRV.adapter = Option2Adapter(arrayListOf("不限", "一室一厅", "两室一厅", "三室一厅", "复式", "其他"))
     }
 
 

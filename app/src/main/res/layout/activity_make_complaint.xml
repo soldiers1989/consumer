@@ -12,12 +12,19 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:text="请选择问题类型："
-            android:visibility="gone"
+            android:text="地址："
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_marginTop="34dp"
             android:layout_marginLeft="20dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@id/type"
+            app:layout_constraintLeft_toRightOf="@id/type"
+            android:text="点击选择"
+            android:textColor="@color/color777"
+            android:textSize="14sp"/>
 
     <RadioGroup
             android:id="@+id/tebRG"

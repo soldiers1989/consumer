@@ -2,6 +2,7 @@ package com.easyhome.jrconsumer.mvp.ui.activity.recommend
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 
 import com.jess.arms.base.BaseActivity
@@ -16,10 +17,9 @@ import com.easyhome.jrconsumer.mvp.presenter.recommend.ClassicCasePresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
-import com.easyhome.jrconsumer.mvp.ui.adapter.DesignCaseAdapter
-import com.easyhome.jrconsumer.mvp.ui.adapter.Option2Adapter
-import com.easyhome.jrconsumer.mvp.ui.adapter.Option3Adapter
-import com.easyhome.jrconsumer.mvp.ui.adapter.OptionAdapter
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
+import com.easyhome.jrconsumer.mvp.ui.adapter.*
+import com.easyhome.jrconsumer.util.FiltrateUtil
 import kotlinx.android.synthetic.main.activity_classic_case.*
 import kotlinx.android.synthetic.main.layout_title.*
 
@@ -48,22 +48,58 @@ class ClassicCaseActivity : JRBaseActivity<ClassicCasePresenter>(), ClassicCaseC
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "精品案例"
         ivPageBack.singleClick { killMyself() }
-        ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
-        ivPageRight.visibility = View.VISIBLE
-        ivPageRight.singleClick {
-            if(filtrateCL.visibility==View.VISIBLE){
-                filtrateCL.visibility=View.GONE
-                ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
-            }else{
-                filtrateCL.visibility=View.VISIBLE
-                ivPageRight.setImageResource(R.mipmap.filtrate_title_icon_2)
+        /* ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
+         ivPageRight.visibility = View.VISIBLE
+         ivPageRight.singleClick {
+             if (filtrateCL.visibility == View.VISIBLE) {
+                 filtrateCL.visibility = View.GONE
+                 ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
+             } else {
+                 filtrateCL.visibility = View.VISIBLE
+                 ivPageRight.setImageResource(R.mipmap.filtrate_title_icon_2)
+             }
+         }*/
+        val tabAdapter = Tab2Adapter(
+            arrayListOf(
+                MPair("城市", true),
+                MPair("户型", false),
+                MPair("装修风格", false),
+                MPair("面积", false)
+            )
+        )
+        tabAdapter.setOnItemClickListener { adapter, view, position ->
+            val data = adapter.data as List<MPair<String, Boolean>>
+            if (data[position].second) {
+                filtrate.visibility = View.GONE
+                data[position].second=false
+            } else {
+                data[position].second=true
+                filtrate.removeAllViews()
+                filtrate.visibility = View.VISIBLE
+
+                when(position){
+                    0->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.CITY, filtrate))
+                    }
+                    1->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.HOUSE_TYPE, filtrate))
+                    }
+                    2->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.STYLE, filtrate))
+                    }
+                    3->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.AREA, filtrate))
+                    }
+                }
+
+
+                // filtrate.addView(LayoutInflater.from(this).inflate(R.layout.select_city_layout, filtrate,false))
             }
+
         }
+        tabRV.adapter = tabAdapter
         dataRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
-        cityRV.adapter = OptionAdapter(arrayListOf("北京", "北京", "北京", "北京", "北京", "北京"))
-        houseTypeRV.adapter = Option2Adapter(arrayListOf("一室一厅", "一室一厅", "一室一厅", "一室一厅", "一室一厅", "一室一厅"))
-        areaRV.adapter = Option3Adapter(arrayListOf("小于60m²", "60~80m²", "80~100m²", "100~120m²", "120以上"))
-        styleRV.adapter = Option2Adapter(arrayListOf("中式", "美式", "地中海", "阿拉伯", "北美", "混合"))
+
     }
 
 

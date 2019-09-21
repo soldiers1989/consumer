@@ -185,6 +185,8 @@
         </activity>
         <activity android:name=".mvp.ui.activity.H5Activity">
         </activity>
+        <activity android:name=".mvp.ui.activity.OuterMaterialsActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -59,6 +59,7 @@
                  android:background="@drawable/sex_select_false_5"
                  android:checked="true"
                  android:textSize="12sp"
+                 android:visibility="gone"
                  android:button="@null"
                  android:textColor="@color/color333"
                  android:paddingLeft="8dp"

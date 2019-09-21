@@ -16,10 +16,12 @@ import com.easyhome.jrconsumer.mvp.presenter.recommend.DesignerListPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.H5Activity
 import com.easyhome.jrconsumer.mvp.ui.activity.PredetermineActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.*
-import kotlinx.android.synthetic.main.activity_designer_list.*
+import com.easyhome.jrconsumer.util.FiltrateUtil
+import kotlinx.android.synthetic.main.activity_classic_case.*
 import kotlinx.android.synthetic.main.layout_title.*
 import org.jetbrains.anko.startActivity
 
@@ -41,7 +43,7 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
 
 
     override fun initView(savedInstanceState: Bundle?): Int {
-        return R.layout.activity_designer_list //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+        return R.layout.activity_classic_case //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
     }
 
 
@@ -49,7 +51,7 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
         tvPageTitle.text = "设计师"
         ivPageBack.singleClick { killMyself() }
 
-        ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
+        /*ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
         ivPageRight.visibility = View.VISIBLE
         ivPageRight.singleClick {
             if(filtrateCL.visibility== View.VISIBLE){
@@ -59,7 +61,7 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
                 filtrateCL.visibility= View.VISIBLE
                 ivPageRight.setImageResource(R.mipmap.filtrate_title_icon_2)
             }
-        }
+        }*/
         val adapter = DesignerListAdapter(arrayListOf("", "", "", ""))
 
         adapter.setOnItemClickListener { adapter, view, position ->
@@ -72,14 +74,45 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
 
         adapter.setOnItemChildClickListener { adapter, view, position ->
 
-            when(view.id){
-                R.id.cancel->startActivity<PredetermineActivity>()
+            when (view.id) {
+                R.id.cancel -> startActivity<PredetermineActivity>()
             }
         }
         dataRV.adapter = adapter
-        cityRV.adapter = OptionAdapter(arrayListOf("北京", "上海", "天津", "重庆", "保定", "象牙山"))
-        houseTypeRV.adapter = Option2Adapter(arrayListOf("中式", "美式", "地中海", "阿拉伯", "北美", "混合"))
-        areaRV.adapter = Option3Adapter(arrayListOf("小于60m²", "60~80m²", "80~100m²", "100~120m²","120以上"))
+        val tabAdapter = Tab2Adapter(
+            arrayListOf(
+                MPair("城市", true),
+                MPair("装修风格", false),
+                MPair("价格区间", false)
+            )
+        )
+        tabAdapter.setOnItemClickListener { adapter, view, position ->
+            val data = adapter.data as List<MPair<String, Boolean>>
+            if (data[position].second) {
+                filtrate.visibility = View.GONE
+                data[position].second=false
+            } else {
+                data[position].second=true
+                filtrate.removeAllViews()
+                filtrate.visibility = View.VISIBLE
+             //   filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity, position, filtrate))
+                // filtrate.addView(LayoutInflater.from(this).inflate(R.layout.select_city_layout, filtrate,false))
+                when(position){
+                    0->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity,FiltrateUtil.CITY, filtrate))
+                    }
+                    1->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity,FiltrateUtil.STYLE, filtrate))
+                    }
+                    2->{
+                        filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity,FiltrateUtil.PRICE, filtrate))
+                    }
+                }
+            }
+
+        }
+        tabRV.adapter = tabAdapter
+
     }
 
 

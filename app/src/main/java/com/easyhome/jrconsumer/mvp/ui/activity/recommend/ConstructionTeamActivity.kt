@@ -62,11 +62,11 @@ class ConstructionTeamActivity : JRBaseActivity<ConstructionTeamPresenter>(), Co
 
 
 
-        cityRV.adapter = OptionAdapter(arrayListOf("北京", "上海", "天津", "重庆", "保定", "象牙山"))
-        levelRV.adapter = OptionAdapter(arrayListOf("资深", "高级", "中级", "初级"))
+        /*cityRV.adapter = OptionAdapter(arrayListOf())
+        levelRV.adapter = OptionAdapter(arrayListOf())*/
 
         ivPageBack.singleClick { killMyself() }
-        ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
+       /* ivPageRight.setImageResource(R.mipmap.filtrate_title_icon)
         ivPageRight.visibility = View.VISIBLE
         ivPageRight.singleClick {
             if(filtrateCL.visibility== View.VISIBLE){
@@ -76,7 +76,7 @@ class ConstructionTeamActivity : JRBaseActivity<ConstructionTeamPresenter>(), Co
                 filtrateCL.visibility= View.VISIBLE
                 ivPageRight.setImageResource(R.mipmap.filtrate_title_icon_2)
             }
-        }
+        }*/
     }
 
 

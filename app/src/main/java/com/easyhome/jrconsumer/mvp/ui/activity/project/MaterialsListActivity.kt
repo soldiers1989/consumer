@@ -17,6 +17,7 @@ import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
+import com.easyhome.jrconsumer.mvp.ui.activity.OuterMaterialsActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.MaterialsList2Adapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.MaterialsListAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.MessageTabAdapter
@@ -71,6 +72,12 @@ class MaterialsListActivity : JRBaseActivity<MaterialsListPresenter>(), Material
 
         }*/
         val adapter1 = MaterialsListAdapter(arrayListOf("", "", ""))
+        adapter1.setOnItemClickListener { adapter, view, position ->
+            startActivity<OuterMaterialsActivity>()
+
+        }
+
+
         val adapter2 = MaterialsList2Adapter(arrayListOf("", "", ""))
        /* tabRB2.singleClick {
             dataRV.adapter = adapter2
@@ -98,11 +105,13 @@ class MaterialsListActivity : JRBaseActivity<MaterialsListPresenter>(), Material
                     dataRV.adapter = adapter2
                     add.visibility= View.GONE
                     totle.visibility= View.VISIBLE
+                    ivPageRight.visibility = View.VISIBLE
                 }
                 1 -> {
                     dataRV.adapter = adapter1
                     add.visibility= View.VISIBLE
                     totle.visibility= View.GONE
+                    ivPageRight.visibility = View.GONE
                 }
 
             }
