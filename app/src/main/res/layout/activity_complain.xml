@@ -43,8 +43,7 @@
             android:layout_marginTop="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="23dp"
-            android:layout_marginRight="23dp"
-    />
+            android:layout_marginRight="23dp"/>
 
 
     <android.support.v7.widget.RecyclerView

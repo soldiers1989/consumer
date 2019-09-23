@@ -5,6 +5,7 @@ import com.easyhome.jrconsumer.app.base.IView
 import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
 import io.reactivex.Observable
+import okhttp3.RequestBody
 
 
 interface LoginContract {
@@ -14,8 +15,8 @@ interface LoginContract {
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
     interface Model : IModel {
         fun smsCode(phone: String): Observable<HttpResult<Any>>
-        fun test(username: String, size: String): Observable<HttpResult<Any>>
-        fun login(username: String, password: String): Observable<HttpResult<LoginInfo>>
+        fun test(requestBody: RequestBody): Observable<HttpResult<Any>>
+        fun login(requestBody: RequestBody): Observable<HttpResult<LoginInfo>>
     }
 
 }

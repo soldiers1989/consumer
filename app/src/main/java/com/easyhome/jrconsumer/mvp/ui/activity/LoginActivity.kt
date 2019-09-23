@@ -19,6 +19,8 @@ import com.easyhome.jrconsumer.mvp.presenter.LoginPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.app.manager.UserInfoManager
+import com.easyhome.jrconsumer.mvp.model.entity.LoginArgumentsBean
+import com.easyhome.jrconsumer.mvp.model.entity.TestBean
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 
@@ -49,7 +51,42 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
 
     override fun initData(savedInstanceState: Bundle?) {
 
+      /* mPresenter!!.test(TestBean("S85237-I72191-C52513-B18169", "sdkfal")) {
 
+
+        }*/
+
+        /*
+        //注册
+        val args = LoginArgumentsBean(
+            "S85237-I72191-C18279-B65163", "12345",
+            arrayListOf(LoginArgumentsBean.Bean(arrayListOf(mapOf(
+                Pair("password_2290", "123"),
+                Pair("mobile_2290", "13612341234"),
+                Pair("status_2290", "0"),
+                Pair("ip_2290", "192.168.1.1")
+            ))))
+        )*/
+
+
+        val args = LoginArgumentsBean(
+            "S85237-I72191-C49749-B49793", "12345",
+            arrayListOf(LoginArgumentsBean.Bean(arrayListOf(mapOf(
+                Pair("password_2290", "123"),
+                Pair("mobile_2290", "13510417332"),
+                Pair("status_2290", "0"),
+                Pair("ip_2290", "192.168.1.1"),
+                Pair("IP_4895", "192.168.1.1"),
+                Pair("token_4895", "123"),
+                Pair("type_4895", "0"),
+                Pair("id_4895", "2"),
+                Pair("userID_4895", "2"),
+                Pair("os_4895", "1")
+            ))))
+        )
+        mPresenter!!.login(args) {
+
+        }
         accountTV.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }

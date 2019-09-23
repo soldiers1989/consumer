@@ -7,12 +7,16 @@ import com.jess.arms.di.scope.ActivityScope
 import com.jess.arms.mvp.BasePresenter
 import com.jess.arms.http.imageloader.ImageLoader
 import com.easyhome.jrconsumer.app.ResponseErrorSubscriber
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.utils.RxUtils
 import me.jessyan.rxerrorhandler.core.RxErrorHandler
 import javax.inject.Inject
 
 import com.easyhome.jrconsumer.mvp.contract.LoginContract
+import com.easyhome.jrconsumer.mvp.model.entity.LoginArgumentsBean
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
+import com.easyhome.jrconsumer.mvp.model.entity.TestBean
+import okhttp3.RequestBody
 
 
 @ActivityScope
@@ -37,24 +41,24 @@ constructor(model: LoginContract.Model, rootView: LoginContract.View) :
                 }
             })
     }
-    fun test(username: String, size: String, success: (any: Any) -> Unit) {
-        mModel.test(username,size).compose(RxUtils.applySchedulersToData(mRootView))
+
+    fun test(codes: TestBean, success: (any: Any) -> Unit) {
+        mModel.test(codes.getRequestBody()).compose(RxUtils.applySchedulersToData(mRootView))
             .subscribe(object : ResponseErrorSubscriber<Any>(mErrorHandler) {
                 override fun onNext(any: Any) {
                     success(any)
                 }
             })
     }
-    fun login(username: String, password: String, success: (any: LoginInfo) -> Unit) {
-        mModel.login(username,password).compose(RxUtils.applySchedulersToData(mRootView))
+
+    fun login(arg: LoginArgumentsBean, success: (any: LoginInfo) -> Unit) {
+        mModel.login(arg.getRequestBody()).compose(RxUtils.applySchedulersToData(mRootView))
             .subscribe(object : ResponseErrorSubscriber<LoginInfo>(mErrorHandler) {
                 override fun onNext(any: LoginInfo) {
                     success(any)
                 }
             })
     }
-
-
 
 
     override fun onDestroy() {
