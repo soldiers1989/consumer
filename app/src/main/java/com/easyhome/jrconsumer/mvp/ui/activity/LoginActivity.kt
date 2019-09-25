@@ -17,10 +17,12 @@ import com.easyhome.jrconsumer.mvp.contract.LoginContract
 import com.easyhome.jrconsumer.mvp.presenter.LoginPresenter
 
 import com.easyhome.jrconsumer.R
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.app.manager.UserInfoManager
 import com.easyhome.jrconsumer.mvp.model.entity.LoginArgumentsBean
 import com.easyhome.jrconsumer.mvp.model.entity.TestBean
+import com.easyhome.jrconsumer.mvp.model.entity.TestResult
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 
@@ -51,10 +53,10 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
 
     override fun initData(savedInstanceState: Bundle?) {
 
-      /* mPresenter!!.test(TestBean("S85237-I72191-C52513-B18169", "sdkfal")) {
+        /* mPresenter!!.test(TestBean("S85237-I72191-C52513-B18169", "sdkfal")) {
 
 
-        }*/
+          }*/
 
         /*
         //注册
@@ -69,22 +71,80 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
         )*/
 
 
+        /* val args = LoginArgumentsBean(
+             "S85237-I72191-C49749-B49793", "12345",
+             arrayListOf(LoginArgumentsBean.Bean(arrayListOf(mapOf(
+                 Pair("password_2290", "123"),
+                 Pair("mobile_2290", "13510417332"),
+                 Pair("status_2290", "0"),
+                 Pair("ip_2290", "192.168.1.1"),
+                 Pair("IP_4895", "192.168.1.1"),
+                 Pair("token_4895", "123"),
+                 Pair("type_4895", "0"),
+                 Pair("id_4895", "2"),
+                 Pair("userID_4895", "2"),
+                 Pair("os_4895", "1")
+             ))))
+         )*/
+        /*  mPresenter!!.login(args) {
+
+          }*/
+
+        /*
+        //初始化接口
+        mPresenter!!.test(mapOf(Pair("codes","S85237-I72191-C56211-B01605"), Pair("isVerify","1"))){
+             mobile_1319
+         }*/
+        /*
+        //查询手机号是否存在
+        mPresenter!!.test(TestResult("S85237-I72191-C61941-B59134",
+            "1",
+            arrayListOf(TestResult.Data(arrayListOf(TestResult.Data.Condition("mobile_2290","13612341234","1"))))
+            )){
+        }*/
+
+/*// 发送验证吗
+        mPresenter!!.smsCode("13691345442"){
+
+        }*/
+
+      /*  mPresenter!!.test(
+            mapOf(
+                Pair("mobile", "13612341234"),
+                Pair("type", "2"),
+                Pair("newPassword", "qwe123"),
+                Pair("oldPassword", "123")
+            )
+        ) {
+
+        }*/
         val args = LoginArgumentsBean(
-            "S85237-I72191-C49749-B49793", "12345",
-            arrayListOf(LoginArgumentsBean.Bean(arrayListOf(mapOf(
-                Pair("password_2290", "123"),
-                Pair("mobile_2290", "13510417332"),
-                Pair("status_2290", "0"),
-                Pair("ip_2290", "192.168.1.1"),
-                Pair("IP_4895", "192.168.1.1"),
-                Pair("token_4895", "123"),
-                Pair("type_4895", "0"),
-                Pair("id_4895", "2"),
-                Pair("userID_4895", "2"),
-                Pair("os_4895", "1")
-            ))))
+            "S85237-I72191-C93024-B93528", "1",
+            arrayListOf(
+                LoginArgumentsBean.Bean(
+                    arrayListOf(
+                        mapOf(
+                            Pair("userID", "12"),
+                            Pair("mobile_1319", "13691345442"),
+                            Pair("code", "613437"),
+                            Pair("logTime", "2019-09-24 21:17:49"),
+                            Pair("status", "0"),
+                            Pair("genre", "0")
+                        )
+                    )
+                )
+            )
         )
-        mPresenter!!.login(args) {
+        mPresenter!!.login(
+            mapOf(
+                Pair("mobile", "13510417332"),
+                Pair("password", "123"),
+                Pair("uuid", "1235DD"),
+                Pair("ip", "192.168.1.1"),
+                Pair("os", "1"),
+                Pair("loginType", "1")
+            ).getRequestBody()
+        ) {
 
         }
         accountTV.addTextChangedListener(object : TextWatcher {

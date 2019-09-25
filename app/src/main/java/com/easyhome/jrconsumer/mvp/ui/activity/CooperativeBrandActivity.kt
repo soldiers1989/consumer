@@ -14,7 +14,9 @@ import com.easyhome.jrconsumer.mvp.presenter.CooperativeBrandPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.LoginArgumentsBean
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.BrandAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.TabAdapter
@@ -48,8 +50,30 @@ class CooperativeBrandActivity : JRBaseActivity<CooperativeBrandPresenter>(), Co
         tvPageTitle.text = "合作品牌"
         ivPageBack.singleClick { killMyself() }
         tabRV.adapter =
-                TabAdapter(arrayListOf(MPair("地板", false), MPair("卫浴", true), MPair("瓷砖", false), MPair("沙发", false),MPair("灯具", false),MPair("家具", false)))
+                TabAdapter(
+                    arrayListOf(
+                        MPair("地板", false),
+                        MPair("卫浴", true),
+                        MPair("瓷砖", false),
+                        MPair("沙发", false),
+                        MPair("灯具", false),
+                        MPair("家具", false)
+                    )
+                )
         brandRV.adapter = BrandAdapter(arrayListOf("", "", "", ""))
+
+
+
+         //fieldName=id_5644  //分类
+        //fieldName=categoryID_1501//分类列表数据
+        val b2=BrandArguments.BeanII("categoryID_1501","1","1")
+        val b1=BrandArguments.BeanI(arrayListOf(b2))
+       // val arg=BrandArguments("S85237-I25933-C76982-B13730","1", arrayListOf(b1))   //分类
+        val arg=BrandArguments("S85237-I25933-C42200-B43245","1", arrayListOf(b1))//分类列表数据
+        mPresenter!!.brand(arg.getRequestBody() ){
+
+
+        }
     }
 
 
@@ -71,5 +95,11 @@ class CooperativeBrandActivity : JRBaseActivity<CooperativeBrandPresenter>(), Co
 
     override fun killMyself() {
         finish()
+    }
+
+
+    data class BrandArguments(val codes: String, val isVerify: String, val datas: List<BeanI>) {
+        data class BeanI(val condition: List<BeanII>)
+        data class BeanII(val fieldName: String, val values: String,val queryMode:String)
     }
 }

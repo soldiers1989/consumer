@@ -29,7 +29,7 @@ constructor(repositoryManager: IRepositoryManager) : BaseModel(repositoryManager
         return mRepositoryManager.obtainRetrofitService(JRService::class.java).test(requestBody)
     }
     override fun smsCode(phone: String): Observable<HttpResult<Any>> {
-        return mRepositoryManager.obtainRetrofitService(UserInfoService::class.java).smsCode(phone)
+        return mRepositoryManager.obtainRetrofitService(JRService::class.java).smsCode(phone)
     }
 
     @Inject

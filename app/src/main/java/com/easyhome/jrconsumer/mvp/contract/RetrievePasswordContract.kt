@@ -2,6 +2,9 @@ package com.easyhome.jrconsumer.mvp.contract
 
 import com.jess.arms.mvp.IModel
 import com.easyhome.jrconsumer.app.base.IView
+import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
+import io.reactivex.Observable
+import okhttp3.RequestBody
 
 
 interface RetrievePasswordContract {
@@ -9,6 +12,8 @@ interface RetrievePasswordContract {
     interface View : IView
 
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
-    interface Model : IModel
+    interface Model : IModel{
+        fun alter(requestBody: RequestBody): Observable<HttpResult<Boolean>>
+    }
 
 }

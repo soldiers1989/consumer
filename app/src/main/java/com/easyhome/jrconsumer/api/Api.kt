@@ -25,4 +25,6 @@ object Api {
 
 
     const val LOGIN_TEST = "http://39.105.53.52:8080/decorate_unexpectedly/global/inlet"
+    const val SEND_SMS = "http://39.105.53.52:8080/decorate_unexpectedly/send/sms"
+    const val FORGET_OR_CHANGE_PASSWORD = "http://39.105.53.52:8080/decorate_unexpectedly/password/forgetOrChangePassword"
 }

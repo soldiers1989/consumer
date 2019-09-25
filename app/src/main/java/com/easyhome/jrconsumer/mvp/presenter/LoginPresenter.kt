@@ -16,6 +16,7 @@ import com.easyhome.jrconsumer.mvp.contract.LoginContract
 import com.easyhome.jrconsumer.mvp.model.entity.LoginArgumentsBean
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
 import com.easyhome.jrconsumer.mvp.model.entity.TestBean
+import com.easyhome.jrconsumer.mvp.model.entity.TestResult
 import okhttp3.RequestBody
 
 
@@ -42,7 +43,7 @@ constructor(model: LoginContract.Model, rootView: LoginContract.View) :
             })
     }
 
-    fun test(codes: TestBean, success: (any: Any) -> Unit) {
+    fun test(codes: Map<String,String>, success: (any: Any) -> Unit) {
         mModel.test(codes.getRequestBody()).compose(RxUtils.applySchedulersToData(mRootView))
             .subscribe(object : ResponseErrorSubscriber<Any>(mErrorHandler) {
                 override fun onNext(any: Any) {
@@ -51,8 +52,8 @@ constructor(model: LoginContract.Model, rootView: LoginContract.View) :
             })
     }
 
-    fun login(arg: LoginArgumentsBean, success: (any: LoginInfo) -> Unit) {
-        mModel.login(arg.getRequestBody()).compose(RxUtils.applySchedulersToData(mRootView))
+    fun login(arg: RequestBody, success: (any: LoginInfo) -> Unit) {
+        mModel.login(arg).compose(RxUtils.applySchedulersToData(mRootView))
             .subscribe(object : ResponseErrorSubscriber<LoginInfo>(mErrorHandler) {
                 override fun onNext(any: LoginInfo) {
                     success(any)

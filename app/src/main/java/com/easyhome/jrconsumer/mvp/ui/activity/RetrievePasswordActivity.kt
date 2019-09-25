@@ -85,6 +85,17 @@ class RetrievePasswordActivity : JRBaseActivity<RetrievePasswordPresenter>(), Re
             smsB.text = "已发送(${60}s)"
             timer()
         }
+
+
+        mPresenter!!.alter(mapOf(Pair("mobile","13612341234"),
+            Pair("type","1"),
+            Pair("verifyCode","123456"),
+            Pair("newPassword","123"))){
+
+
+
+        }
+
     }
 
 

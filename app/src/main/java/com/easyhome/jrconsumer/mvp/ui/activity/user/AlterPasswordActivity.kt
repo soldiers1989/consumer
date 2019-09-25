@@ -43,6 +43,17 @@ class AlterPasswordActivity : JRBaseActivity<AlterPasswordPresenter>(), AlterPas
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "修改密码"
         ivPageBack.singleClick { killMyself() }
+
+        mPresenter!!.alter(mapOf(Pair("mobile","13612341234"),
+            Pair("type","2"),
+            Pair("newPassword","qwe123"),
+            Pair("oldPassword","123"))){
+
+
+
+        }
+
+
     }
 
 
