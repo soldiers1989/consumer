@@ -20,6 +20,7 @@ import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
 import kotlinx.android.synthetic.main.activity_confirm.*
 import kotlinx.android.synthetic.main.layout_title.*
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -72,6 +73,20 @@ class ConfirmActivity : JRBaseActivity<ConfirmPresenter>(), ConfirmContract.View
             }
 
         })
+
+        confirmB.singleClick {
+            if (accountTV.text.toString().equals(passwordED.text.toString())) {
+                mPresenter!!.alter(
+                    mapOf(
+                        Pair("mobile", intent.getStringExtra("mobile")),
+                        Pair("type", "1"),
+                        Pair("newPassword", "${passwordED.text.toString()}")
+                    )
+                ) {
+                    startActivity<MainActivity>()
+                }
+            }
+        }
     }
 
 

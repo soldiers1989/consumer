@@ -13,17 +13,15 @@ object Api {
     const val KEY_UUID = "KEY_UUID"
     const val USERAPI = "userapi"
     const val APP_LOGO_URl = "${APP_BASE_URL}${USERAPI}"
-    const val LOGIN = "user/user/login"
     const val LOGOUT = "userapi/userCenter/logOut"
-
     //验证码接口
     const val SMSCODE = "captcha/captcha/add"
+
     const val TEST = "user/list"
     //短信验证码校验
     const val CODECHECK = "captcha/captcha/check"
 //http://192.168.2.2:8763/captcha/captcha/check?phone=15010118286&code=456467
-
-
+    const val LOGIN = "http://39.105.53.52:8080/decorate_unexpectedly/user/auth"
     const val LOGIN_TEST = "http://39.105.53.52:8080/decorate_unexpectedly/global/inlet"
     const val SEND_SMS = "http://39.105.53.52:8080/decorate_unexpectedly/send/sms"
     const val FORGET_OR_CHANGE_PASSWORD = "http://39.105.53.52:8080/decorate_unexpectedly/password/forgetOrChangePassword"

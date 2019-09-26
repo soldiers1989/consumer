@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
 import io.reactivex.Observable
 import okhttp3.RequestBody
+import retrofit2.http.Field
 
 
 @ActivityScope
@@ -28,8 +29,9 @@ constructor(repositoryManager: IRepositoryManager) : BaseModel(repositoryManager
     override fun test(requestBody: RequestBody): Observable<HttpResult<Any>> {
         return mRepositoryManager.obtainRetrofitService(JRService::class.java).test(requestBody)
     }
-    override fun smsCode(phone: String): Observable<HttpResult<Any>> {
-        return mRepositoryManager.obtainRetrofitService(JRService::class.java).smsCode(phone)
+
+    override fun smsCode(mobile: String, genre: String, type: String): Observable<HttpResult<Any>> {
+        return mRepositoryManager.obtainRetrofitService(JRService::class.java).smsCode(mobile, genre, type)
     }
 
     @Inject

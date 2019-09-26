@@ -237,12 +237,12 @@
             <EditText
                     android:id="@+id/passwordED2"
                     android:layout_width="0dp"
-                    app:layout_constraintRight_toLeftOf="@id/passwordClean2"
+                    app:layout_constraintRight_toLeftOf="@id/sendSms"
                     app:layout_constraintLeft_toRightOf="@id/passwordIcon2"
                     android:textCursorDrawable="@null"
                     android:textColor="#666"
                     android:layout_marginLeft="26dp"
-                    android:hint="获取验证码"
+                    android:hint="输入验证码"
                     android:maxLength="6"
                     android:singleLine="true"
                     android:inputType="number"
@@ -254,14 +254,14 @@
                     android:layout_height="wrap_content"/>
 
             <TextView
-                    android:id="@+id/passwordClean2"
+                    android:id="@+id/sendSms"
                     android:layout_width="72dp"
                     android:layout_height="21dp"
                     android:layout_marginRight="12dp"
                     android:text="获取验证码"
                     android:gravity="center"
                     android:textSize="11sp"
-                    android:textColor="@color/colorc9c"
+                    android:textColor="@color/color333"
                     android:background="@drawable/login_rb_bac"
                     app:layout_constraintRight_toRightOf="@id/fg4"
                     app:layout_constraintTop_toTopOf="@id/passwordIcon2"

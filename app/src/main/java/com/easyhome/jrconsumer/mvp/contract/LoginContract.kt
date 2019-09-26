@@ -14,7 +14,7 @@ interface LoginContract {
 
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
     interface Model : IModel {
-        fun smsCode(phone: String): Observable<HttpResult<Any>>
+        fun smsCode(mobile: String, genre: String, type: String): Observable<HttpResult<Any>>
         fun test(requestBody: RequestBody): Observable<HttpResult<Any>>
         fun login(requestBody: RequestBody): Observable<HttpResult<LoginInfo>>
     }

@@ -34,8 +34,8 @@ constructor(model: LoginContract.Model, rootView: LoginContract.View) :
     @Inject
     lateinit var mAppManager: AppManager
 
-    fun smsCode(phone: String, success: (any: Any) -> Unit) {
-        mModel.smsCode(phone).compose(RxUtils.applySchedulersToData(mRootView))
+    fun smsCode(mobile: String, genre: String, type: String, success: (any: Any) -> Unit) {
+        mModel.smsCode(mobile, genre, type).compose(RxUtils.applySchedulersToData(mRootView))
             .subscribe(object : ResponseErrorSubscriber<Any>(mErrorHandler) {
                 override fun onNext(any: Any) {
                     success(any)
@@ -43,7 +43,7 @@ constructor(model: LoginContract.Model, rootView: LoginContract.View) :
             })
     }
 
-    fun test(codes: Map<String,String>, success: (any: Any) -> Unit) {
+    fun test(codes: Map<String, String>, success: (any: Any) -> Unit) {
         mModel.test(codes.getRequestBody()).compose(RxUtils.applySchedulersToData(mRootView))
             .subscribe(object : ResponseErrorSubscriber<Any>(mErrorHandler) {
                 override fun onNext(any: Any) {

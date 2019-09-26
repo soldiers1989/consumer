@@ -25,8 +25,6 @@ public class H5UrlFactory {
 
     public String getUrlForAddress(String address) {
         return address +
-                "&userId=" + UserInfoManager.getInstance().getUserId() +
-                "&companyID=" + UserInfoManager.getInstance().getCompanyID() +
                 "&authorization=" + UserInfoManager.getInstance().getUserToken();
     }
 

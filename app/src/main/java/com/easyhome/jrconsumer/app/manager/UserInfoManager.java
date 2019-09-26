@@ -8,6 +8,12 @@ import com.easyhome.jrconsumer.api.Api;
 import com.easyhome.jrconsumer.app.utils.SettingHelper;
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
+
 /**
  * 用户信息管理类
  **/
@@ -53,7 +59,30 @@ public class UserInfoManager {
         SettingHelper.getInstance().saveString(Api.KEY_UUID, uuid);
         return uuid;
     }
-
+    /**
+     * @Title: getIpAddress
+     *
+     * @Description: 获取设备ip地址
+     *
+     * @return String
+     */
+    public  String getIpAddress() {
+        try {
+            for (Enumeration<NetworkInterface> enNetI = NetworkInterface.getNetworkInterfaces(); enNetI
+                    .hasMoreElements();) {
+                NetworkInterface netI = enNetI.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = netI.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (inetAddress instanceof Inet4Address &&!inetAddress.isLoopbackAddress()) {
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
     /**
      * 保存用户信息
      */
@@ -136,114 +165,47 @@ public class UserInfoManager {
     /**
      * 获取用户ID
      */
-    public String getUserId() {
+   /* public String getUserId() {
         if (getUserInfo() != null) {
             return getUserInfo().getConsumerId();
         } else {
             return "";
         }
-    }
+    }*/
 
     /**
      * 用户头像
      */
-    public String getHeadPortraits() {
+    /*public String getHeadPortraits() {
         if (getUserInfo() != null) {
             return getUserInfo().getHeadPortraits();
         } else {
             return "";
         }
-    }
+    }*/
 
 
-    public String getConsumerId() {
+    /*public String getConsumerId() {
         if (getUserInfo() != null) {
             return getUserInfo().getConsumerId();
         } else {
             return "";
         }
-    }
+    }*/
 
     /**
      * 获取用户手机号
      */
-    public String getUserPhone() {
+   /* public String getUserPhone() {
         if (getUserInfo() != null) {
             return getUserInfo().getPhone();
         } else {
             return "";
         }
-    }
+    }*/
 
-    /**
-     * 获得权限信息
-     */
-    public String getRoleId() {
-        if (getUserInfo() != null && getUserInfo().getRoleId() != null) {
-            return getUserInfo().getRoleId();
-        } else {
-            return "CC";
-        }
-    }
 
-    /**
-     * 公司ID
-     */
-    public String getCompanyID() {
-        if (getUserInfo() != null) {
-            return getUserInfo().getCompanyID();
-        } else {
-            return "";
-        }
-    }
 
-    /**
-     * 公司名字
-     */
-    public String getCompanyName() {
-        if (getUserInfo() != null) {
-            return getUserInfo().getCompanyName();
-        } else {
-            return "";
-        }
-    }
 
-    /**
-     * 业主名称
-     */
-    public String getNickName() {
-        if (getUserInfo() != null) {
-            return getUserInfo().getNickName();
-        } else {
-            return "";
-        }
-    }
 
-    /**
-     * 是否为工长
-     */
-    public boolean isCM() {
-        return getUserInfo() != null && getRoleId().equals("CM");
-    }
-
-    /**
-     * 是否为项目经理
-     */
-    public boolean isCP() {
-        return getUserInfo() != null && getRoleId().equals("CP");
-    }
-
-    /**
-     * 是否为消费者
-     */
-    public boolean isCC() {
-        return getUserInfo() != null && getRoleId().equals("CC");
-    }
-
-    /**
-     * 是否为管家
-     */
-    public boolean isCS() {
-        return getUserInfo() != null && getRoleId().equals("CS");
-    }
 }

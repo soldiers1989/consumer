@@ -14,7 +14,7 @@ public class HttpResult<T> implements Serializable {
     /**
      * 错误信息描述
      */
-    private String message;
+    private String msg;
     /**
      * 返回数据的时间
      */
@@ -37,11 +37,11 @@ public class HttpResult<T> implements Serializable {
     }
 
     public String getMessage() {
-        return message;
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessage(String msg) {
+        this.msg = msg;
     }
 
     public String getTimestamp() {

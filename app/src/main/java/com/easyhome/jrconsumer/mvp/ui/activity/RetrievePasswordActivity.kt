@@ -50,9 +50,7 @@ class RetrievePasswordActivity : JRBaseActivity<RetrievePasswordPresenter>(), Re
     override fun initData(savedInstanceState: Bundle?) {
         tvPageTitle.text = "忘记密码"
         ivPageBack.singleClick { finish() }
-        nextB.singleClick {
-            startActivity<ConfirmActivity>()
-        }
+
         accountTV.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }
@@ -86,15 +84,34 @@ class RetrievePasswordActivity : JRBaseActivity<RetrievePasswordPresenter>(), Re
             timer()
         }
 
+        smsB.singleClick {
+            mPresenter!!.smsCode(
+                accountTV.text.toString(),
+                "0",
+                "3"
+            ) {
 
-        mPresenter!!.alter(mapOf(Pair("mobile","13612341234"),
-            Pair("type","1"),
-            Pair("verifyCode","123456"),
-            Pair("newPassword","123"))){
 
-
-
+            }
         }
+
+        nextB.singleClick {
+
+            if (accountTV.text.trim().length != 11 || passwordED.text.trim().length != 6) {
+                showMessage("请正确输入手机号和验证码")
+            } else {
+                mPresenter!!.alter(
+                        mapOf(
+                            Pair("mobile", "${accountTV.text.toString()}"),
+                            Pair("type", "0"),
+                            Pair("verifyCode", "${passwordED.text.toString()}")
+                        )
+                        ) {
+                    startActivity<ConfirmActivity>("mobile" to "${accountTV.text.toString()}")
+                }
+            }
+        }
+
 
     }
 

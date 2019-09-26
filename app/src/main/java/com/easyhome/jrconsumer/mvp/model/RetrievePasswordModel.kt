@@ -19,6 +19,10 @@ import okhttp3.RequestBody
 class RetrievePasswordModel
 @Inject
 constructor(repositoryManager: IRepositoryManager) : BaseModel(repositoryManager), RetrievePasswordContract.Model {
+    override fun smsCode(mobile: String, genre: String, type: String): Observable<HttpResult<Any>> {
+        return mRepositoryManager.obtainRetrofitService(JRService::class.java).smsCode(mobile, genre, type)
+    }
+
     override fun alter(requestBody: RequestBody): Observable<HttpResult<Boolean>> {
         return mRepositoryManager.obtainRetrofitService(JRService::class.java).alter(requestBody)
     }

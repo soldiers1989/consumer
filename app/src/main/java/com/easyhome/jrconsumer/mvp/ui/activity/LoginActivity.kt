@@ -25,6 +25,7 @@ import com.easyhome.jrconsumer.mvp.model.entity.TestBean
 import com.easyhome.jrconsumer.mvp.model.entity.TestResult
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
+import android.text.InputType
 
 
 /**
@@ -108,16 +109,16 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
 
         }*/
 
-      /*  mPresenter!!.test(
-            mapOf(
-                Pair("mobile", "13612341234"),
-                Pair("type", "2"),
-                Pair("newPassword", "qwe123"),
-                Pair("oldPassword", "123")
-            )
-        ) {
+        /*  mPresenter!!.test(
+              mapOf(
+                  Pair("mobile", "13612341234"),
+                  Pair("type", "2"),
+                  Pair("newPassword", "qwe123"),
+                  Pair("oldPassword", "123")
+              )
+          ) {
 
-        }*/
+          }*/
         val args = LoginArgumentsBean(
             "S85237-I72191-C93024-B93528", "1",
             arrayListOf(
@@ -135,18 +136,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
                 )
             )
         )
-        mPresenter!!.login(
-            mapOf(
-                Pair("mobile", "13510417332"),
-                Pair("password", "123"),
-                Pair("uuid", "1235DD"),
-                Pair("ip", "192.168.1.1"),
-                Pair("os", "1"),
-                Pair("loginType", "1")
-            ).getRequestBody()
-        ) {
 
-        }
         accountTV.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }
@@ -156,7 +146,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 println("输入的是${p0.toString()}")
-                if (p0.toString().length > 0) {
+              /*  if (p0.toString().length > 0) {
                     accountClean.visibility = View.VISIBLE
                     if (passwordED.text.trim().length > 0) {//判断是否输入账号，如果如果输入则可点击
                         loginB.isChecked = true
@@ -166,7 +156,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
                     accountClean.visibility = View.GONE
                     loginB.isChecked = false
                     loginB.isEnabled = false
-                }
+                }*/
             }
 
         })
@@ -179,7 +169,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 println("输入的是${p0.toString()}")
-                if (p0.toString().length > 0) {
+               /* if (p0.toString().length > 0) {
                     passwordClean.visibility = View.VISIBLE
                     if (accountTV.text.trim().length > 0) {//判断是否输入账号，如果如果输入则可点击
                         loginB.isChecked = true
@@ -189,7 +179,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
                     passwordClean.visibility = View.GONE
                     loginB.isChecked = false
                     loginB.isEnabled = false
-                }
+                }*/
             }
 
         })
@@ -197,11 +187,24 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
             accountTV.text.clear()
         }
         passwordClean.singleClick {
-            passwordED.text.clear()
+
+            if (passwordED.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                passwordClean.setImageResource(R.mipmap.psw_show)
+                passwordED.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
+            } else {
+                passwordClean.setImageResource(R.mipmap.psw_hide)
+                passwordED.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            }
         }
         loginB.singleClick {
-            UserInfoManager.getInstance().setLogin(true)
-            killMyself()
+
+            if (verificationCL.visibility == View.VISIBLE) {
+                //验证码登录
+                codeLogin()
+            } else {
+                //密码登录
+                pswLogin()
+            }
         }
         forgetpsw.singleClick {
             startActivity<RetrievePasswordActivity>()
@@ -242,6 +245,64 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
 
         }
 
+        sendSms.singleClick {
+            //发送验证码
+            mPresenter!!.smsCode(
+                accountTV2.text.toString(),
+                "0",
+                "0"
+            ) {
+
+
+            }
+
+        }
+
+    }
+
+
+    fun codeLogin() {
+        if (accountTV2.text.trim().length != 11 || passwordED2.text.trim().length != 6) {
+            showMessage("请正确输入手机号和验证码")
+        } else if (!userAgreement.isChecked) {
+            showMessage("请同意用户协议")
+        } else {
+            mPresenter!!.login(
+                mapOf(
+                    Pair("mobile", accountTV2.text.toString()),
+                    Pair("authCode", passwordED2.text.toString()),
+                    Pair("uuid", UserInfoManager.getInstance().uuid),
+                    Pair("ip", UserInfoManager.getInstance().getIpAddress()),
+                    Pair("os", "1"),
+                    Pair("loginType", "2")
+                ).getRequestBody()
+            ) {
+                UserInfoManager.getInstance().saveUserInfo(it);
+                killMyself()
+            }
+        }
+    }
+
+    fun pswLogin() {
+        if (accountTV.text.trim().length != 11 || passwordED.text.trim().length < 3) {
+            showMessage("请正确输入手机号和密码")
+        } else if (!userAgreement.isChecked) {
+            showMessage("请同意用户协议")
+        } else {
+            mPresenter!!.login(
+                mapOf(
+                    Pair("mobile", accountTV.text.toString()),
+                    Pair("password", passwordED.text.toString()),
+                    Pair("uuid", UserInfoManager.getInstance().uuid),
+                    Pair("ip", UserInfoManager.getInstance().getIpAddress()),
+                    Pair("os", "1"),
+                    Pair("loginType", "1")
+                ).getRequestBody()
+            ) {
+                UserInfoManager.getInstance().saveUserInfo(it);
+                killMyself()
+            }
+        }
     }
 
     override fun showMessage(message: String) {

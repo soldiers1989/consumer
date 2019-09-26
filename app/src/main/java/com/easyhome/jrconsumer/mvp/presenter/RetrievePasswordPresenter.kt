@@ -29,7 +29,7 @@ constructor(model: RetrievePasswordContract.Model, rootView: RetrievePasswordCon
     @Inject
     lateinit var mAppManager: AppManager
 
-    fun alter(map: Map<String,String>, success: (any: Boolean) -> Unit) {
+    fun alter(map: Map<String, String>, success: (any: Boolean) -> Unit) {
         mModel.alter(map.getRequestBody()).compose(RxUtils.applySchedulersToData(mRootView))
             .subscribe(object : ResponseErrorSubscriber<Boolean>(mErrorHandler) {
                 override fun onNext(any: Boolean) {
@@ -37,6 +37,16 @@ constructor(model: RetrievePasswordContract.Model, rootView: RetrievePasswordCon
                 }
             })
     }
+
+    fun smsCode(mobile: String, genre: String, type: String, success: (any: Any) -> Unit) {
+        mModel.smsCode(mobile, genre, type).compose(RxUtils.applySchedulersToData(mRootView))
+            .subscribe(object : ResponseErrorSubscriber<Any>(mErrorHandler) {
+                override fun onNext(any: Any) {
+                    success(any)
+                }
+            })
+    }
+
     override fun onDestroy() {
         super.onDestroy();
     }
