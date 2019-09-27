@@ -7,7 +7,6 @@ import com.jess.arms.integration.IRepositoryManager
 import com.jess.arms.mvp.BaseModel
 
 import com.jess.arms.di.scope.ActivityScope
-import com.easyhome.jrconsumer.api.service.UserInfoService
 import javax.inject.Inject
 
 import com.easyhome.jrconsumer.mvp.contract.LoginContract

@@ -63,14 +63,13 @@ class CooperativeBrandActivity : JRBaseActivity<CooperativeBrandPresenter>(), Co
         brandRV.adapter = BrandAdapter(arrayListOf("", "", "", ""))
 
 
-
-         //fieldName=id_5644  //分类
+        //fieldName=id_5644  //分类
         //fieldName=categoryID_1501//分类列表数据
-        val b2=BrandArguments.BeanII("categoryID_1501","1","1")
-        val b1=BrandArguments.BeanI(arrayListOf(b2))
-       // val arg=BrandArguments("S85237-I25933-C76982-B13730","1", arrayListOf(b1))   //分类
-        val arg=BrandArguments("S85237-I25933-C42200-B43245","1", arrayListOf(b1))//分类列表数据
-        mPresenter!!.brand(arg.getRequestBody() ){
+        val b2 = BrandArguments.BeanII("id_5644", "1", "1")
+        val b1 = BrandArguments.BeanI(arrayListOf(b2))
+        // val arg=BrandArguments("S85237-I25933-C76982-B13730","1", arrayListOf(b1))   //分类
+        val arg = BrandArguments("S85237-I25933-C76982-B13730", "1", arrayListOf(b1))//分类列表数据
+        mPresenter!!.brand(arg.getRequestBody()) {
 
 
         }
@@ -98,8 +97,8 @@ class CooperativeBrandActivity : JRBaseActivity<CooperativeBrandPresenter>(), Co
     }
 
 
-    data class BrandArguments(val codes: String, val isVerify: String, val datas: List<BeanI>) {
-        data class BeanI(val condition: List<BeanII>)
-        data class BeanII(val fieldName: String, val values: String,val queryMode:String)
+    private data class BrandArguments(val codes: String, val isVerify: String, val datas: List<BeanI>) {
+         data class BeanI(val condition: List<BeanII>)
+         data class BeanII(val fieldName: String, val values: String, val queryMode: String)
     }
 }

@@ -103,7 +103,8 @@ class HomeFragment : JRBaseFragment<HomePresenter>(), HomeContract.View {
             )
         )
 
-        val dAdapter=DesignCaseAdapter(arrayListOf("", "", "", ""))
+        //案例
+        val dAdapter=DesignCaseAdapter(arrayListOf())
         dAdapter.setOnItemClickListener { adapter, view, position ->
 
             startActivity<H5Activity>(

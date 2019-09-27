@@ -15,8 +15,10 @@ class Tab2Adapter(data: List<MPair<String, Boolean>>) :
         helper.setText(R.id.tabTV, item.first)
         if (item.second) {
             helper.setTextColor(R.id.tabTV, Color.parseColor("#000000"))
+            helper.setImageResource(R.id.show, R.mipmap.city_down_icon_2)
         } else {
             helper.setTextColor(R.id.tabTV, Color.parseColor("#7C7C7C"))
+            helper.setImageResource(R.id.show, R.mipmap.city_down_icon)
         }
 
     }

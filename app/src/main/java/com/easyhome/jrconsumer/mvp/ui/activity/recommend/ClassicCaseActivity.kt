@@ -16,6 +16,7 @@ import com.easyhome.jrconsumer.mvp.presenter.recommend.ClassicCasePresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.adapter.*
@@ -61,7 +62,7 @@ class ClassicCaseActivity : JRBaseActivity<ClassicCasePresenter>(), ClassicCaseC
          }*/
         val tabAdapter = Tab2Adapter(
             arrayListOf(
-                MPair("城市", true),
+                MPair("城市", false),
                 MPair("户型", false),
                 MPair("装修风格", false),
                 MPair("面积", false)
@@ -71,24 +72,48 @@ class ClassicCaseActivity : JRBaseActivity<ClassicCasePresenter>(), ClassicCaseC
             val data = adapter.data as List<MPair<String, Boolean>>
             if (data[position].second) {
                 filtrate.visibility = View.GONE
-                data[position].second=false
+                data[position].second = false
             } else {
-                data[position].second=true
+                data[position].second = true
                 filtrate.removeAllViews()
                 filtrate.visibility = View.VISIBLE
 
-                when(position){
-                    0->{
-                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.CITY, filtrate))
+                when (position) {
+                    0 -> {
+                        filtrate.addView(
+                            FiltrateUtil.getFiltrateView(
+                                this@ClassicCaseActivity,
+                                FiltrateUtil.CITY,
+                                filtrate
+                            )
+                        )
                     }
-                    1->{
-                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.HOUSE_TYPE, filtrate))
+                    1 -> {
+                        filtrate.addView(
+                            FiltrateUtil.getFiltrateView(
+                                this@ClassicCaseActivity,
+                                FiltrateUtil.HOUSE_TYPE,
+                                filtrate
+                            )
+                        )
                     }
-                    2->{
-                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.STYLE, filtrate))
+                    2 -> {
+                        filtrate.addView(
+                            FiltrateUtil.getFiltrateView(
+                                this@ClassicCaseActivity,
+                                FiltrateUtil.STYLE,
+                                filtrate
+                            )
+                        )
                     }
-                    3->{
-                        filtrate.addView(FiltrateUtil.getFiltrateView(this@ClassicCaseActivity,FiltrateUtil.AREA, filtrate))
+                    3 -> {
+                        filtrate.addView(
+                            FiltrateUtil.getFiltrateView(
+                                this@ClassicCaseActivity,
+                                FiltrateUtil.AREA,
+                                filtrate
+                            )
+                        )
                     }
                 }
 
@@ -98,7 +123,44 @@ class ClassicCaseActivity : JRBaseActivity<ClassicCasePresenter>(), ClassicCaseC
 
         }
         tabRV.adapter = tabAdapter
-        dataRV.adapter = DesignCaseAdapter(arrayListOf("", "", "", ""))
+        val adapter = DesignCaseAdapter(arrayListOf())
+        dataRV.adapter = adapter
+
+        /* [
+             {
+                 "condition": [
+                 {
+                     "fieldName": "city_8235",
+                     "values": "138",
+                     "queryMode": "1"
+                 },
+                 {
+                     "fieldName": "houseType_8235",
+                     "values": "1",
+                     "queryMode": "1"
+                 },
+                 {
+                     "fieldName": "style_8235",
+                     "values": "2",
+                     "queryMode": "1"
+                 },
+                 {
+                     "fieldName": "acreage_8235",
+                     "values": "120",
+                     "queryMode": "1"
+                 }
+                 ]
+             }
+         ]*/
+
+
+        val b2 = BrandArguments.BeanII("city_8235", "138", "1")
+        val b1 = BrandArguments.BeanI(arrayListOf(b2))
+        val arg = BrandArguments("S85237-I38374-C53023-B98404", "1", arrayListOf(b1))
+
+        mPresenter!!.classicCase(arg.getRequestBody()) {
+            adapter.setNewData(it[0].data)
+        }
 
     }
 
@@ -121,5 +183,10 @@ class ClassicCaseActivity : JRBaseActivity<ClassicCasePresenter>(), ClassicCaseC
 
     override fun killMyself() {
         finish()
+    }
+
+    private data class BrandArguments(val codes: String, val isVerify: String, val datas: List<BeanI>) {
+        data class BeanI(val condition: List<BeanII>)
+        data class BeanII(val fieldName: String, val values: String, val queryMode: String)
     }
 }
