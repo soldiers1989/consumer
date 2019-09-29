@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.presenter.recommend.DesignerListPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.H5Activity
@@ -90,22 +91,40 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
             val data = adapter.data as List<MPair<String, Boolean>>
             if (data[position].second) {
                 filtrate.visibility = View.GONE
-                data[position].second=false
+                data[position].second = false
             } else {
-                data[position].second=true
+                data[position].second = true
                 filtrate.removeAllViews()
                 filtrate.visibility = View.VISIBLE
-             //   filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity, position, filtrate))
+                //   filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity, position, filtrate))
                 // filtrate.addView(LayoutInflater.from(this).inflate(R.layout.select_city_layout, filtrate,false))
-                when(position){
-                    0->{
-                        filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity,FiltrateUtil.CITY, filtrate))
+                when (position) {
+                    0 -> {
+                        filtrate.addView(
+                            FiltrateUtil.getFiltrateView(
+                                this@DesignerListActivity,
+                                FiltrateUtil.CITY,
+                                filtrate
+                            )
+                        )
                     }
-                    1->{
-                        filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity,FiltrateUtil.STYLE, filtrate))
+                    1 -> {
+                        filtrate.addView(
+                            FiltrateUtil.getFiltrateView(
+                                this@DesignerListActivity,
+                                FiltrateUtil.STYLE,
+                                filtrate
+                            )
+                        )
                     }
-                    2->{
-                        filtrate.addView(FiltrateUtil.getFiltrateView(this@DesignerListActivity,FiltrateUtil.PRICE, filtrate))
+                    2 -> {
+                        filtrate.addView(
+                            FiltrateUtil.getFiltrateView(
+                                this@DesignerListActivity,
+                                FiltrateUtil.PRICE,
+                                filtrate
+                            )
+                        )
                     }
                 }
             }
@@ -113,6 +132,14 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
         }
         tabRV.adapter = tabAdapter
 
+
+        val b2 = BrandArguments.BeanII("city_8235", "138", "1")
+        val b1 = BrandArguments.BeanI(arrayListOf(b2))
+        val arg = BrandArguments("S85237-I15976-C58924-B65847", "1")
+
+        mPresenter!!.classicCase(arg.getRequestBody()) {
+
+        }
     }
 
 
@@ -134,5 +161,12 @@ class DesignerListActivity : JRBaseActivity<DesignerListPresenter>(), DesignerLi
 
     override fun killMyself() {
         finish()
+    }
+
+    private data class BrandArguments(val codes: String, val isVerify: String) {
+        //, val datas: List<BeanI>
+        data class BeanI(val condition: List<BeanII>)
+
+        data class BeanII(val fieldName: String, val values: String, val queryMode: String)
     }
 }

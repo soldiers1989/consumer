@@ -65,10 +65,10 @@ class CooperativeBrandActivity : JRBaseActivity<CooperativeBrandPresenter>(), Co
 
         //fieldName=id_5644  //分类
         //fieldName=categoryID_1501//分类列表数据
-        val b2 = BrandArguments.BeanII("id_5644", "1", "1")
+        val b2 = BrandArguments.BeanII("categoryID_1501", "1", "1")
         val b1 = BrandArguments.BeanI(arrayListOf(b2))
         // val arg=BrandArguments("S85237-I25933-C76982-B13730","1", arrayListOf(b1))   //分类
-        val arg = BrandArguments("S85237-I25933-C76982-B13730", "1", arrayListOf(b1))//分类列表数据
+        val arg = BrandArguments("S85237-I25933-C33550-B48348", "1", arrayListOf(b1))//分类列表数据
         mPresenter!!.brand(arg.getRequestBody()) {
 
 

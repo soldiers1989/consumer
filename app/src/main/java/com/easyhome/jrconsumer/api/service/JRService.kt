@@ -4,6 +4,7 @@ import com.easyhome.jrconsumer.api.Api
 import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
 import com.easyhome.jrconsumer.mvp.model.javabean.ClassicCase
+import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic
 import com.easyhome.jrconsumer.mvp.model.javabean.ParentBean
 import io.reactivex.Observable
 import okhttp3.RequestBody
@@ -53,12 +54,19 @@ interface JRService {
      * @param phone   手机号
      */
     @POST("${Api.FORGET_OR_CHANGE_PASSWORD}")
-    fun test(
-        @Body requestBody: RequestBody
-    ): Observable<HttpResult<Any>>
+    fun test(@Body requestBody: RequestBody): Observable<HttpResult<Any>>
 
+    //精品案例
     @POST("${Api.STRATEGY_PATTERN}")
     fun classicCase(@Body requestBody: RequestBody): Observable<HttpResult<List<ClassicCase>>>
+
+    //代购/内购材料
+    @POST("${Api.STRATEGY_PATTERN}")
+    fun buyForMe(@Body requestBody: RequestBody): Observable<HttpResult<List<ClassicCase>>>
+
+    //动态
+    @POST("${Api.STRATEGY_PATTERN}")
+    fun dynamic(@Body requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>>
 
 
 }

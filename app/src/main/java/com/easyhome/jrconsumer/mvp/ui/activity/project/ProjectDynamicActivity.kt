@@ -14,6 +14,7 @@ import com.easyhome.jrconsumer.mvp.presenter.project.ProjectDynamicPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.ui.adapter.DynamicAdapter
 import kotlinx.android.synthetic.main.activity_project_dynamic.*
@@ -46,8 +47,21 @@ class ProjectDynamicActivity : JRBaseActivity<ProjectDynamicPresenter>(), Projec
         tvPageTitle.text = "施工动态"
         ivPageBack.singleClick { killMyself() }
         processRV2.adapter = DynamicAdapter(arrayListOf(""))
+        dynamic()
     }
 
+    fun dynamic() {
+
+        val b2 = BrandArguments.BeanII(null,"1", "10", "1")
+        val b1 = BrandArguments.BeanI(b2)
+        val arg = BrandArguments("S85237-I00147-C47457-B84937", "1", arrayListOf(b1))//分类列表数据
+        mPresenter!!.dynamic(arg.getRequestBody()) {
+
+
+
+
+        }
+    }
 
     override fun showLoading() {
 
@@ -67,5 +81,10 @@ class ProjectDynamicActivity : JRBaseActivity<ProjectDynamicPresenter>(), Projec
 
     override fun killMyself() {
         finish()
+    }
+
+    private data class BrandArguments(val codes: String, val isVerify: String, val datas: List<BeanI>) {
+        data class BeanI(val page: BeanII)
+        data class BeanII(val allPage:String?,val count: String, val pageCount: String, val nowPage: String)
     }
 }

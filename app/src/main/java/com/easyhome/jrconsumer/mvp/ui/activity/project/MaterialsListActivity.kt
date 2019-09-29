@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.presenter.project.MaterialsListPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.extension.singleClick
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.OuterMaterialsActivity
@@ -117,8 +118,21 @@ class MaterialsListActivity : JRBaseActivity<MaterialsListPresenter>(), Material
             }
         }
         tabRV.adapter = adapter
+
+        buyForMe()
     }
 
+
+    fun buyForMe(){
+        val b2 = BrandArguments.BeanII("brandName_1501", "海", "8")
+        val b3 = BrandArguments.BeanII("goodName_9561", "浴缸", "8")
+        val b4 = BrandArguments.BeanII("status_9561", "0", "1")
+        val b1 = BrandArguments.BeanI(arrayListOf(b2,b3,b4))
+        val arg = BrandArguments("S85237-I64636-C50460-B67211", "1", arrayListOf(b1))//分类列表数据
+        mPresenter!!.buyForMe(arg.getRequestBody()){
+
+        }
+    }
 
     override fun showLoading() {
 
@@ -138,5 +152,9 @@ class MaterialsListActivity : JRBaseActivity<MaterialsListPresenter>(), Material
 
     override fun killMyself() {
         finish()
+    }
+    private data class BrandArguments(val codes: String, val isVerify: String, val datas: List<BeanI>) {
+        data class BeanI(val condition: List<BeanII>)
+        data class BeanII(val fieldName: String, val values: String, val queryMode: String)
     }
 }

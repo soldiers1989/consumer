@@ -1,7 +1,12 @@
 package com.easyhome.jrconsumer.mvp.contract.project
 
+import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
+import com.easyhome.jrconsumer.mvp.model.javabean.ClassicCase
+import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic
 import com.jess.arms.mvp.IView
 import com.jess.arms.mvp.IModel
+import io.reactivex.Observable
+import okhttp3.RequestBody
 
 
 interface ProjectDynamicContract {
@@ -9,6 +14,8 @@ interface ProjectDynamicContract {
     interface View : IView
 
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
-    interface Model : IModel
+    interface Model : IModel{
+        fun dynamic(requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>>
+    }
 
 }
