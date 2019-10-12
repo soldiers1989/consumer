@@ -75,6 +75,10 @@ class SchedulingPlanActivity : JRBaseActivity<SchedulingPlanPresenter>(), Schedu
             }
         }
         waitThing.adapter = wAdapter
+
+        mPresenter!!.projectPlan(""){
+
+        }
     }
 
 

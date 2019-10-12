@@ -47,17 +47,51 @@ class ProjectDynamicActivity : JRBaseActivity<ProjectDynamicPresenter>(), Projec
         tvPageTitle.text = "施工动态"
         ivPageBack.singleClick { killMyself() }
         processRV2.adapter = DynamicAdapter(arrayListOf(""))
-        dynamic()
+        // dynamic()
+        dynamic2()
+    }
+
+    //回复评论
+    fun dynamicReply() {
+        val b2 = BrandArguments.BeanII(null, "1", "10", "1")
+        val b1 = BrandArguments.BeanI(b2)
+        val arg = BrandArguments("S85237-I00147-C47457-B84937", "1", arrayListOf(b1))//分类列表数据
+        mPresenter!!.dynamicReply(arg.getRequestBody()) {
+
+
+        }
+
+    }
+
+    //回复评论
+    fun dynamicComment() {
+        val b2 = BrandArguments.BeanII(null, "1", "10", "1")
+        val b1 = BrandArguments.BeanI(b2)
+        val arg = BrandArguments("S85237-I00147-C47457-B84937", "1", arrayListOf(b1))//分类列表数据
+        mPresenter!!.dynamicComment(arg.getRequestBody()) {
+
+
+        }
+
     }
 
     fun dynamic() {
 
-        val b2 = BrandArguments.BeanII(null,"1", "10", "1")
+        val b2 = BrandArguments.BeanII(null, "1", "10", "1")
         val b1 = BrandArguments.BeanI(b2)
         val arg = BrandArguments("S85237-I00147-C47457-B84937", "1", arrayListOf(b1))//分类列表数据
         mPresenter!!.dynamic(arg.getRequestBody()) {
 
 
+        }
+    }
+
+    fun dynamic2() {
+
+        val b2 = BrandArguments.BeanII(null, "1", "10", "1")
+        val b1 = BrandArguments.BeanI(b2)
+        val arg = BrandArguments("S85237-I00147-C47457-B84937", "1", arrayListOf(b1))//分类列表数据
+        mPresenter!!.dynamicList(arg.getRequestBody()) {
 
 
         }
@@ -85,6 +119,6 @@ class ProjectDynamicActivity : JRBaseActivity<ProjectDynamicPresenter>(), Projec
 
     private data class BrandArguments(val codes: String, val isVerify: String, val datas: List<BeanI>) {
         data class BeanI(val page: BeanII)
-        data class BeanII(val allPage:String?,val count: String, val pageCount: String, val nowPage: String)
+        data class BeanII(val allPage: String?, val count: String, val pageCount: String, val nowPage: String)
     }
 }

@@ -14,6 +14,7 @@ import javax.inject.Inject
 import com.easyhome.jrconsumer.mvp.contract.project.ProjectDynamicContract
 import com.easyhome.jrconsumer.mvp.model.javabean.ClassicCase
 import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic
+import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic2
 import okhttp3.RequestBody
 
 
@@ -39,6 +40,33 @@ constructor(model: ProjectDynamicContract.Model, rootView: ProjectDynamicContrac
                 }
             })
     }
+
+    fun dynamicList(args: RequestBody, success: (any: List<Dynamic2>) -> Unit) {
+        mModel.dynamicList().compose(RxUtils.applySchedulersToData(mRootView))
+            .subscribe(object : ResponseErrorSubscriber<List<Dynamic2>>(mErrorHandler) {
+                override fun onNext(any: List<Dynamic2>) {
+                    success(any)
+                }
+            })
+    }
+
+    fun dynamicReply(args: RequestBody, success: (any: List<Dynamic>) -> Unit) {
+        mModel.dynamicReply(args).compose(RxUtils.applySchedulersToData(mRootView))
+            .subscribe(object : ResponseErrorSubscriber<List<Dynamic>>(mErrorHandler) {
+                override fun onNext(any: List<Dynamic>) {
+                    success(any)
+                }
+            })
+    }
+    fun dynamicComment(args: RequestBody, success: (any: List<Dynamic>) -> Unit) {
+        mModel.dynamicComment(args).compose(RxUtils.applySchedulersToData(mRootView))
+            .subscribe(object : ResponseErrorSubscriber<List<Dynamic>>(mErrorHandler) {
+                override fun onNext(any: List<Dynamic>) {
+                    success(any)
+                }
+            })
+    }
+
     override fun onDestroy() {
         super.onDestroy();
     }

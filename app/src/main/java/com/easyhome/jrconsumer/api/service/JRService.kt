@@ -5,6 +5,7 @@ import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
 import com.easyhome.jrconsumer.mvp.model.javabean.ClassicCase
 import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic
+import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic2
 import com.easyhome.jrconsumer.mvp.model.javabean.ParentBean
 import io.reactivex.Observable
 import okhttp3.RequestBody
@@ -68,5 +69,19 @@ interface JRService {
     @POST("${Api.STRATEGY_PATTERN}")
     fun dynamic(@Body requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>>
 
+    //施工动态动态
+    @GET("${Api.DYNAMIC_LIST}")
+    fun dynamicList(): Observable<HttpResult<List<Dynamic2>>>
+
+    //施工计划
+    @GET("${Api.PROJECT_PLAN}")
+    fun projectPlan(@Query("projectId") projectId: String): Observable<HttpResult<List<Dynamic2>>>
+
+    //项目动态--回复
+    @POST("${Api.DYNAMIC_REPLY}")
+    fun dynamicReply(@Body requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>>
+    //项目动态--评论
+    @POST("${Api.DYNAMIC_COMMENT}")
+    fun dynamicComment(@Body requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>>
 
 }

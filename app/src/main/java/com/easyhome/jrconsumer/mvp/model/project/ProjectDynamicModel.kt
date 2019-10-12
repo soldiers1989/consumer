@@ -13,6 +13,7 @@ import com.easyhome.jrconsumer.mvp.contract.project.ProjectDynamicContract
 import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
 import com.easyhome.jrconsumer.mvp.model.javabean.ClassicCase
 import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic
+import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic2
 import io.reactivex.Observable
 import okhttp3.RequestBody
 
@@ -21,6 +22,18 @@ import okhttp3.RequestBody
 class ProjectDynamicModel
 @Inject
 constructor(repositoryManager: IRepositoryManager) : BaseModel(repositoryManager), ProjectDynamicContract.Model {
+    override fun dynamicComment(requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>> {
+        return mRepositoryManager.obtainRetrofitService(JRService::class.java).dynamicComment(requestBody)
+    }
+
+    override fun dynamicReply(requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>> {
+        return mRepositoryManager.obtainRetrofitService(JRService::class.java).dynamicReply(requestBody)
+    }
+
+    override fun dynamicList(): Observable<HttpResult<List<Dynamic2>>> {
+        return mRepositoryManager.obtainRetrofitService(JRService::class.java).dynamicList()
+    }
+
     override fun dynamic(requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>> {
         return mRepositoryManager.obtainRetrofitService(JRService::class.java).dynamic(requestBody)
     }

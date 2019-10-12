@@ -15,7 +15,7 @@ object Api {
     const val APP_LOGO_URl = "${APP_BASE_URL}${USERAPI}"
 
 
-    const val BASE_URL = "http://39.105.53.52:8080"
+    const val BASE_URL = "http://10.240.10.81:8080"
 
     //注册登录
     const val LOGIN = "${BASE_URL}/decorate_unexpectedly/user/auth"
@@ -25,4 +25,15 @@ object Api {
     const val SEND_SMS = "${BASE_URL}/decorate_unexpectedly/send/sms"
     //修改密码、忘记密码
     const val FORGET_OR_CHANGE_PASSWORD = "${BASE_URL}/decorate_unexpectedly/password/forgetOrChangePassword"
+    //施工动态
+    const val DYNAMIC_LIST = "${BASE_URL}/decorate_unexpectedly/api/find/dynamic/list"
+
+    //施工计划
+    const val PROJECT_PLAN = "${BASE_URL}/api/find/Project/plan"
+
+    //项目动态-评论回复
+    const val DYNAMIC_REPLY = "${BASE_URL}/api/add/dynamic/reply"
+    //项目动态-评论
+    const val DYNAMIC_COMMENT = "${BASE_URL}/api/add/dynamic/comment"
+
 }
