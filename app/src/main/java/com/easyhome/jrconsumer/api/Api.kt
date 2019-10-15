@@ -15,7 +15,7 @@ object Api {
     const val APP_LOGO_URl = "${APP_BASE_URL}${USERAPI}"
 
 
-    const val BASE_URL = "http://10.240.10.81:8080"
+    const val BASE_URL = "http://39.106.135.189:8080"
 
     //注册登录
     const val LOGIN = "${BASE_URL}/decorate_unexpectedly/user/auth"

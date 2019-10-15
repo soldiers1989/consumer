@@ -26,7 +26,7 @@
                         android:id="@+id/phoneTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="联系电话："
+                        android:text="* 联系电话："
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginLeft="34dp"
@@ -34,19 +34,23 @@
                         android:textColor="@color/white"
                         android:textSize="14sp"/>
 
-                <EditText android:layout_width="0dp"
-                          android:layout_height="30dp"
-                          android:background="@drawable/bg_amount_layout"
-                          app:layout_constraintRight_toRightOf="parent"
-                          app:layout_constraintLeft_toRightOf="@id/phoneTV"
-                          app:layout_constraintTop_toTopOf="@id/phoneTV"
-                          app:layout_constraintBottom_toBottomOf="@id/phoneTV"
-                          android:textSize="14sp"
-                          android:textColor="@color/color333"
-                          android:gravity="left"
-                          android:paddingLeft="5dp"
-                          android:layout_marginRight="32dp"
-                          android:layout_marginLeft="7dp"/>
+                <EditText
+                        android:id="@+id/phone"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bg_amount_layout"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/phoneTV"
+                        app:layout_constraintTop_toTopOf="@id/phoneTV"
+                        app:layout_constraintBottom_toBottomOf="@id/phoneTV"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:textSize="14sp"
+                        android:textColor="@color/color333"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginLeft="7dp"/>
 
             </android.support.constraint.ConstraintLayout>
             <android.support.constraint.ConstraintLayout
@@ -58,7 +62,7 @@
                         android:id="@+id/nameTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="您的姓名："
+                        android:text="* 您的姓名："
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginLeft="34dp"
@@ -66,19 +70,21 @@
                         android:textColor="@color/white"
                         android:textSize="14sp"/>
 
-                <EditText android:layout_width="0dp"
-                          android:layout_height="30dp"
-                          android:background="@drawable/bg_amount_layout"
-                          app:layout_constraintRight_toRightOf="parent"
-                          app:layout_constraintLeft_toRightOf="@id/nameTV"
-                          app:layout_constraintTop_toTopOf="@id/nameTV"
-                          app:layout_constraintBottom_toBottomOf="@id/nameTV"
-                          android:textSize="14sp"
-                          android:textColor="@color/color333"
-                          android:gravity="left"
-                          android:paddingLeft="5dp"
-                          android:layout_marginRight="32dp"
-                          android:layout_marginLeft="7dp"/>
+                <EditText
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bg_amount_layout"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/nameTV"
+                        app:layout_constraintTop_toTopOf="@id/nameTV"
+                        app:layout_constraintBottom_toBottomOf="@id/nameTV"
+                        android:textSize="14sp"
+                        android:textColor="@color/color333"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginLeft="7dp"/>
 
             </android.support.constraint.ConstraintLayout>
             <android.support.constraint.ConstraintLayout
@@ -90,7 +96,7 @@
                         android:id="@+id/addressTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="您的姓名："
+                        android:text="房屋地址："
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginLeft="34dp"
@@ -104,6 +110,7 @@
                         android:layout_height="30dp"
                         android:text="北京市"
                         android:textColor="#2A2A2A"
+                        android:tag="1"
                         android:gravity="center_vertical"
                         android:paddingLeft="9dp"
                         android:drawableTint="@color/black"
@@ -120,6 +127,7 @@
                         android:layout_width="110dp"
                         android:layout_height="30dp"
                         android:text="北京市"
+                        android:tag="10"
                         android:textColor="#2A2A2A"
                         android:gravity="center_vertical"
                         android:paddingLeft="9dp"
@@ -141,6 +149,7 @@
                         android:textColor="#2A2A2A"
                         android:gravity="center_vertical"
                         android:paddingLeft="9dp"
+                        android:tag="398"
                         android:drawableTint="@color/black"
                         android:paddingRight="9dp"
                         android:drawableRight="@mipmap/down_icon"
@@ -156,6 +165,7 @@
                         android:layout_height="30dp"
                         android:text="奥运村街道"
                         android:textColor="#2A2A2A"
+                        android:tag="0"
                         android:gravity="center_vertical"
                         android:paddingLeft="9dp"
                         android:drawableTint="@color/black"
@@ -168,19 +178,21 @@
                         android:layout_marginRight="32dp"
                         android:layout_marginLeft="7dp"/>
 
-                <EditText android:layout_width="0dp"
-                          android:layout_height="30dp"
-                          android:background="@drawable/bg_amount_layout"
-                          app:layout_constraintRight_toRightOf="parent"
-                          app:layout_constraintLeft_toRightOf="@id/addressTV"
-                          app:layout_constraintTop_toBottomOf="@id/county"
-                          android:textSize="14sp"
-                          android:textColor="@color/color333"
-                          android:gravity="left"
-                          android:paddingLeft="5dp"
-                          android:layout_marginTop="10dp"
-                          android:layout_marginRight="32dp"
-                          android:layout_marginLeft="7dp"/>
+                <EditText
+                        android:id="@+id/detailET"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bg_amount_layout"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/addressTV"
+                        app:layout_constraintTop_toBottomOf="@id/county"
+                        android:textSize="14sp"
+                        android:textColor="@color/color333"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginLeft="7dp"/>
             </android.support.constraint.ConstraintLayout>
             <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -207,7 +219,7 @@
                           app:layout_constraintTop_toTopOf="@id/villageTV"
                           android:textSize="14sp"
                           android:textColor="@color/color333"
-                          android:gravity="left"
+                          android:gravity="left|center_vertical"
                           android:padding="5dp"
                           android:layout_marginRight="32dp"
                           android:layout_marginLeft="7dp"/>
@@ -230,19 +242,22 @@
                         android:textColor="@color/white"
                         android:textSize="14sp"/>
 
-                <EditText android:layout_width="0dp"
-                          android:layout_height="30dp"
-                          android:background="@drawable/bg_amount_layout"
-                          app:layout_constraintRight_toRightOf="parent"
-                          app:layout_constraintLeft_toRightOf="@id/areaTV"
-                          app:layout_constraintTop_toTopOf="@id/areaTV"
-                          app:layout_constraintBottom_toBottomOf="@id/areaTV"
-                          android:textSize="14sp"
-                          android:textColor="@color/color333"
-                          android:gravity="left"
-                          android:paddingLeft="5dp"
-                          android:layout_marginRight="32dp"
-                          android:layout_marginLeft="7dp"/>
+                <EditText
+                        android:id="@+id/areaET"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bg_amount_layout"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/areaTV"
+                        app:layout_constraintTop_toTopOf="@id/areaTV"
+                        app:layout_constraintBottom_toBottomOf="@id/areaTV"
+                        android:textSize="14sp"
+                        android:inputType="number"
+                        android:textColor="@color/color333"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginLeft="7dp"/>
 
             </android.support.constraint.ConstraintLayout>
             <android.support.constraint.ConstraintLayout
@@ -263,12 +278,14 @@
                         android:textSize="14sp"/>
 
                 <TextView
+                        android:id="@+id/homeTypeTV"
                         android:layout_width="110dp"
                         android:layout_height="30dp"
                         android:text="三室一厅"
                         android:textColor="#2A2A2A"
                         android:gravity="center_vertical"
                         android:paddingLeft="9dp"
+                        android:tag="1"
                         android:drawableTint="@color/black"
                         android:paddingRight="9dp"
                         android:drawableRight="@mipmap/down_icon"
@@ -298,9 +315,11 @@
                         android:textSize="14sp"/>
 
                 <TextView
+                        android:id="@+id/style"
                         android:layout_width="110dp"
                         android:layout_height="30dp"
                         android:text="中式"
+                        android:tag="1"
                         android:textColor="#2A2A2A"
                         android:gravity="center_vertical"
                         android:paddingLeft="9dp"
@@ -341,8 +360,9 @@
                         app:layout_constraintTop_toTopOf="@id/budgetTV"
                         app:layout_constraintBottom_toBottomOf="@id/budgetTV"
                         android:textSize="14sp"
+                        android:inputType="number"
                         android:textColor="@color/color333"
-                        android:gravity="left"
+                        android:gravity="left|center_vertical"
                         android:paddingLeft="5dp"
                         android:layout_marginRight="32dp"
                         android:layout_marginLeft="7dp"/>
@@ -365,16 +385,17 @@
                         app:layout_constraintLeft_toRightOf="@id/interval"
                         app:layout_constraintTop_toTopOf="@id/budgetTV"
                         app:layout_constraintBottom_toBottomOf="@id/budgetTV"
+                        android:inputType="number"
                         android:textSize="14sp"
                         android:textColor="@color/color333"
-                        android:gravity="left"
+                        android:gravity="left|center_vertical"
                         android:paddingLeft="5dp"
                         android:layout_marginLeft="10dp"/>
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="万元"
+                        android:text="元"
                         app:layout_constraintLeft_toRightOf="@id/end"
                         app:layout_constraintTop_toTopOf="@id/budgetTV"
                         app:layout_constraintBottom_toBottomOf="@id/budgetTV"
@@ -400,14 +421,17 @@
                         android:textColor="@color/white"
                         android:textSize="14sp"/>
 
-                <EditText android:layout_width="0dp"
-                          android:layout_height="59dp"
-                          android:background="@drawable/bg_amount_layout"
-                          app:layout_constraintRight_toRightOf="parent"
-                          app:layout_constraintLeft_toRightOf="@id/remark"
-                          app:layout_constraintTop_toTopOf="@id/remark"
-                          android:layout_marginRight="32dp"
-                          android:layout_marginLeft="7dp"/>
+                <EditText
+                        android:id="@+id/extraET"
+                        android:layout_width="0dp"
+                        android:layout_height="59dp"
+                        android:background="@drawable/bg_amount_layout"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/remark"
+                        app:layout_constraintTop_toTopOf="@id/remark"
+                        android:gravity="left"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginLeft="7dp"/>
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>

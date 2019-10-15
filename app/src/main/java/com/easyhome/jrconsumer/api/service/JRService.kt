@@ -84,4 +84,9 @@ interface JRService {
     @POST("${Api.DYNAMIC_COMMENT}")
     fun dynamicComment(@Body requestBody: RequestBody): Observable<HttpResult<List<Dynamic>>>
 
+    /**
+     * 预约设计师
+     */
+    @POST("${Api.STRATEGY_PATTERN}")
+    fun predetermine(@Body requestBody: RequestBody): Observable<HttpResult<Any>>
 }
