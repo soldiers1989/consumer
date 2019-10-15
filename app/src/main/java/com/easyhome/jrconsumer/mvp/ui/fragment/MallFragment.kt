@@ -17,6 +17,7 @@ import com.easyhome.jrconsumer.mvp.presenter.fragment.MallPresenter
 
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
+import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.ProjectInfoActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.NewHomeAdapter
@@ -52,13 +53,18 @@ class MallFragment : JRBaseFragment<MallPresenter>(), MallContract.View {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        val adapter = NewHomeAdapter(arrayListOf("", ""))
+        val adapter = NewHomeAdapter(arrayListOf())
         adapter.setOnItemClickListener { adapter, view, position ->
             startActivity<ProjectInfoActivity>()
         }
         listRV.adapter = adapter
+        /*val b2 = BrandArguments.BeanII("1", "saasasasasfd", "1")
+        val b1 = BrandArguments.BeanI(arrayListOf(b2))
+        val b = BrandArguments(arrayListOf(b1))*/
 
-
+        mPresenter!!.projectList(mapOf<String,String>("deviceType" to "1","token" to "saasasasasfd","userID" to "1").getRequestBody()) {
+             adapter.setNewData(it)
+        }
     }
 
     /**
@@ -112,5 +118,17 @@ class MallFragment : JRBaseFragment<MallPresenter>(), MallContract.View {
 
     override fun killMyself() {
 
+    }
+
+    private data class BrandArguments(val datas: List<BeanI>) {
+        data class BeanI(val data: List<BeanII>)
+        data class BeanII(
+            val deviceType: String, val token: String, val userID: String
+        )
+
+
+        /*deviceType: Int,
+        token: String,
+        userID: String*/
     }
 }

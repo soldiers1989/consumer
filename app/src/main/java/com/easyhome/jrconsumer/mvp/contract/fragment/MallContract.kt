@@ -2,6 +2,13 @@ package com.easyhome.jrconsumer.mvp.contract.fragment
 
 import com.jess.arms.mvp.IModel
 import com.easyhome.jrconsumer.app.base.IView
+import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
+import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
+import com.easyhome.jrconsumer.mvp.model.javabean.ProjectListData
+import io.reactivex.Observable
+import okhttp3.RequestBody
+import retrofit2.http.Body
+import retrofit2.http.Field
 
 
 interface MallContract {
@@ -9,6 +16,8 @@ interface MallContract {
     interface View : IView
 
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
-    interface Model : IModel
+    interface Model : IModel {
+        fun projectList(requestBody: RequestBody): Observable<HttpResult<List<ProjectListData>>>
+    }
 
 }

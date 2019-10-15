@@ -3,10 +3,7 @@ package com.easyhome.jrconsumer.api.service
 import com.easyhome.jrconsumer.api.Api
 import com.easyhome.jrconsumer.mvp.model.entity.HttpResult
 import com.easyhome.jrconsumer.mvp.model.entity.LoginInfo
-import com.easyhome.jrconsumer.mvp.model.javabean.ClassicCase
-import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic
-import com.easyhome.jrconsumer.mvp.model.javabean.Dynamic2
-import com.easyhome.jrconsumer.mvp.model.javabean.ParentBean
+import com.easyhome.jrconsumer.mvp.model.javabean.*
 import io.reactivex.Observable
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -89,4 +86,9 @@ interface JRService {
      */
     @POST("${Api.STRATEGY_PATTERN}")
     fun predetermine(@Body requestBody: RequestBody): Observable<HttpResult<Any>>
+    /**
+     * 项目列表
+     */
+    @POST("${Api.PROJECT_LIST}")
+    fun projectList(@Body requestBody: RequestBody): Observable<HttpResult<List<ProjectListData>>>
 }
