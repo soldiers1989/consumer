@@ -95,7 +95,7 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
 
         wData = arrayListOf(
             "项目编号：", "创建时间：", "量房时间：", "预交底时间：",
-            "实际合同签约日期：", "设计合同金额：", "施工签约日期：",
+            "设计合同签约日期：", "设计合同金额：", "施工签约日期：",
             "施工合同金额：", "合同开工日期：", "合同竣工日期：", "结算日期："
         )
         wAdapter = WorkingPlanItem1Adapter(wData)
@@ -182,10 +182,22 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
         ) {
             contract4.text = "${it.contractSTime}~${it.contractETime}"
             contract5.text = "${it.trueSTime}~${it.trueETime}"
-            wData[9] = "结算日期：${it.settleTime}"
+            /*wData[9] = "结算日期：${it.settleTime}"
             wData[1] = "创建时间：${it.logTime}"
             wData[2] = "量房时间：${it.measureTime}"
-            wData[3] = "预交底时间：${it.prepaidTime}"
+            wData[3] = "预交底时间：${it.prepaidTime}"*/
+
+            wData[1]=("创建时间：${it.logTime}")
+            wData[2]=("量房时间：${it.measureTime}")
+            wData[3]=("预交底时间：${it.prepaidTime}")
+            wData[4]=("设计合同签约日期：${it.signingTime}")
+            wData[5]=("设计合同金额：${it.contractMoney}")
+            wData[6]=("施工签约日期：${it.proSigningTime}")
+            wData[7]=("施工合同金额：${it.proSigningMoney}")
+            wData[8]=("合同开工日期：${it.contractSTime}")
+            wData[9]=("合同竣工日期：${it.contractETime}")
+            wData[10]=("结算日期：${it.settleTime}")
+            wAdapter.setNewData(wData)
             wAdapter.notifyDataSetChanged()
 
             dataAdapter.setNewData(arrayListOf(
