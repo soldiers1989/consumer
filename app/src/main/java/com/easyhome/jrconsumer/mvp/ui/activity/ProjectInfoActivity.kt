@@ -111,7 +111,7 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
 
     fun getData() {
 
-        /*  mPresenter!!.projectDetail(
+          mPresenter!!.projectDetail(
               mapOf(
                   "deviceType" to "1",
                   "token" to "saasasasasfd",
@@ -171,7 +171,7 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
               dynamicTV.text=Html.fromHtml("施工状态：<font color='#FF0000'>${it.psName}</font>")
               contract2.text=Html.fromHtml("今日进度：${it.nowPlan}")
 
-          }*/
+          }
         mPresenter!!.projectDetailContract(
             mapOf(
                 "deviceType" to "1",
@@ -206,7 +206,7 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
             "renderingURL": "",  --效果图地址*/
 
         }
-        /* mPresenter!!.projectDetailStatus(
+         mPresenter!!.projectDetailStatus(
              mapOf(
                  "deviceType" to "1",
                  "token" to "saasasasasfd",
@@ -215,8 +215,8 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
              ).getRequestBody()
          ) {
 
-         }*/
-        /* mPresenter!!.projectDetailUser(
+         }
+         mPresenter!!.projectDetailUser(
              mapOf(
                  "deviceType" to "1",
                  "token" to "saasasasasfd",
@@ -233,7 +233,7 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
              datas.add(MPair("${it[0].workName.w4.split(":")[0]}：",it[0].workName.w4.split(":")[1] ))
              datas.add(MPair("${it[0].workName.w5.split(":")[0]}：",it[0].workName.w5.split(":")[1] ))
              workerAdapter.setNewData(datas)
-         }*/
+         }
 
     }
 
