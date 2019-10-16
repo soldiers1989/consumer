@@ -18,6 +18,7 @@ import com.easyhome.jrconsumer.mvp.presenter.fragment.MallPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseFragment
 import com.easyhome.jrconsumer.app.extension.getRequestBody
+import com.easyhome.jrconsumer.app.manager.UserInfoManager
 import com.easyhome.jrconsumer.mvp.ui.activity.MainActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.ProjectInfoActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.NewHomeAdapter
@@ -62,7 +63,7 @@ class MallFragment : JRBaseFragment<MallPresenter>(), MallContract.View {
         val b1 = BrandArguments.BeanI(arrayListOf(b2))
         val b = BrandArguments(arrayListOf(b1))*/
 
-        mPresenter!!.projectList(mapOf<String,String>("deviceType" to "1","token" to "saasasasasfd","userID" to "1").getRequestBody()) {
+        mPresenter!!.projectList(mapOf<String,String>("deviceType" to "1","token" to UserInfoManager.getInstance().userToken,"userID" to UserInfoManager.getInstance().userId).getRequestBody()) {
              adapter.setNewData(it)
         }
     }

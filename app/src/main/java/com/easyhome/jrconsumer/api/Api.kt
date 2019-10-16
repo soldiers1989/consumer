@@ -4,7 +4,8 @@ package com.easyhome.jrconsumer.api
  * 存放一些与 API 有关的东西,如请求地址,请求码等
  */
 object Api {
-
+    const val LOGIN_REQUEST_CODE = 100
+    const val LOGIN_RESULT_CODE = 101
     const val BASE = "api-user/"
     const val APP_BASE_URL = "http://api.qizhekeji.com/${BASE}"
 

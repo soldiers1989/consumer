@@ -26,6 +26,7 @@ import com.easyhome.jrconsumer.mvp.model.entity.TestResult
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 import android.text.InputType
+import com.easyhome.jrconsumer.api.Api
 
 
 /**
@@ -278,6 +279,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
                 ).getRequestBody()
             ) {
                 UserInfoManager.getInstance().saveUserInfo(it);
+                setResult(Api.LOGIN_RESULT_CODE)
                 killMyself()
             }
         }
@@ -300,6 +302,7 @@ class LoginActivity : BaseActivity<LoginPresenter>(), LoginContract.View {
                 ).getRequestBody()
             ) {
                 UserInfoManager.getInstance().saveUserInfo(it);
+                setResult(Api.LOGIN_RESULT_CODE)
                 killMyself()
             }
         }

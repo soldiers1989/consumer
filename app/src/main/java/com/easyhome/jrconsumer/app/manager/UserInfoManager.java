@@ -165,13 +165,13 @@ public class UserInfoManager {
     /**
      * 获取用户ID
      */
-   /* public String getUserId() {
+    public String getUserId() {
         if (getUserInfo() != null) {
-            return getUserInfo().getConsumerId();
+            return getUserInfo().getId_2290();
         } else {
             return "";
         }
-    }*/
+    }
 
     /**
      * 用户头像

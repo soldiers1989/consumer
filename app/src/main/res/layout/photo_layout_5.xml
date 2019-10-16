@@ -10,7 +10,6 @@
             android:id="@+id/icon"
             android:layout_width="100dp"
             android:layout_height="75dp"
-            android:src="@mipmap/test_bac_4"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

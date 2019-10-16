@@ -17,6 +17,7 @@ import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.getRequestBody
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.app.manager.UserInfoManager
 import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.project.MaterialsListActivity
 import com.easyhome.jrconsumer.mvp.ui.activity.project.ProjectDynamicActivity
@@ -114,9 +115,9 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
           mPresenter!!.projectDetail(
               mapOf(
                   "deviceType" to "1",
-                  "token" to "saasasasasfd",
+                  "token" to UserInfoManager.getInstance().userToken,
                   "staffID" to "1",
-                  "proID" to "123456789"
+                  "proID" to UserInfoManager.getInstance().userId
               ).getRequestBody()
           ) {
               title2.text = it.proID
@@ -175,9 +176,9 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
         mPresenter!!.projectDetailContract(
             mapOf(
                 "deviceType" to "1",
-                "token" to "saasasasasfd",
+                "token" to UserInfoManager.getInstance().userToken,
                 "staffID" to "1",
-                "proID" to "123456789"
+                "proID" to UserInfoManager.getInstance().userId
             ).getRequestBody()
         ) {
             contract4.text = "${it.contractSTime}~${it.contractETime}"
@@ -221,9 +222,9 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
          mPresenter!!.projectDetailStatus(
              mapOf(
                  "deviceType" to "1",
-                 "token" to "saasasasasfd",
+                 "token" to UserInfoManager.getInstance().userToken,
                  "staffID" to "1",
-                 "proID" to "123456789"
+                 "proID" to UserInfoManager.getInstance().userId
              ).getRequestBody()
          ) {
 
@@ -231,9 +232,9 @@ class ProjectInfoActivity : JRBaseActivity<ProjectInfoPresenter>(), ProjectInfoC
          mPresenter!!.projectDetailUser(
              mapOf(
                  "deviceType" to "1",
-                 "token" to "saasasasasfd",
+                 "token" to UserInfoManager.getInstance().userToken,
                  "staffID" to "1",
-                 "proID" to "123456789"
+                 "proID" to UserInfoManager.getInstance().userId
              ).getRequestBody()
          ) {
 

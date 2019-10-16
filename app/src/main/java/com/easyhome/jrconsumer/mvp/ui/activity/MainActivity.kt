@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
@@ -20,6 +21,7 @@ import com.easyhome.jrconsumer.mvp.contract.Main2Contract
 import com.easyhome.jrconsumer.mvp.presenter.Main2Presenter
 
 import com.easyhome.jrconsumer.R
+import com.easyhome.jrconsumer.api.Api
 import com.easyhome.jrconsumer.app.JRApp
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.manager.UserInfoManager
@@ -129,12 +131,15 @@ class MainActivity : JRBaseActivity<Main2Presenter>(), Main2Contract.View {
         })
     }
 
-     fun setCurrentTab(position: Int) {
+    fun setCurrentTab(position: Int) {
         currentPosition = position
         if (position == 2) {
             if (!UserInfoManager.getInstance().isLogin) {
-                startActivity<LoginActivity>()
-                mFragmentNavigator.showFragment(position)
+                startActivityForResult(
+                    Intent(this@MainActivity, LoginActivity::class.java),
+                    Api.LOGIN_REQUEST_CODE
+                )
+                //  mFragmentNavigator.showFragment(position)
             } else {
                 mFragmentNavigator.showFragment(position)
             }
@@ -161,6 +166,15 @@ class MainActivity : JRBaseActivity<Main2Presenter>(), Main2Contract.View {
             mExitTime = System.currentTimeMillis()
         } else {
             AppManager.getAppManager().appExit()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Api.LOGIN_REQUEST_CODE && resultCode == Api.LOGIN_RESULT_CODE) {
+          //  Log.e("jsjsjsjs","skdajldjl--------")
+            mFragmentNavigator.showFragment(2)
+
         }
     }
 
