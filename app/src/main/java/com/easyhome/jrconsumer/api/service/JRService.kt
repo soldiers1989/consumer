@@ -91,4 +91,27 @@ interface JRService {
      */
     @POST("${Api.PROJECT_LIST}")
     fun projectList(@Body requestBody: RequestBody): Observable<HttpResult<List<ProjectListData>>>
+    /**
+     * 项目详情-1
+     */
+    @POST("${Api.PROJECT_DETAIL}")
+    fun projectDetail(@Body requestBody: RequestBody): Observable<HttpResult<ProjectData>>
+
+    /**
+     * 项目详情-2
+     */
+    @POST("${Api.PROJECT_DETAIL_CONTRACT}")
+    fun projectDetailContract(@Body requestBody: RequestBody): Observable<HttpResult<ProjectData>>
+
+    /**
+     * 项目详情-3
+     */
+    @POST("${Api.PROJECT_DETAIL_STATUS}")
+    fun projectDetailStatus(@Body requestBody: RequestBody): Observable<HttpResult<ProjectData>>
+
+    /**
+     * 项目详情-4
+     */
+    @POST("${Api.PROJECT_DETAIL_USER}")
+    fun projectDetailUser(@Body requestBody: RequestBody): Observable<HttpResult<List<Server>>>
 }

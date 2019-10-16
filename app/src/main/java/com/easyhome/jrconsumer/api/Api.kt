@@ -19,12 +19,16 @@ object Api {
 
     //注册登录
     const val LOGIN = "${BASE_URL}/decorate_unexpectedly/user/auth"
+
     //策略模式接口
     const val STRATEGY_PATTERN = "${BASE_URL}/decorate_unexpectedly/global/inlet"
+
     //发送短信
     const val SEND_SMS = "${BASE_URL}/decorate_unexpectedly/send/sms"
+
     //修改密码、忘记密码
     const val FORGET_OR_CHANGE_PASSWORD = "${BASE_URL}/decorate_unexpectedly/password/forgetOrChangePassword"
+
     //施工动态
     const val DYNAMIC_LIST = "${BASE_URL}/decorate_unexpectedly/api/find/dynamic/list"
 
@@ -33,8 +37,24 @@ object Api {
 
     //项目动态-评论回复
     const val DYNAMIC_REPLY = "${BASE_URL}/api/add/dynamic/reply"
+
     //项目动态-评论
     const val DYNAMIC_COMMENT = "${BASE_URL}/api/add/dynamic/comment"
+
     //项目列表
     const val PROJECT_LIST = "${BASE_URL}/decorate_unexpectedly/api/project/find/userProjectList"
+
+    //项目详情-1
+    const val PROJECT_DETAIL = "${BASE_URL}/decorate_unexpectedly/api/project/find/projectDetail"
+
+    //项目详情-2
+    const val PROJECT_DETAIL_CONTRACT = "${BASE_URL}/decorate_unexpectedly/api/project/find/projectDetailContract"
+
+    //项目详情-3
+    const val PROJECT_DETAIL_STATUS = "${BASE_URL}/decorate_unexpectedly/api/project/find/projectDetailStatus"
+
+    //项目详情-4
+    const val PROJECT_DETAIL_USER = "${BASE_URL}/decorate_unexpectedly/api/project/find/projectDetailUser"
+
+
 }

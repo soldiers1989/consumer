@@ -131,7 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="户型：：三室两厅两卫"
+                        android:text="户型：三室两厅两卫"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         android:layout_marginLeft="21dp"
@@ -166,7 +166,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginLeft="190dp"
                         android:padding="5dp"
-                        android:text="套内建筑面积：90m2"
+                        android:text="套内建筑面积：90m²"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintBaseline_toBaselineOf="@+id/info1"/>
@@ -187,7 +187,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintLeft_toLeftOf="@id/info10"
                         android:padding="5dp"
-                        android:text="房屋类型；新房"
+                        android:text="房屋类型：新房"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintTop_toBottomOf="@id/info2"/>
@@ -286,7 +286,7 @@
                             android:id="@+id/contract4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="合同开工日期：2019年7月1日"
+                            android:text="合同日期：2019年7月1日"
                             android:textColor="@color/color555"
                             android:textSize="11sp"
                             android:layout_marginTop="3dp"
@@ -296,7 +296,7 @@
                             android:id="@+id/contract5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="合同竣工日期：2019年8月1日"
+                            android:text="实际日期：2019年8月1日"
                             android:textColor="@color/color555"
                             android:textSize="11sp"
                             android:layout_marginTop="3dp"
@@ -305,6 +305,7 @@
                 </android.support.constraint.ConstraintLayout>
                 <android.support.constraint.ConstraintLayout
                         android:id="@+id/type2CL"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@id/type1CL">

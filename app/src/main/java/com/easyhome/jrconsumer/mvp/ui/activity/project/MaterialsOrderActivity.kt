@@ -15,6 +15,7 @@ import com.easyhome.jrconsumer.mvp.presenter.project.MaterialsOrderPresenter
 import com.easyhome.jrconsumer.R
 import com.easyhome.jrconsumer.app.base.JRBaseActivity
 import com.easyhome.jrconsumer.app.extension.singleClick
+import com.easyhome.jrconsumer.mvp.model.entity.MPair
 import com.easyhome.jrconsumer.mvp.ui.activity.ScoreActivity
 import com.easyhome.jrconsumer.mvp.ui.adapter.DataAdapter
 import com.easyhome.jrconsumer.mvp.ui.adapter.GoodesAdapter
@@ -48,14 +49,23 @@ class MaterialsOrderActivity : JRBaseActivity<MaterialsOrderPresenter>(), Materi
 
     override fun initData(savedInstanceState: Bundle?) {
         backIV.singleClick { killMyself() }
-        goodesRV.adapter= GoodesAdapter(arrayListOf("",""))
+        goodesRV.adapter = GoodesAdapter(arrayListOf("", ""))
 
-        dataRV.adapter= DataAdapter(arrayListOf("测量结果", " 复尺结果", "收货信息", "合同信息","设计方案","安装信息"))
-        itemRV.adapter=  WorkingPlanItem1Adapter(
+        dataRV.adapter = DataAdapter(
+            arrayListOf(
+                MPair("测量结果", ""),
+                MPair("复尺结果", ""),
+                MPair("收货信息", ""),
+                MPair("合同信息", ""),
+                MPair("设计方案", ""),
+                MPair("安装信息", "")
+            )
+        )
+        itemRV.adapter = WorkingPlanItem1Adapter(
             arrayListOf(
                 "订单编号：S2019678678", "销售合同：H201922222", "品牌：九牧  ", "供应商：北京九牧居然丽泽MALL专营店  ",
                 "交易时间：2019-03-1", "订单金额：99元", "订单类型：套餐",
-                "测量日期：2019-03-9", "是否复尺：是", "复尺日期：2019-03-19", "送货日期：2019-03-10","安装日期："
+                "测量日期：2019-03-9", "是否复尺：是", "复尺日期：2019-03-19", "送货日期：2019-03-10", "安装日期："
             )
         )
         score.singleClick { startActivity<ScoreActivity>() }
